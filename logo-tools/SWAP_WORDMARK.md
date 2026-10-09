@@ -1,6 +1,6 @@
 # Swapping in a new wordmark
 
-The symbol is locked (it's read from `symbol/`, copied from proud-indian-design `prototypes/_brand5-tuned/final/`). The wordmark is the **only** input to change. Every lockup and the whole `logo/` export are regenerated from it.
+The symbol is locked (it's read from `symbol/`). The wordmark is the **only** input to change. Every lockup and the whole `logo/` export are regenerated from it.
 
 ## One command
 
@@ -48,10 +48,8 @@ Word spacing and kerning live inside the wordmark file itself.
 ## Files involved
 
 - `wordmark.py`: loads the input.
-- `build.py` (was `build6.py`):
+- `build.py`:
   - `horizontal()`, `stacked()` and `wordmark_only()` take the wordmark as a parameter
   - writes every `pi-*.svg` master to `.build/masters/`
-- `export.mjs` (was `export6.mjs`): lays the masters out into `logo/` and rasterises the PNGs.
+- `export.mjs`: lays the masters out into `logo/` and rasterises the PNGs.
 - `rebuild.sh`: the one command. `verify.sh`: rebuild to a temp dir and compare with `logo/`.
-
-The prototype's brand board (`board6.py`), site preview (`site6.py`) and screenshot scripts stay in `proud-indian-design/prototypes/_brand6/_tools/`.

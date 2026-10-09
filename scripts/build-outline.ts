@@ -4,7 +4,7 @@
  *   bun run outline           # writes illustrations/outline-sprite.svg and illustrations/outline/manifest.json
  *   bun run outline:check     # fails if either is out of date, or a source is malformed (part of `bun run check`)
  *
- * The outline doodles are the light line set drawn in the website's margins (decision 10/11, "Margin doodles"): one
+ * The outline doodles are the light line set drawn in the website's margins: one
  * non-scaling stroke each, no fills, no animation hooks. Each source is a standalone SVG (root: fill none,
  * stroke currentColor, the 1.4 line, round caps and joins) holding paths with vector-effect="non-scaling-stroke",
  * already optimised with svgo (multipass, floatPrecision 2). The sprite holds one <symbol id="pi-outline-NAME"> per

@@ -5,8 +5,6 @@
 #   PI_LOGO_OUT=/tmp/x logo-tools/rebuild.sh  # write the layout somewhere else (verify.sh does this)
 # Needs uv (py.sh pulls the Python deps) and node with this package's devDependencies installed
 # (Playwright's Chromium rasterises the PNGs).
-# Was prototypes/_brand6/_tools/rebuild.sh. The prototype-only steps (brand board, site preview,
-# screenshots) are not part of pi-design; they stay in proud-indian-design.
 set -e
 cd "$(dirname "$0")"
 if [ -n "$1" ]; then

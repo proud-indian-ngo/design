@@ -1,7 +1,7 @@
 /**
- * Proud Indian style tokens. One source of truth: edit the TS, then run `bun run tokens` (also runs on predev and
- * prebuild) to regenerate theme.css (Tailwind v4 @theme), tokens.css (plain custom properties) and tokens.json
- * (W3C design tokens). `bun run tokens:check` fails if any is stale. Copied from pi-website src/styles/tokens/.
+ * Proud Indian style tokens. One source of truth: edit the TS, then run `bun run tokens` (`bun run build` also runs
+ * it) to regenerate theme.css (Tailwind v4 @theme), tokens.css (plain custom properties) and tokens.json
+ * (W3C design tokens). `bun run tokens:check` fails if any is stale.
  */
 import { components } from "./components";
 import {

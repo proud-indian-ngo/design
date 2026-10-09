@@ -1,5 +1,5 @@
-/* Brand base (@proudindian/design/base.css): the generic part of pi-website's reset. Opt in when you are NOT using
-   Tailwind's preflight (pi-website deliberately leaves preflight out). Apps on preflight + shadcn (pi-dash) should
+/* Brand base (@proudindian/design/base.css): the generic part of the website's reset. Opt in when you are NOT using
+   Tailwind's preflight (the website deliberately leaves preflight out). Apps on preflight + shadcn (pi-dash) should
    skip this file. Import it into the base layer:  @import "@proudindian/design/base.css" layer(base);
    Site-only rules stay in the site: smooth scroll + header scroll padding, overflow-x clip, the skip link, .ic, .ctas
    and the astro:assets <picture>/<img> sizing. */

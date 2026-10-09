@@ -23,7 +23,7 @@
 
    Opt-out: html[data-native-scrollbar]. With that attribute on <html>, none of the rules below apply, to the page or
    to any scroller (.pi-scroll-thin and .pi-scroll-dark included): the browser draws its default scrollbars. Set it
-   before first paint (an inline head script) so the custom bar never flashes. pi-website sets it on macOS, where the
+   before first paint (an inline head script) so the custom bar never flashes. The website sets it on macOS, where the
    system's own overlay scrollbars are the expected look.
    Every rule is scoped to html:not([data-native-scrollbar]), written with html and not :root: Chromium never matches
    a scrollbar pseudo-element's :hover or :active when :root is in the selector. Each pseudo-element rule is listed

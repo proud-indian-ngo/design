@@ -7,17 +7,15 @@
  *               `max-tab:` and friends exist;
  *   tokens.css  plain custom properties for everything Tailwind has no namespace for (z-index, durations, loop
  *               timings, spacing steps used by the hand-written CSS, component knobs).
- * Every value was taken from the approved prototype (proud-indian-design/prototypes/final/site.css), so the port
- * renders pixel-identical.
+ * Values are written exactly as the website's CSS writes them, so CSS moved onto the tokens renders pixel-identical.
  *
  * Naming. Names never reuse a Tailwind default name with a different value, so pi-dash can import this theme on top
  * of Tailwind's defaults. Irregular scales (type, radius, space) are keyed by their px value: `text-15` is 15px.
  *
- * This folder must stay self-contained (no imports from the rest of the app) so it can move to
- * `@proudindian/design` unchanged.
+ * This folder stays self-contained (no imports from outside tokens/).
  */
 
-/** Brand palette (design-decisions.md §1 and brand/guidelines). */
+/** Brand palette (brand/guidelines). */
 export const color = {
   sky: "#4CC0EC",
   skyDeep: "#0B7FAE",
@@ -34,8 +32,8 @@ export const color = {
 } as const;
 
 /**
- * Alpha variants the prototype uses. Keys are the alpha in percent; values are written exactly as the prototype
- * wrote them so the output is byte-for-byte the same colour. `bg-ink-a30`, `border-paper-a35`, ...
+ * Alpha variants the site uses. Keys are the alpha in percent; values are written exactly as the site's CSS
+ * writes them so the output is byte-for-byte the same colour. `bg-ink-a30`, `border-paper-a35`, ...
  */
 export const alpha = {
   ink: {
@@ -72,7 +70,7 @@ export const alpha = {
   tan: { 25: ".25" },
 } as const;
 
-/** rgb triplets for the alpha variants (kept in the prototype's rgba() form) */
+/** rgb triplets for the alpha variants (emitted in rgba() form) */
 export const rgb = {
   ink: "15,27,36",
   paper: "246,242,234",
@@ -100,8 +98,8 @@ export const weight = {
 } as const;
 
 /**
- * Type scale in px: every size the prototype uses more than once (one-offs stay literal). Each step also sets
- * line-height: normal, which is what the prototype's `font:` shorthand did; add a `leading-*` to change it.
+ * Type scale in px: every size the site uses more than once (one-offs stay literal). Each step also sets
+ * line-height: normal, which is what a `font:` shorthand resets it to; add a `leading-*` to change it.
  */
 export const text = [
   11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 18, 19, 20,
@@ -218,7 +216,7 @@ export const container = {
   drawer: "600px",
 } as const;
 
-/** Motion (design-decisions.md §11). Only transform, opacity, clip-path and stroke-dashoffset animate. */
+/** Motion. Only transform, opacity, clip-path and stroke-dashoffset animate. */
 export const motion = {
   duration: {
     fast: "150ms",

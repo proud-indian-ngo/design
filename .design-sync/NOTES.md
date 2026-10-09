@@ -1,8 +1,6 @@
 # design-sync notes: @proudindian/design
 
-This replaces `proud-indian-design/.design-sync/` (the old `@proudindian/ds` with Instrument Serif and Inter). Same Claude Design project, new package.
-
-First sync from this repo: 2026-10-08. 13 components uploaded, all 13 previews graded good, render check clean. It deleted the 26 old components and the old Instrument Serif and Inter woff2 files. The anchor's diff does not track `fonts/`, so those font deletes were added to the plan by hand. Do the same if a font file is ever renamed or dropped.
+First sync from this repo: 2026-10-08. 13 components uploaded, all 13 previews graded good, render check clean. It deleted the project's 26 earlier components and their Instrument Serif and Inter woff2 files. The anchor's diff does not track `fonts/`, so those font deletes were added to the plan by hand. Do the same if a font file is ever renamed or dropped.
 
 ## Build
 - `bun run build` (scripts/build.ts):
@@ -16,7 +14,7 @@ First sync from this repo: 2026-10-08. 13 components uploaded, all 13 previews g
   `node .ds-sync/package-build.mjs --config .design-sync/config.json --node-modules ./node_modules --entry ./dist/react/index.js --out ./ds-bundle`
 - Playwright must match the cached Chromium build: `playwright@1.63.0` (this package's devDependency) matches `chromium-1243` in `~/Library/Caches/ms-playwright`.
 
-## Gotchas to expect (carried over from the old package)
+## Gotchas to expect
 - `componentSrcMap` pins every component to its file; `Chips` lives in `react/Chip.tsx`.
 - Groups come from the stub docs in `.design-sync/groups/*.md` via `docsMap`: Foundations, Content, Brand.
 - Previews must render their final frame. These components have no entrance animation; doodle animations are class hooks the package does not animate, so captures are stable.
@@ -31,15 +29,14 @@ First sync from this repo: 2026-10-08. 13 components uploaded, all 13 previews g
 - `Button` needs `cardMode: "column"`, because the Sizes row is wider than a grid cell (`[GRID_OVERFLOW]`).
 
 ## Re-sync risks
-- Facts are hard-coded in `conventions.md` and the previews (3.6k+, 14k+, 23k+, 95%, registration numbers). Update them when `pi-website/src/content/site.yaml` changes.
+- Facts are hard-coded in `conventions.md` and the previews (3.6k+, 14k+, 23k+, 95%, registration numbers). Update them when the website's facts (`src/content/site.yaml` in proud-indian-ngo/website) change.
 - Event photos are not in this package, so `Polaroid` and `Sticker` previews use placeholder art. If the design agent needs real photos, add a small, consented set to the project separately.
-- The old project's components (Hero, Nav, Footer, DonateCard, ProgramCard, StatGrid, ...) no longer exist here; they were section-level pieces of the old site. The re-sync will remove them from the project, which is intended.
 
 ## Re-sync
 - Project: "Proud Indian Design System" (`projectId` in config.json), https://claude.ai/design/p/55c6293e-1cd5-4739-9c87-de4e717d7ded
 - Steps:
   1. `bun install && bun run build`
-  2. Stage `.ds-sync/` from the design-sync skill (or copy `proud-indian-design/.ds-sync/`), then `npm i esbuild ts-morph @types/react playwright@1.63.0` in it. `.ds-sync/` is gitignored.
+  2. Stage `.ds-sync/` from the design-sync skill, then `npm i esbuild ts-morph @types/react playwright@1.63.0` in it. `.ds-sync/` is gitignored.
   3. Fetch `_ds_sync.json` from the project into `.design-sync/.cache/remote-sync.json`.
   4. `node .ds-sync/resync.mjs --config .design-sync/config.json --node-modules ./node_modules --entry ./dist/react/index.js --out ./ds-bundle --remote .design-sync/.cache/remote-sync.json`
 - `ds-bundle/` and `.design-sync/.cache/` are gitignored.

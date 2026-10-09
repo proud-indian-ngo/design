@@ -1,4 +1,4 @@
-"""Logo build (was prototypes/_brand6/_tools/build6.py): every asset from the LOCKED symbol (master.py) + ONE wordmark input (wordmark.py).
+"""Logo build: every asset from the LOCKED symbol (master.py) + ONE wordmark input (wordmark.py).
 Usage: ./py.sh build.py [path/to/wordmark.svg]   (default: wordmark/current.svg)"""
 import os, sys
 from type import n
@@ -87,7 +87,7 @@ def disc(kind='ink', size=100):
 
 
 def tile(rounded=True, size=128):
-    # the locked app layout (_brand5-tuned/final/pi-tuned-app.svg): figure translate(21.2 14) scale(.86) in 128
+    # the locked app layout (symbol/pi-tuned-app.svg): figure translate(21.2 14) scale(.86) in 128
     rx = f' rx="{n(size * 0.225)}"' if rounded else ''
     return (f'<rect width="{size}" height="{size}"{rx} fill="{M.INK}"/>'
             f'<g color="{M.PAPER}" transform="scale({n(size / 128, 5)})">{place(M.mark("reversed"), 21.2, 14, 0.86)}</g>')

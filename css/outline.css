@@ -2,7 +2,7 @@
      @import "@proudindian/design/outline.css" layer(components);
    Needs tokens.css (the --doodle-outline-* tokens).
 
-   The light line set (illustrations/outline/, 18 doodles) that pi-website scatters in its side margins: one thin
+   The light line set (illustrations/outline/, 18 doodles) that the website scatters in its side margins: one thin
    line, no fills, never animated, always decorative. Inline illustrations/outline-sprite.svg once per page (or only
    the symbols you use; it has no presentation attributes, so put it in a hidden <svg width="0" height="0">), then:
      <svg class="pi-outline" aria-hidden="true" focusable="false"><use href="#pi-outline-heart" /></svg>

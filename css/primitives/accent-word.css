@@ -1,5 +1,5 @@
 /* AccentWord: the one highlighted word in a headline (.pi-accent). On paper it is deep cyan; on cyan bands it is
-   white with an ink outline and an ink offset (.pi-accent--outline, decision 1B); on ink it is marigold. */
+   white with an ink outline and an ink offset (.pi-accent--outline); on ink it is marigold. */
 .pi-accent {
   color: var(--color-accent-ink);
 }

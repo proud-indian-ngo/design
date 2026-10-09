@@ -7,14 +7,14 @@ Final logo system (symbol locked, wordmark final, 2026-10-08). Every file here i
 
 ## Layout
 
-File names are the ones from `proud-indian-design/prototypes/_brand6/export/`; only the folders changed.
+File names keep their historical form so links stay stable.
 
-| Folder | Contents | Was |
-|---|---|---|
-| `svg/` | Lockups, symbol, stacked, wordmark, discs, app tiles (colour, `-mono`, `-reversed`) | `export/svg/` |
-| `seals/` | `pi-seal*.svg`: main, 80G, volunteer, Kalakriti; colour, `-mono`, `-stamp-production`, and the screen-only texture | `export/svg/pi-seal*` |
-| `favicon/` | `favicon.svg`, `favicon-16*.png` (hand-built), `favicon-32/48.png`, `apple-touch-icon-180.png`, `icon-192/512.png`, `site.webmanifest` | `export/favicon.svg`, `export/png/` |
-| `social/` | `avatar-1080.png`, `avatar-400.png` (the ink disc); `og-default.png` (1200 × 630 share card) | `export/png/`; og from pi-website `public/og.png` |
+| Folder | Contents |
+|---|---|
+| `svg/` | Lockups, symbol, stacked, wordmark, discs, app tiles (colour, `-mono`, `-reversed`) |
+| `seals/` | `pi-seal*.svg`: main, 80G, volunteer, Kalakriti; colour, `-mono`, `-stamp-production`, and the screen-only texture |
+| `favicon/` | `favicon.svg`, `favicon-16*.png` (hand-built), `favicon-32/48.png`, `apple-touch-icon-180.png`, `icon-192/512.png`, `site.webmanifest` |
+| `social/` | `avatar-1080.png`, `avatar-400.png` (the ink disc); `og-default.png` (1200 × 630 share card) |
 
 ## Which file goes where
 

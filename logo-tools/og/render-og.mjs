@@ -1,6 +1,6 @@
 /**
  * Renders logo/social/og-default.png (1200x630), the brand's default social preview card, from the package's own
- * lockup and fonts. Copied from pi-website scripts/og/render-og.mjs (which wrote public/og.png).
+ * lockup and fonts. The website ships a byte-identical copy as its public/og.png.
  *   node logo-tools/og/render-og.mjs [out.png]       (bun run og)
  * On a cyan ground the brand rules ask for the one-colour (mono) ink lockup (logo/svg/pi-lockup-mono.svg).
  * The sticker is the Kalakriti 3.0 hero cut-out (logo-tools/og/Kalakriti3_DSC01748.png, a source input only).

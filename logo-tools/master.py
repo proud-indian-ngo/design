@@ -1,4 +1,4 @@
-"""The LOCKED symbol: read straight from logo-tools/symbol/ (copied from proud-indian-design/prototypes/_brand5-tuned/final/) (never redrawn here).
+"""The LOCKED symbol: read straight from logo-tools/symbol/ (never redrawn here).
 Colour rules: deep #0B7FAE head on light grounds · reversed screen master (paper body, bright #4CC0EC head)
 on dark screens · one colour (mono) on cyan and wherever only one colour is available."""
 import os
@@ -44,7 +44,7 @@ def child_head(kind='colour'):
     return (_R if kind == 'reversed' else _N)[1][1]
 
 
-# the hand-built 16px pixel map (from _brand5-tuned/_tools/favicon16.py), used for favicon.svg
+# the hand-built 16px pixel map (symbol/favicon16.py), used for favicon.svg
 import importlib.util as _u
 _spec = _u.spec_from_file_location('favicon16', os.path.join(HERE, 'symbol', 'favicon16.py'))
 FAV16 = _u.module_from_spec(_spec); _spec.loader.exec_module(FAV16)

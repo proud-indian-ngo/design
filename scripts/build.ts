@@ -20,7 +20,7 @@ await $`bun scripts/build-react-assets.ts`.quiet();
 // dist/tokens is split per module (index re-exports from one chunk each for primitives, semantic and components).
 // `semantic` and `components` are built with var() helper calls that a bundler cannot prove pure, so in a single file
 // they would ship with any token import; split, and side-effect-free per `sideEffects` (dist/ is not listed), the
-// modules a consumer does not use are dropped (pi-website imports only breakpoints and motion).
+// modules a consumer does not use are dropped (the website imports only breakpoints and motion).
 for (const [entrypoints, outdir] of [
   [["react/index.ts"], "dist/react"],
   [

@@ -6,7 +6,7 @@ All notable changes to `@proudindian/design`. The format follows [Keep a Changel
 
 ### Added
 
-- **Native-scrollbar opt-out in `css/scrollbar.css`: `html[data-native-scrollbar]`.** With the attribute on `<html>`, none of the brand scrollbar rules apply, to the page or to any scroller (`.pi-scroll-thin` and `.pi-scroll-dark` included), and the browser draws its default scrollbars. Every rule is now scoped to `html:not([data-native-scrollbar])`: once as `html:not(…)::-webkit-scrollbar*` for the page's own (viewport) bar and once as `html:not(…) ::-webkit-scrollbar*` for scrollers inside it, and the Firefox `scrollbar-width`/`scrollbar-color` rules the same way. The selectors use `html`, not `:root`, because Chromium never matches a scrollbar pseudo-element's `:hover`/`:active` when `:root` is in the selector. Specificity goes from (0,0,1) to (0,1,2) for the pseudo-elements. Without the attribute nothing changes. pi-website sets it on macOS from its inline head script, before first paint.
+- **Native-scrollbar opt-out in `css/scrollbar.css`: `html[data-native-scrollbar]`.** With the attribute on `<html>`, none of the brand scrollbar rules apply, to the page or to any scroller (`.pi-scroll-thin` and `.pi-scroll-dark` included), and the browser draws its default scrollbars. Every rule is now scoped to `html:not([data-native-scrollbar])`: once as `html:not(…)::-webkit-scrollbar*` for the page's own (viewport) bar and once as `html:not(…) ::-webkit-scrollbar*` for scrollers inside it, and the Firefox `scrollbar-width`/`scrollbar-color` rules the same way. The selectors use `html`, not `:root`, because Chromium never matches a scrollbar pseudo-element's `:hover`/`:active` when `:root` is in the selector. Specificity goes from (0,0,1) to (0,1,2) for the pseudo-elements. Without the attribute nothing changes. The website sets it on macOS from its inline head script, before first paint.
 - **Outline doodles: `illustrations/outline/*.svg` and `illustrations/outline-sprite.svg`.** The 18 light line doodles the website scatters in its side margins (pencil, book, kite, heart, star, rupee, sun, sparkle, notepad, clock, plane, matka, brush, bowl, hands, note, drum, tick). Each source is a standalone SVG (root `fill="none" stroke="currentColor" stroke-width="1.4"`, round caps and joins; paths with `vector-effect="non-scaling-stroke"`, svgo multipass at precision 2). `bun run outline` builds the sprite (one `<symbol id="pi-outline-NAME">` each, no presentation attributes, 4.8 KB) and `illustrations/outline/manifest.json` (name, file, title, viewBox, aspect, bytes); `outline:check` is part of `bun run check`. Exports: `./illustrations/outline-sprite.svg`, `./illustrations/outline/manifest.json` (and the files through `./illustrations/*`).
 - **Outline doodle tokens** (`tokens/components.ts`): `--doodle-outline-stroke` (1.4px) and the line opacity per background, matched to the footer's margin doodles (2.56:1): `--doodle-outline-on-paper` (0.42, ink on paper, 2.61:1), `--doodle-outline-on-sky` (0.47, ink on sky, 2.57:1) and `--doodle-outline-on-ink` (0.3, paper on ink, 2.56:1).
 - **`css/outline.css`** (export `@proudindian/design/outline.css`, opt-in): `.pi-outline` styles an `<svg><use href="#pi-outline-…"/></svg>` with those tokens (ink line, 1.4px, round caps, decorative); `.pi-outline--sky` and `.pi-outline--ink` for the other backgrounds. For pi-dash and other apps; the website's margin layer has its own placement CSS.
@@ -62,20 +62,20 @@ pi-dash's shadcn/ui theme defines `--font-sans`, `--font-display`, `--color-acce
 
 ### Fixed
 
-- **`dist/tokens` is now split per module.** `index.js` re-exports from one chunk each for `primitives`, `semantic` and `components`. Built as a single file, the `semantic` and `components` objects (built with `var()` helper calls a bundler cannot prove pure) shipped with any token import. pi-website's client JS grew by 1,093 bytes when it switched from its local `primitives.ts` to `@proudindian/design/tokens`. Split, and side-effect-free under `sideEffects`, the unused modules are dropped: the site's JS is byte-identical to before.
+- **`dist/tokens` is now split per module.** `index.js` re-exports from one chunk each for `primitives`, `semantic` and `components`. Built as a single file, the `semantic` and `components` objects (built with `var()` helper calls a bundler cannot prove pure) shipped with any token import. The website's client JS grew by 1,093 bytes when it switched from its local `primitives.ts` to `@proudindian/design/tokens`. Split, and side-effect-free under `sideEffects`, the unused modules are dropped: the site's JS is byte-identical to before.
 - `bun run docs` pointed at `scripts/build-docs.ts`; the file is `build-docs.tsx`.
 - The style guide CSS scanned the whole package for class names, so README and CHANGELOG mentions leaked dead utilities into it (old names among them). It now scans only `docs/index.html` (`source(none)`), and `docs/styleguide.css` drops from 47 kB to 41 kB with the same rendering.
 
 ## [0.1.0] (never tagged; released as part of 0.2.3)
 
-### Added: system (phase 2)
+### Added: system
 
-- `tokens/`: the token source copied from pi-website `src/styles/tokens/` (`primitives.ts`, `semantic.ts`, `components.ts`, `index.ts`). `build.ts` now also writes `tokens.json` (W3C design tokens, via `w3c.ts`) and `scope.css` (via `scope.ts`). `theme.css` and `tokens.css` are identical to pi-website's output apart from the header line. `bun run tokens` and `tokens:check` are part of `bun run check`.
+- `tokens/`: the token source, imported from the website (proud-indian-ngo/website) (`primitives.ts`, `semantic.ts`, `components.ts`, `index.ts`). `build.ts` now also writes `tokens.json` (W3C design tokens, via `w3c.ts`) and `scope.css` (via `scope.ts`). `theme.css` and `tokens.css` are identical to the website's output apart from the header line. `bun run tokens` and `tokens:check` are part of `bun run check`.
 - `css/`:
-  - `primitives/*.css`, byte-identical copies of pi-website's;
+  - `primitives/*.css`, byte-identical copies of the website's;
   - `utilities.css` (copied);
   - `fonts.css`, now pointing at the package `fonts/`;
-  - `base.css`, the generic part of pi-website's reset;
+  - `base.css`, the generic part of the website's reset;
   - `index.css`, the entry;
   - `primitives.css`;
   - `defaults.css`, new React-only classes: `.pi-polaroid--standalone`, `__caption`, `__tag`, `.pi-tape--top`, `.pi-seal`, `.pi-root`;
@@ -85,44 +85,30 @@ pi-dash's shadcn/ui theme defines `--font-sans`, `--font-display`, `--color-acce
 - `dist/styles.css`: all package CSS compiled for apps without Tailwind, and the Claude Design `cssEntry`.
 - `docs/`: the static style guide, `docs/index.html` (`bun run docs`), rendered with the real components.
 - `.design-sync/`: config, conventions, previews and notes for the Claude Design project "Proud Indian Design System" (first synced 2026-10-08).
-- `logo/seals/pi-seal-optimists-ring.svg`: the website hero's "Optimists · since 2019 · Bengaluru" ring, copied from pi-website `components/brand/Seal.astro`.
-- `logo/social/og-default.png`, the default share card, and its generator `logo-tools/og/render-og.mjs` (`bun run og`, output byte-identical to pi-website's `public/og.png`). The generator was copied from pi-website `scripts/og/`.
-- `illustrations/manifest.json` gains `website`, which maps each doodle to its pi-website component(s).
+- `logo/seals/pi-seal-optimists-ring.svg`: the website hero's "Optimists · since 2019 · Bengaluru" ring, imported from the website's seal component.
+- `logo/social/og-default.png`, the default share card, and its generator `logo-tools/og/render-og.mjs` (`bun run og`, output byte-identical to the website's `public/og.png`). The generator was imported from the website.
+- `illustrations/manifest.json` gains `website`, which maps each doodle to its website component(s).
 - `package.json`: `exports` (`.`, `./react`, `./css`, `./styles.css`, `./theme.css`, `./tokens`, `./tokens/*`, `./fonts/*`, `./logo/*`, `./illustrations/*`, …), `files`, optional `peerDependencies` (react, tailwindcss) and `sideEffects`.
 
-### Added: assets (phase 1)
+### Added: assets
 
 - The package skeleton: bun, TypeScript strict, ESM, oxlint/oxfmt (ultracite presets, as in pi-dash), lefthook, and an `exports` map.
 - `fonts/`: Bricolage Grotesque and Geist woff2, with OFL licences.
-- `logo/`: the final logo system from `proud-indian-design/prototypes/_brand6/export/`, plus `logo/README.md` (usage rules) and `logo/favicon/site.webmanifest`.
+- `logo/`: the final logo system (initial import), plus `logo/README.md` (usage rules) and `logo/favicon/site.webmanifest`.
 - `logo-tools/`: the rebuild pipeline (`rebuild.sh`, `verify.sh`). A rebuild is byte-identical to `logo/`.
-- `illustrations/`: the 21 brand doodles lifted from the prototype markup and optimised with svgo, with `manifest.json`, `README.md` and `contact-sheet.png`.
+- `illustrations/`: the 21 brand doodles, extracted from inline SVG markup and optimised with svgo, with `manifest.json`, `README.md` and `contact-sheet.png`.
 - `brand/`: the brand guidelines PDF and its self-contained source. The guide's visible file paths now name pi-design locations (`logo/svg`, `logo/seals`, `logo/favicon`, `logo/social`, `logo-tools/wordmark`). Pages 2, 13, 22 and 28 changed for that text only; the other 24 pages are pixel-identical to the original.
 - `bun run check`, which validates the illustrations manifest.
 
-### Moved or renamed (from proud-indian-design)
+### Initial import
 
-| New path | Old path |
-|---|---|
-| `logo/svg/*.svg` (non-seal) | `prototypes/_brand6/export/svg/*.svg` |
-| `logo/seals/pi-seal*.svg` | `prototypes/_brand6/export/svg/pi-seal*.svg` |
-| `logo/favicon/favicon.svg` | `prototypes/_brand6/export/favicon.svg` |
-| `logo/favicon/{favicon-16,-16-mono,-16-on-dark,-32,-48,apple-touch-icon-180,icon-192,icon-512}.png` | `prototypes/_brand6/export/png/…` |
-| `logo/social/avatar-{400,1080}.png` | `prototypes/_brand6/export/png/…` |
-| `logo-tools/build.py` | `prototypes/_brand6/_tools/build6.py` |
-| `logo-tools/export.mjs` | `prototypes/_brand6/_tools/export6.mjs` |
-| `logo-tools/symbol/*` | `prototypes/_brand5-tuned/final/*` and `_brand5-tuned/_tools/favicon16.py` |
-| `logo-tools/wordmark/wm-*.svg` | `prototypes/_wordmark/final/wm-*.svg` |
-| `fonts/OFL-bricolage-grotesque.txt`, `fonts/OFL-geist.txt` | new (taken from google/fonts) |
-| `brand/guidelines/` → fonts at `../../fonts/`, logo images at `../../logo/`, wordmark at `../../logo-tools/wordmark/` | `brand/guidelines/assets/fonts/*.woff2` (duplicates removed), `prototypes/_brand6/export/`, `prototypes/_wordmark/final/` |
-
-Illustrations are new files. Their source markup in `prototypes/final/index.html` is listed in `scripts/build-illustrations.ts`.
+`logo/`, `logo-tools/` (symbol masters, wordmark masters and builders), `fonts/` and `brand/guidelines/` are an initial import of the brand assets and tools. `fonts/OFL-bricolage-grotesque.txt` and `fonts/OFL-geist.txt` are new (taken from google/fonts). The brand guide now takes its fonts from `../../fonts/`, its logo images from `../../logo/` and its wordmark from `../../logo-tools/wordmark/`, so its duplicate copies were removed. The illustrations are new files.
 
 ### Scope: website-only assets are not included
 
-pi-design keeps only the shared brand and system (see "What belongs here" in the README). These were in the first phase 1 draft and were removed before any commit. They live in `pi-website`, and the originals are in `proud-indian-design`:
+pi-design keeps only the shared brand and system (see "What belongs here" in the README). These were in the first draft and were removed before any commit. They live in the website repo (proud-indian-ngo/website):
 
-- all site photos and cut-outs (`prototypes/final/photos/`, `concept/cutouts/`, `concept/board/cutouts/`), with their manifest and WebP versions;
+- all site photos and cut-outs, with their manifest and WebP versions;
 - website-specific doodles: `street-scene-desktop`, `street-scene-phone`, `bunting`, `connector-curve`, and the footer margin outlines (`outline-pencil`, `-book`, `-kite`, `-heart`, `-star`, `-brush`, `-rupee`). The outline doodles were later added as a shared set in 0.2.3 (`illustrations/outline/`).
 
 The brand guide keeps its own web-size copies of the photos and cut-outs it shows, in `brand/guidelines/assets/`.

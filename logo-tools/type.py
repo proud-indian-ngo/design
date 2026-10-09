@@ -1,5 +1,5 @@
-"""Round 2 copy of prototypes/_brand/_tools/type.py (fonts now decompressed from the site woff2s).
-Glyph outlining helpers: Bricolage 800 + Geist (static instances) -> SVG path data."""
+"""Glyph outlining helpers: Bricolage 800 + Geist (static instances) -> SVG path data.
+The fonts are decompressed from the package woff2s in ../fonts/."""
 import math
 import os
 from fontTools.ttLib import TTFont

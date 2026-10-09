@@ -7,16 +7,14 @@
  *               `max-tab:` and friends exist;
  *   tokens.css  plain custom properties for everything Tailwind has no namespace for (z-index, durations, loop
  *               timings, spacing steps used by the hand-written CSS, component knobs).
- * Every value was taken from the approved prototype (proud-indian-design/prototypes/final/site.css), so the port
- * renders pixel-identical.
+ * Values are written exactly as the website's CSS writes them, so CSS moved onto the tokens renders pixel-identical.
  *
  * Naming. Names never reuse a Tailwind default name with a different value, so pi-dash can import this theme on top
  * of Tailwind's defaults. Irregular scales (type, radius, space) are keyed by their px value: `text-15` is 15px.
  *
- * This folder must stay self-contained (no imports from the rest of the app) so it can move to
- * `@proudindian/design` unchanged.
+ * This folder stays self-contained (no imports from outside tokens/).
  */
-/** Brand palette (design-decisions.md §1 and brand/guidelines). */
+/** Brand palette (brand/guidelines). */
 export declare const color: {
     readonly sky: "#4CC0EC";
     readonly skyDeep: "#0B7FAE";
@@ -32,8 +30,8 @@ export declare const color: {
     readonly black: "#000000";
 };
 /**
- * Alpha variants the prototype uses. Keys are the alpha in percent; values are written exactly as the prototype
- * wrote them so the output is byte-for-byte the same colour. `bg-ink-a30`, `border-paper-a35`, ...
+ * Alpha variants the site uses. Keys are the alpha in percent; values are written exactly as the site's CSS
+ * writes them so the output is byte-for-byte the same colour. `bg-ink-a30`, `border-paper-a35`, ...
  */
 export declare const alpha: {
     readonly ink: {
@@ -80,7 +78,7 @@ export declare const alpha: {
         readonly 25: ".25";
     };
 };
-/** rgb triplets for the alpha variants (kept in the prototype's rgba() form) */
+/** rgb triplets for the alpha variants (emitted in rgba() form) */
 export declare const rgb: {
     readonly ink: "15,27,36";
     readonly paper: "246,242,234";
@@ -105,8 +103,8 @@ export declare const weight: {
     readonly extrabold: 800;
 };
 /**
- * Type scale in px: every size the prototype uses more than once (one-offs stay literal). Each step also sets
- * line-height: normal, which is what the prototype's `font:` shorthand did; add a `leading-*` to change it.
+ * Type scale in px: every size the site uses more than once (one-offs stay literal). Each step also sets
+ * line-height: normal, which is what a `font:` shorthand resets it to; add a `leading-*` to change it.
  */
 export declare const text: readonly [11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 18, 19, 20, 21, 22, 24, 26, 27, 30, 32, 34, 40, 44, 46, 52, 56, 60, 64, 84, 92, 96, 104, 128, 132];
 /** Fluid display sizes (the giant words): `text-optimist`, `text-verb`, ... */
@@ -212,7 +210,7 @@ export declare const container: {
     readonly section: "1264px";
     readonly drawer: "600px";
 };
-/** Motion (design-decisions.md §11). Only transform, opacity, clip-path and stroke-dashoffset animate. */
+/** Motion. Only transform, opacity, clip-path and stroke-dashoffset animate. */
 export declare const motion: {
     readonly duration: {
         readonly fast: "150ms";

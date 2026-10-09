@@ -1,7 +1,6 @@
 // Lay the generated masters out into logo/ (or the directory given as the first argument).
-// Was prototypes/_brand6/_tools/export6.mjs, which wrote export/{svg,png}/ + favicon.svg.
-// Layout here: svg/ (lockups, symbol, stacked, wordmark, discs, app tiles), seals/ (pi-seal-*),
-// favicon/ (favicon.svg + favicon and app-icon PNGs), social/ (avatars). File names are unchanged.
+// Layout: svg/ (lockups, symbol, stacked, wordmark, discs, app tiles), seals/ (pi-seal-*),
+// favicon/ (favicon.svg + favicon and app-icon PNGs), social/ (avatars). File names keep their historical form so links stay stable.
 // PNGs come from the Chromium rasteriser (Playwright), except 16 px, which is the hand-built pixel art.
 import { copyFileSync, mkdirSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";

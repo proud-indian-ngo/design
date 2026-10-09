@@ -4,13 +4,11 @@ The Proud Indian design system, and the single source of truth for the brand on 
 
 Repository: https://github.com/proud-indian-ngo/design
 
-> **Supersedes `@proudindian/ds`**, the React package in `~/Code/proud-indian-design` (`src/`, `dist/`, `ds-bundle/`, `.design-sync/`). It was built on the old Instrument Serif and Inter tokens and doesn't match the final site. Its components and its Claude Design sync are rebuilt here on the final design. The old repo is left untouched as an archive.
-
 ## What's inside
 
 | Path | What |
 |---|---|
-| `tokens/` | Token source in TS (`primitives.ts`, `semantic.ts`, `components.ts`, `index.ts`), copied from pi-website. `bun run tokens` generates `theme.css` (Tailwind v4 `@theme static`), `tokens.css` (plain custom properties), `tokens.json` (W3C design tokens) and `scope.css` (the optional `.pi-brand` scope; its build also fails on a token name that clashes with pi-dash's shadcn theme, see [pi-dash](#pi-dash-vite--tailwind-v4--shadcnui)). |
+| `tokens/` | Token source in TS (`primitives.ts`, `semantic.ts`, `components.ts`, `index.ts`). `bun run tokens` generates `theme.css` (Tailwind v4 `@theme static`), `tokens.css` (plain custom properties), `tokens.json` (W3C design tokens) and `scope.css` (the optional `.pi-brand` scope; its build also fails on a token name that clashes with pi-dash's shadcn theme, see [pi-dash](#pi-dash-vite--tailwind-v4--shadcnui)). |
 | `css/` | `index.css` (the entry), `fonts.css`, `base.css` (opt-in reset), `scrollbar.css` (opt-in brand scrollbars), `outline.css` (opt-in outline doodle styles), `primitives/*.css` (`.pi-btn`, `.pi-chip`, `.pi-sticker`, `.pi-polaroid`, `.pi-peg`, `.pi-tape`, `.pi-ticket`, `.pi-card`, `.pi-label`, `.pi-accent`, `.pi-ln`/`.pi-doodle`), `defaults.css` (React-only defaults), `utilities.css` (custom `@utility`), `shadcn.css` (optional bridge) |
 | `react/` → `dist/react/` | `PiRoot`, `Button`, `Chip`/`Chips`, `Sticker`, `Polaroid` (+ `Peg`, `Tape`), `Ticket`, `Card`, `SectionLabel`, `AccentWord`, `Doodle`, `Lockup`, `Seal` |
 | `dist/` | Built output, committed so git installs need no build step. Contains `react/` (ESM + `.d.ts`), `tokens/` (typed tokens) and `styles.css` (theme, tokens, fonts, base reset, primitives and React defaults compiled for apps without Tailwind; no utilities, and not the opt-in `scrollbar.css`, `outline.css` or `shadcn.css`) |
@@ -31,7 +29,7 @@ An asset belongs in pi-design only if it is part of the shared brand or system, 
 - Claude Design
 - apps such as pi-dash
 
-Content and assets that only one website section uses stay in the website repo (`pi-website`). That covers:
+Content and assets that only one website section uses stay in the website repo ([proud-indian-ngo/website](https://github.com/proud-indian-ngo/website)). That covers:
 - event photos and cut-outs
 - the footer street scenes
 - the Kalakriti bunting
@@ -48,10 +46,10 @@ The package is installed from git and is not published to npm, so Cloudflare Pag
 The repo is public, so no token is needed. To try unreleased changes locally, link the folder instead:
 
 ```jsonc
-"@proudindian/design": "file:../pi-design"
+"@proudindian/design": "file:../design"   // path to your clone of this repo
 ```
 
-A `file:` link copies the package together with its own `node_modules`, and bun also adds the package's devDependencies to the app's lockfile (harmless, and gone with the `github:` dependency). An app deployed from CI (pi-website on Cloudflare Pages) must use the `github:` dependency, because `file:../pi-design` does not exist there. In a Vite app, add `resolve: { dedupe: ["react", "react-dom"] }` so there is only one React. After changing pi-design, run `bun run build` there, then reinstall in the app (`rm -rf node_modules/@proudindian && bun install --force`).
+A `file:` link copies the package together with its own `node_modules`, and bun also adds the package's devDependencies to the app's lockfile (harmless, and gone with the `github:` dependency). An app deployed from CI (the website on Cloudflare Pages) must use the `github:` dependency, because the `file:` path does not exist there. In a Vite app, add `resolve: { dedupe: ["react", "react-dom"] }` so there is only one React. After changing pi-design, run `bun run build` there, then reinstall in the app (`rm -rf node_modules/@proudindian && bun install --force`).
 
 ## Tailwind v4 import recipes
 
@@ -86,15 +84,15 @@ import { Button, Lockup, PiRoot } from "@proudindian/design/react";
 2. the plain tokens (in the theme layer)
 3. `@font-face`
 4. the optional `.pi-brand` scope (sets only `font-family: var(--font-pi-sans)`)
-5. the primitives (in `@layer components`, in pi-website's cascade order)
+5. the primitives (in `@layer components`, in the website's cascade order)
 6. the React defaults
 7. the custom `@utility` rules
 
 Import it after `tailwindcss` so the cascade layers exist. Without Tailwind, import `@proudindian/design/styles.css`, the compiled CSS, instead.
 
-### pi-website (Astro + Tailwind v4, no preflight)
+### The website (Astro + Tailwind v4, no preflight)
 
-The site deliberately leaves Tailwind's preflight out and uses the brand reset. Its `global.css` keeps its own layer order, so it imports the pieces it uses rather than `css/index.css`. The site uses neither the `.pi-brand` scope nor the React-only `defaults.css`, so leaving them out keeps its CSS from growing:
+The website ([proud-indian-ngo/website](https://github.com/proud-indian-ngo/website)) deliberately leaves Tailwind's preflight out and uses the brand reset. Its `global.css` keeps its own layer order, so it imports the pieces it uses rather than `css/index.css`. The site uses neither the `.pi-brand` scope nor the React-only `defaults.css`, so leaving them out keeps its CSS from growing:
 
 ```css
 @layer theme, base, components, utilities;
@@ -121,7 +119,7 @@ The site deliberately leaves Tailwind's preflight out and uses the brand reset. 
 - **Seal ring.** The hero seal ring inlines `logo/seals/pi-seal-optimists-ring.svg` at build time.
 - **Favicons and the share card.** They are committed byte-identical copies in `public/`. The site's `bun run check:design` enforces this, and `bun run design:sync` re-copies them.
 - **Margin doodles.** `src/components/margins/MarginSprite.astro` inlines `illustrations/outline-sprite.svg` (imported with `?raw`) once per page, keeping only the symbols the scatter uses; `MarginDoodles.astro` reads the aspect ratios from `illustrations/outline/manifest.json`, and `margins.css` uses the `--doodle-outline-*` tokens.
-- **Doodles.** The doodle components keep the prototype's inline SVG. The site's section CSS styles doodle internals through classes (`pi-ln`, `f2`, `ink`, `glow`) that the svgo-optimised `illustrations/*.svg` do not have. `illustrations/manifest.json` (`website`) maps each doodle to its components.
+- **Doodles.** The site's doodle components keep their own inline SVG, because the site's section CSS styles doodle internals through classes (`pi-ln`, `f2`, `ink`, `glow`) that the svgo-optimised `illustrations/*.svg` do not have. `illustrations/manifest.json` (`website`) maps each doodle to its components.
 
 The switch was verified pixel-identical: every section of the home page, and the privacy and 404 pages, at 1440, 2048 and 390 with reduced motion.
 
@@ -161,7 +159,7 @@ This was verified against pi-dash's real theme (its `:root`, `.dark`, `@theme in
 
 `css/scrollbar.css` (opt-in, `@import "@proudindian/design/scrollbar.css"`, unlayered; needs `tokens.css`) gives mouse and trackpad users the brand scrollbar: an 8px ink pill (35%) on a transparent track with 2px of inset, solid sky on hover and while dragged. `.pi-scroll-thin` makes a scroller's bar 4px with no inset (swipe rows) and `.pi-scroll-dark` gives it a paper thumb (scrollers on ink). It only applies under `(hover: hover) and (pointer: fine)`, so touch devices keep their native overlay bars. Chromium and Safari use `::-webkit-scrollbar`; Firefox uses `scrollbar-width: thin` and `scrollbar-color` (the file header explains the split).
 
-**Native opt-out: `html[data-native-scrollbar]`.** With the attribute on `<html>`, none of the file's rules apply, to the page or to any scroller, and the browser draws its default scrollbars. Set it before first paint, from an inline script in `<head>`, so the custom bar never flashes. pi-website sets it on macOS (Safari and Chrome then show the system's overlay scrollbars), and keeps the brand bar on Windows, Linux and ChromeOS:
+**Native opt-out: `html[data-native-scrollbar]`.** With the attribute on `<html>`, none of the file's rules apply, to the page or to any scroller, and the browser draws its default scrollbars. Set it before first paint, from an inline script in `<head>`, so the custom bar never flashes. The website sets it on macOS (Safari and Chrome then show the system's overlay scrollbars), and keeps the brand bar on Windows, Linux and ChromeOS:
 
 ```js
 var n = navigator, ua = n.userAgentData;
@@ -198,7 +196,7 @@ bun run fix            # oxfmt + oxlint --fix
 bun run docs           # docs/index.html + docs/styleguide.css (add --shot for /tmp/pi-design/styleguide.png)
 bun run tokens         # regenerate tokens/theme.css, tokens.css, tokens.json, scope.css
 bun run react:assets   # regenerate react/generated/ from illustrations/ and logo/
-bun run illustrations  # one-off importer from proud-indian-design's prototype (the SVGs are now the source)
+bun run illustrations -- <page.html>  # one-off importer: lift inline doodles from an HTML page (the SVGs in illustrations/ are the source)
 bun run illustrations:sheet  # re-render illustrations/contact-sheet.png
 bun run outline        # rebuild illustrations/outline-sprite.svg and outline/manifest.json from illustrations/outline/*.svg
 bun run logo:rebuild   # regenerate logo/ from logo-tools/ (needs uv)
@@ -225,18 +223,6 @@ The package follows semver, and each release is tagged in git (`v0.2.3`). Consum
 - **Major:** a removed or renamed export, file, class or token, or a token value change that alters the brand. Before 1.0, a breaking change bumps the minor version instead (0.2.0 renamed four tokens).
 
 Every release is recorded in [`CHANGELOG.md`](CHANGELOG.md).
-
-## Sources
-
-Copied, not moved:
-- **From `~/Code/pi-website`:** the tokens, primitives, utilities, fonts CSS, OG renderer and hero seal ring.
-- **From `~/Code/proud-indian-design`:**
-  - fonts and doodles: `prototypes/final/`
-  - the logo export and tools: `prototypes/_brand6/` and `_brand5-tuned/`
-  - the wordmark: `prototypes/_wordmark/final/`
-  - the guide: `brand/`
-
-The decision record is `proud-indian-design/research/design-decisions.md`.
 
 ## Licence
 

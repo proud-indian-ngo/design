@@ -1,6 +1,6 @@
 # Fonts
 
-These are the brand fonts the website uses: the Latin subsets of the two variable fonts, plus a small static instance of Bricolage, self-hosted as woff2. Both are under the SIL Open Font License 1.1 (see the `OFL-*.txt` files). The two variable files are byte-identical to `proud-indian-design/prototypes/final/fonts/`.
+These are the brand fonts the website uses: the Latin subsets of the two variable fonts, plus a small static instance of Bricolage, self-hosted as woff2. Both are under the SIL Open Font License 1.1 (see the `OFL-*.txt` files).
 
 | File | Family | Axes | Use |
 |---|---|---|---|
@@ -10,7 +10,7 @@ These are the brand fonts the website uses: the Latin subsets of the two variabl
 
 The `@font-face` rules are in `css/fonts.css` (export `@proudindian/design/fonts.css`).
 
-The prototype names the family `Brico`. The brand guide also uses Anek Latin, Kannada and Devanagari for the wordmark and for Indian scripts; those fonts are in `brand/guidelines/assets/fonts/`.
+`css/fonts.css` names the Bricolage family `Brico`. The brand guide also uses Anek Latin, Kannada and Devanagari for the wordmark and for Indian scripts; those fonts are in `brand/guidelines/assets/fonts/`.
 
 To regenerate the static Bricolage file (fontTools 4.x):
 

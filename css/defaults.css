@@ -1,4 +1,4 @@
-/* Package-only defaults for the React components (pi-website styles these per section instead). Every selector uses
+/* Package-only defaults for the React components (the website styles these per section instead). Every selector uses
    a class the website markup does not, so importing the package CSS into the site changes nothing there. */
 .pi-polaroid--standalone {
   position: relative;

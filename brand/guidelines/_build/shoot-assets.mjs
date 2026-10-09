@@ -1,11 +1,12 @@
 // Re-shoot the website screenshots used in the guide (brand/guidelines/assets/shots).
-// Needs the site running. Default: the prototype served from proud-indian-design
-// (python3 -m http.server 63782 --bind 127.0.0.1); set PI_SITE_URL to shoot the live or Astro site instead.
+// Needs a page with the website's home markup (it clips to #b0, .fC-strip, .fC-scene, ...), served locally or live:
+//   PI_SITE_URL=http://127.0.0.1:4321/ node brand/guidelines/_build/shoot-assets.mjs
 import { chromium } from 'playwright';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 const out = join(dirname(fileURLToPath(import.meta.url)), '..', 'assets', 'shots');
-const URL = process.env.PI_SITE_URL ?? 'http://127.0.0.1:63782/prototypes/final/index.html';
+const URL = process.env.PI_SITE_URL;
+if (!URL) { console.error('set PI_SITE_URL to the page to shoot (see the header)'); process.exit(1); }
 const b = await chromium.launch();
 // desktop
 let p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, reducedMotion: 'reduce' });

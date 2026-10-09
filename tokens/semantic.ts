@@ -71,7 +71,7 @@ export const semantic = {
   /** an ink hairline traced round any shape (the "Four ways" card, session tickets) */
   "hairline-ink": `drop-shadow(1.5px 0 0 ${ink}) drop-shadow(-1.5px 0 0 ${ink}) drop-shadow(0 1.5px 0 ${ink}) drop-shadow(0 -1.5px 0 ${ink})`,
 
-  /** accent words on cyan bands (decision 1B): white fill, ink outline, ink offset */
+  /** accent words on cyan bands: white fill, ink outline, ink offset */
   "accent-fill": v("color-white"),
   "accent-stroke": `1.5px ${ink}`,
   "accent-shadow": `3px 3px 0 ${ink}`,

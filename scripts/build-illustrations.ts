@@ -1,10 +1,11 @@
 /**
- * Lift every doodle out of the final website prototype into standalone, optimised SVGs in illustrations/.
+ * Lift every doodle out of a static HTML page of the website (inline SVG markup) into standalone, optimised SVGs in
+ * illustrations/. The page is not part of this repo, so pass its path:
  *
- *   bun run illustrations                       # source: ../proud-indian-design/prototypes/final/index.html
- *   PI_PROTOTYPE=/path/to/index.html bun run illustrations
+ *   bun run illustrations -- /path/to/index.html
+ *   PI_DOODLE_SOURCE=/path/to/index.html bun run illustrations
  *
- * In the prototype the doodles are styled by page CSS (`.ln`, `.ft-ln`, `.s`, `.f2` …). Here that styling is
+ * In that page the doodles are styled by page CSS (`.ln`, `.ft-ln`, `.s`, `.f2` …). Here that styling is
  * turned into presentation attributes so each file renders on its own:
  *   - the root carries fill="none" stroke="currentColor" + the line width, round caps and joins;
  *   - ink (#0F1B24) fills become currentColor, so the line colour follows CSS `color`;
@@ -19,9 +20,14 @@ import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const SRC =
-  process.env.PI_PROTOTYPE ??
-  join(ROOT, "..", "proud-indian-design", "prototypes", "final", "index.html");
+const SRC = process.argv[2] ?? process.env.PI_DOODLE_SOURCE;
+if (!SRC) {
+  console.error(
+    "usage: bun run illustrations -- <page.html>  (or set PI_DOODLE_SOURCE)\n" +
+      "The SVGs in illustrations/ are the source of truth; this importer is only for re-lifting doodles from a page."
+  );
+  process.exit(1);
+}
 const OUT = join(ROOT, "illustrations");
 
 const INK = "#0F1B24";
@@ -30,7 +36,7 @@ const PAPER_2 = "#EFE9DE";
 const SKY = "#4CC0EC";
 const SUN = "#F4A62A";
 
-/** Classes the prototype animates (site.css / site.js). Everything else is styling and is removed. */
+/** Classes the site animates from its CSS and JS. Everything else is styling and is removed. */
 const HOOKS = new Set([
   "rays",
   "wink",
@@ -376,7 +382,7 @@ function build(def: Def): { svg: string; viewBox: string; hooks: string[] } {
   return { svg: `${data}\n`, viewBox, hooks };
 }
 
-/** pi-website's src/components/doodles/*.astro that draw the same art (2026-10-08). */
+/** The website's src/components/doodles/*.astro that draw the same art (2026-10-08). */
 const WEBSITE: Record<string, string[]> = {
   sun: ["HeroSun (no .wink)", "CollageSun"],
   sparkle: ["Sparkle"],

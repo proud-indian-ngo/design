@@ -59,7 +59,7 @@ export declare const semantic: {
     readonly "sticker-lift": `drop-shadow(0 16px 22px ${string})`;
     /** an ink hairline traced round any shape (the "Four ways" card, session tickets) */
     readonly "hairline-ink": `drop-shadow(1.5px 0 0 ${string}) drop-shadow(-1.5px 0 0 ${string}) drop-shadow(0 1.5px 0 ${string}) drop-shadow(0 -1.5px 0 ${string})`;
-    /** accent words on cyan bands (decision 1B): white fill, ink outline, ink offset */
+    /** accent words on cyan bands: white fill, ink outline, ink offset */
     readonly "accent-fill": string;
     readonly "accent-stroke": `1.5px ${string}`;
     readonly "accent-shadow": `3px 3px 0 ${string}`;

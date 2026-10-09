@@ -7,8 +7,6 @@
  *
  *   bun run tokens         write
  *   bun run tokens:check   exit 1 if any file is stale (part of `bun run check`)
- *
- * Adapted from pi-website src/styles/tokens/build.ts (adds tokens.json).
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
