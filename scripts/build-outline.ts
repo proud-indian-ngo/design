@@ -16,6 +16,8 @@ import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { failOn } from "./lib/generated";
+
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DIR = join(ROOT, "illustrations", "outline");
 const SPRITE = join(ROOT, "illustrations", "outline-sprite.svg");
@@ -148,11 +150,7 @@ if (check) {
       "illustrations/outline/manifest.json is out of date: run `bun run outline`"
     );
 }
-if (errors.length) {
-  console.error(errors.map((e) => `  ✗ ${e}`).join("\n"));
-  console.error(`outline: ${errors.length} problem(s)`);
-  process.exit(1);
-}
+failOn(errors, "outline");
 if (!check) {
   writeFileSync(SPRITE, sprite);
   writeFileSync(MANIFEST, manifest);

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://fallow.tools/schema.json",
+  // run by shell scripts and HTML pages rather than imported
+  "entry": [
+    "logo-tools/**/*.mjs",
+    "brand/guidelines/_build/*.mjs",
+    "brand/guidelines/guidelines.css",
+    "scripts/docs.css",
+  ],
+  // generated output (each has a --check or is rebuilt by `bun run build` / `bun run docs`), and the Claude Design
+  // sync previews
+  "ignorePatterns": [
+    "docs/**",
+    "tokens/theme.css",
+    "tokens/tokens.css",
+    "tokens/scope.css",
+    "react/generated/**",
+    ".design-sync/**",
+  ],
+  "ignoreExportsUsedInFile": true,
+  // invoked through `bunx @tailwindcss/cli` in scripts/build.ts and scripts/build-docs.tsx
+  "ignoreDependencies": ["@tailwindcss/cli"],
+}

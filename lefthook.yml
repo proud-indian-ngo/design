@@ -9,3 +9,8 @@ pre-commit:
     assets:
       glob: "illustrations/**"
       run: bun run check:assets
+
+commit-msg:
+  commands:
+    commitlint:
+      run: bunx commitlint --edit {1}

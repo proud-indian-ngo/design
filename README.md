@@ -193,6 +193,9 @@ bun run build          # tokens + react assets, then dist/react, dist/tokens, di
 bun run check          # tokens, react assets and the outline sprite up to date, illustrations manifest, oxfmt, oxlint
 bun run check:types    # tsc (strict)
 bun run fix            # oxfmt + oxlint --fix
+bun run check:fallow   # fallow: unused files, exports and dependencies, and duplicated code
+bun run report:health  # fallow's complexity report (advisory)
+bun run check:updates  # outdated dependencies (taze); Renovate opens the PRs anyway
 bun run docs           # docs/index.html + docs/styleguide.css (add --shot for /tmp/pi-design/styleguide.png)
 bun run tokens         # regenerate tokens/theme.css, tokens.css, tokens.json, scope.css
 bun run react:assets   # regenerate react/generated/ from illustrations/ and logo/
@@ -223,6 +226,21 @@ The package follows semver, and each release is tagged in git (`v0.2.3`). Consum
 - **Major:** a removed or renamed export, file, class or token, or a token value change that alters the brand. Before 1.0, a breaking change bumps the minor version instead (0.2.0 renamed four tokens).
 
 Every release is recorded in [`CHANGELOG.md`](CHANGELOG.md).
+
+**Releasing is automatic once the version is bumped.** In a pull request:
+1. Bump `version` in `package.json`.
+2. Add a `## [x.y.z] - YYYY-MM-DD` section to `CHANGELOG.md`.
+3. Run `bun run build && bun run docs` and commit the output (CI fails if `dist/` or `docs/` don't match the source).
+
+When it merges, the `release` job in `.github/workflows/ci.yml` tags `vx.y.z` on that commit and publishes a GitHub release with the changelog section. It fails if the section is missing, and does nothing if the tag already exists, so merges without a version bump never release. Renovate then opens a PR in proud-indian-ngo/website to move to the new tag. Never move or delete a published tag: the website's lockfile pins the commit behind it.
+
+## Conventions
+
+These follow proud-indian-ngo/dash.
+- **Hooks.** Lefthook (`bun install` sets it up) formats and lints staged files, checks the illustrations manifest, and checks the commit message.
+- **Commits and PR titles** are [Conventional Commits](https://www.conventionalcommits.org) (`feat: …`, `fix(tokens): …`, `chore(deps): …`; lower-case subject, at most 100 characters), checked by commitlint. Pull requests are squash-merged with the PR title as the commit message.
+- **CI.** The `checks` job (lint and generated files, types, fallow, and the committed build) runs on every pull request and push; it is required on `main`, which also needs a pull request with one approval (admins can push directly).
+- **Dependencies.** Renovate (`renovate.json`) opens update PRs on weekday mornings (IST): patches are grouped and automerged once `checks` passes, minor updates are grouped into one PR. Dependabot security updates and secret scanning (with push protection) are on.
 
 ## Licence
 

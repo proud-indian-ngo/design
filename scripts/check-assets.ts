@@ -6,6 +6,8 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { failOn } from "./lib/generated";
+
 const DIR = join(
   dirname(fileURLToPath(import.meta.url)),
   "..",
@@ -50,9 +52,5 @@ for (const f of readdirSync(DIR)) {
   }
 }
 
-if (errors.length) {
-  console.error(errors.map((e) => `  ✗ ${e}`).join("\n"));
-  console.error(`check:assets: ${errors.length} problem(s)`);
-  process.exit(1);
-}
+failOn(errors, "check:assets");
 console.log(`check:assets: ${items.length} illustrations OK`);
