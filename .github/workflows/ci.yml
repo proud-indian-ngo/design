@@ -41,7 +41,8 @@ jobs:
         run: |
           bun run build
           bun run docs
-          if ! git diff --exit-code --stat; then
+          if [ -n "$(git status --porcelain)" ]; then
+            git status --short
             echo "::error title=Stale build::Run 'bun run build && bun run docs' and commit the result"
             exit 1
           fi

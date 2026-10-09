@@ -1,5 +1,5 @@
 // tokens/primitives.ts
-var color = {
+var color2 = {
   sky: "#4CC0EC",
   skyDeep: "#0B7FAE",
   skyInk: "#08668C",
@@ -13,7 +13,7 @@ var color = {
   white: "#FFFFFF",
   black: "#000000"
 };
-var alpha = {
+var alpha2 = {
   ink: {
     5: ".05",
     7: ".07",
@@ -46,7 +46,7 @@ var alpha = {
   black: { 25: ".25", 55: ".55", 60: ".6", 80: ".8" },
   tan: { 25: ".25" }
 };
-var rgb = {
+var rgb2 = {
   ink: "15,27,36",
   paper: "246,242,234",
   paper2: "239,233,222",
@@ -54,18 +54,18 @@ var rgb = {
   black: "0,0,0",
   tan: "196,180,150"
 };
-var font = {
+var font2 = {
   "pi-display": 'Brico,"Arial Black",system-ui,sans-serif',
   "pi-sans": 'Geist,system-ui,-apple-system,"Segoe UI",sans-serif'
 };
-var weight = {
+var weight2 = {
   normal: 400,
   medium: 500,
   semibold: 600,
   bold: 700,
   extrabold: 800
 };
-var text = [
+var text2 = [
   11,
   11.5,
   12,
@@ -104,13 +104,13 @@ var text = [
   128,
   132
 ];
-var display = {
+var display2 = {
   optimist: "clamp(140px,19vw,300px)",
   "optimist-phone": "20.5vw",
   verb: "clamp(110px,24vw,370px)",
   "verb-phone": "27vw"
 };
-var leading = {
+var leading2 = {
   none: "1",
   display: ".9",
   title: "1.05",
@@ -119,7 +119,7 @@ var leading = {
   lede: "1.42",
   copy: "1.5"
 };
-var tracking = {
+var tracking2 = {
   tightest: "-.055em",
   tighter: "-.05em",
   poster: "-.045em",
@@ -136,7 +136,7 @@ var tracking = {
   stamp: ".11em",
   sign: ".22em"
 };
-var space = [
+var space2 = [
   2,
   3,
   4,
@@ -173,10 +173,10 @@ var space = [
   120,
   128
 ];
-var radius = [3, 4, 5, 6, 8, 10, 14, 18, 20, 22, 24, 26, 28];
-var radiusShape = { pill: "99px", round: "50%" };
-var border = { hair: "1px", ink: "1.5px", heavy: "2px" };
-var z = {
+var radius2 = [3, 4, 5, 6, 8, 10, 14, 18, 20, 22, 24, 26, 28];
+var radiusShape2 = { pill: "99px", round: "50%" };
+var border2 = { hair: "1px", ink: "1.5px", heavy: "2px" };
+var z2 = {
   stickyBar: 50,
   programmeIndex: 55,
   header: 60,
@@ -185,7 +185,7 @@ var z = {
   menu: 90,
   skipLink: 200
 };
-var breakpoint = {
+var breakpoint2 = {
   pad: 601,
   tab: 701,
   lap: 1101,
@@ -193,9 +193,9 @@ var breakpoint = {
   desk: 1240,
   wide: 1440
 };
-var PHONE_MAX = breakpoint.tab - 1;
-var shortScreen = 640;
-var container = {
+var PHONE_MAX2 = breakpoint2.tab - 1;
+var shortScreen2 = 640;
+var container2 = {
   hero: "1600px",
   scene: "1600px",
   band: "1520px",
@@ -205,7 +205,7 @@ var container = {
   section: "1264px",
   drawer: "600px"
 };
-var motion = {
+var motion2 = {
   duration: {
     fast: "150ms",
     base: "200ms",
@@ -258,4 +258,4 @@ var motion = {
   }
 };
 
-export { color, alpha, rgb, font, weight, text, display, leading, tracking, space, radius, radiusShape, border, z, breakpoint, PHONE_MAX, shortScreen, container, motion };
+export { color2, alpha2, rgb2, font2, weight2, text2, display2, leading2, tracking2, space2, radius2, radiusShape2, border2, z2, breakpoint2, PHONE_MAX2, shortScreen2, container2, motion2 };

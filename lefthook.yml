@@ -4,6 +4,9 @@ pre-commit:
     fix:
       priority: 1
       glob: "*.{js,mjs,ts,tsx,json}"
+      # build output: oxfmt ignores it and fails when nothing else is staged
+      exclude:
+        - "dist/**"
       run: bunx oxfmt {staged_files} && bunx oxlint --fix {staged_files}
       stage_fixed: true
     assets:

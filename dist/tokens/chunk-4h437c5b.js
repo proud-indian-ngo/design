@@ -3,7 +3,7 @@ var v = (name) => `var(--${name})`;
 var ink = v("color-ink");
 var paper = v("color-paper");
 var sky = v("color-sky");
-var semanticColor = {
+var semanticColor2 = {
   "surface-sky": sky,
   "surface-paper": paper,
   "surface-paper-2": v("color-paper-2"),
@@ -22,7 +22,7 @@ var semanticColor = {
   link: v("color-sky-ink"),
   focus: v("color-sky-deep")
 };
-var shadow = {
+var shadow2 = {
   "ink-sm": `2px 2px 0 ${ink}`,
   ink: `3px 3px 0 ${ink}`,
   "ink-md": `4px 4px 0 ${ink}`,
@@ -40,7 +40,7 @@ var shadow = {
   "ring-paper": `0 0 0 1.5px ${paper}`,
   soft: `0 10px 24px ${v("color-ink-a30")}`
 };
-var semantic = {
+var semantic2 = {
   "focus-ring": `3px solid ${v("color-sky-deep")}`,
   "focus-ring-on-dark": `3px solid ${sky}`,
   "focus-ring-on-sky": `3px solid ${ink}`,
@@ -59,4 +59,4 @@ var semantic = {
   "header-h-phone": "66px"
 };
 
-export { semanticColor, shadow, semantic };
+export { semanticColor2, shadow2, semantic2 };
