@@ -1,5 +1,7 @@
 /* Self-hosted brand fonts (@proudindian/design/fonts.css). Bricolage Grotesque: display, used at 800 with a width
-   axis. Geist: text. No italics. Family names match the tokens (--font-pi-display: Brico, --font-pi-sans: Geist).
+   axis. Geist: text. Paper Mono: the data font of product interfaces (pi-dash); the website never sets it, so browsers
+   never download it there. No italics. Family names match the tokens (--font-pi-display: Brico, --font-pi-sans: Geist,
+   --font-pi-mono: PaperMono).
 
    Brico has two faces. The brand only sets display type at 800 and normal width, so that one instance is a small static
    file (fonts/bricolage-grotesque-800-latin.woff2, about 20 KB against 78 KB). The full variable font still covers
@@ -31,4 +33,10 @@
   font-weight: 100 900;
   font-display: swap;
   src: url(../fonts/geist-latin-wght-normal.woff2) format("woff2");
+}
+@font-face {
+  font-family: PaperMono;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url(../fonts/paper-mono-wght-normal.woff2) format("woff2");
 }

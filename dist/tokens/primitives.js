@@ -1,5 +1,6 @@
 import {
   color2,
+  productColor2,
   alpha2,
   rgb2,
   font2,
@@ -18,7 +19,7 @@ import {
   shortScreen2,
   container2,
   motion2
-} from "./chunk-4ec6kdvr.js";
+} from "./chunk-ym46zkh2.js";
 export {
   PHONE_MAX2 as PHONE_MAX,
   alpha2 as alpha,
@@ -30,6 +31,7 @@ export {
   font2 as font,
   leading2 as leading,
   motion2 as motion,
+  productColor2 as productColor,
   radius2 as radius,
   radiusShape2 as radiusShape,
   rgb2 as rgb,

@@ -77,8 +77,37 @@
     --color-festival: var(--color-marigold);
     --color-link: var(--color-sky-ink);
     --color-focus: var(--color-sky-deep);
+    --color-ui-canvas: #FAFBFB;
+    --color-ui-sidebar: #F6F7F8;
+    --color-ui-field: #F1F3F4;
+    --color-ui-line: #E7EAED;
+    --color-ui-line-soft: #EEF0F2;
+    --color-ui-mute: #5B6670;
+    --color-ui-label: #66727C;
+    --color-ui-dark-page: #161618;
+    --color-ui-dark-sidebar: #111113;
+    --color-ui-dark-canvas: #131315;
+    --color-ui-dark-card: #1E1E21;
+    --color-ui-dark-raised: #27272B;
+    --color-ui-dark-line: #2F2F34;
+    --color-ui-dark-line-soft: #28282C;
+    --color-ui-dark-text: #EDEDEF;
+    --color-ui-dark-mute: #A1A1A9;
+    --color-ui-dark-label: #8D8D95;
+    --color-ui-dark-active: #24353D;
+    --color-status-pending: #8A5A00;
+    --color-status-pending-dot: #E0A526;
+    --color-status-done: #1F6B3A;
+    --color-status-done-dot: #3FA866;
+    --color-status-rejected: #B3261E;
+    --color-status-rejected-dot: #D9443A;
+    --color-status-pending-dark: #F1C76B;
+    --color-status-done-dark: #7FD3A0;
+    --color-status-rejected-dark: #FF8A80;
+    --color-status-rejected-dot-dark: #E5584D;
     --font-pi-display: Brico,"Arial Black",system-ui,sans-serif;
     --font-pi-sans: Geist,system-ui,-apple-system,"Segoe UI",sans-serif;
+    --font-pi-mono: PaperMono,ui-monospace,"SF Mono",Menlo,monospace;
     --text-11: 11px;
     --text-11--line-height: normal;
     --text-11-5: 11.5px;
@@ -816,6 +845,12 @@
   font-weight: 100 900;
   font-display: swap;
   src: url(../fonts/geist-latin-wght-normal.woff2) format("woff2");
+}
+@font-face {
+  font-family: PaperMono;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url(../fonts/paper-mono-wght-normal.woff2) format("woff2");
 }
 @layer components {
   .pi-brand {

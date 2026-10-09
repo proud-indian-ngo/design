@@ -12,11 +12,11 @@ Repository: https://github.com/proud-indian-ngo/design
 | `css/` | `index.css` (the entry), `fonts.css`, `base.css` (opt-in reset), `outline.css` (opt-in outline doodle styles), `primitives/*.css` (`.pi-btn`, `.pi-chip`, `.pi-sticker`, `.pi-polaroid`, `.pi-peg`, `.pi-tape`, `.pi-ticket`, `.pi-card`, `.pi-label`, `.pi-accent`, `.pi-ln`/`.pi-doodle`), `defaults.css` (React-only defaults), `utilities.css` (custom `@utility`), `shadcn.css` (optional bridge) |
 | `react/` → `dist/react/` | `PiRoot`, `Button`, `Chip`/`Chips`, `Sticker`, `Polaroid` (+ `Peg`, `Tape`), `Ticket`, `Card`, `SectionLabel`, `AccentWord`, `Doodle`, `Lockup`, `Seal` |
 | `dist/` | Built output, committed so git installs need no build step. Contains `react/` (ESM + `.d.ts`), `tokens/` (typed tokens) and `styles.css` (theme, tokens, fonts, base reset, primitives and React defaults compiled for apps without Tailwind; no utilities, and not the opt-in `outline.css` or `shadcn.css`) |
-| `fonts/` | Bricolage Grotesque and Geist variable woff2, with their OFL licences |
+| `fonts/` | Bricolage Grotesque, Geist and Paper Mono variable woff2, with their OFL licences |
 | `logo/` | The logo system: `svg/`, `seals/`, `favicon/` (incl. `site.webmanifest`), `social/` (avatars, `og-default.png`). Rules: [`logo/README.md`](logo/README.md) |
 | `logo-tools/` | Regenerates `logo/`, which `bun run logo:verify` proves byte-identical. `og/` renders the default share card |
 | `illustrations/` | The 21 brand doodles as standalone SVGs, with `manifest.json` and a contact sheet; `outline/` holds the 18 light outline doodles (the website's margin doodles) with their own manifest, built into `outline-sprite.svg`. See [`illustrations/README.md`](illustrations/README.md) |
-| `brand/` | `Proud-Indian-Brand-Guidelines.pdf` (28 pages) and its self-contained source |
+| `brand/` | `Proud-Indian-Brand-Guidelines.pdf` (29 pages, with appendix A1 on product interfaces) and its self-contained source |
 | `docs/` | The static style guide, `docs/index.html` (`bun run docs`) |
 | `.design-sync/` | The Claude Design sync config, previews and notes ([`NOTES.md`](.design-sync/NOTES.md)) |
 
@@ -54,8 +54,8 @@ A `file:` link copies the package together with its own `node_modules`, and bun 
 ## Tailwind v4 import recipes
 
 `tokens/theme.css` is a Tailwind `@theme static` block. It provides these utilities:
-- colour: `bg-sky`, `text-ink`, `bg-surface-paper`, `text-text-muted`, `text-accent-ink`, `bg-donate`
-- type: `font-pi-display`, `font-pi-sans`, `text-15`, `text-optimist`, `leading-lede`, `tracking-heading`
+- colour: `bg-sky`, `text-ink`, `bg-surface-paper`, `text-text-muted`, `text-accent-ink`, `bg-donate`; for product interfaces `bg-ui-sidebar`, `border-ui-line`, `bg-ui-dark-card`, `text-status-pending`
+- type: `font-pi-display`, `font-pi-sans`, `font-pi-mono`, `text-15`, `text-optimist`, `leading-lede`, `tracking-heading`
 - radius and shadow: `rounded-pill`, `rounded-14`, `shadow-ink-sm`, `shadow-photo`
 - layout: `max-w-section`
 - motion: `ease-spring`
@@ -141,6 +141,7 @@ No brand theme key clashes with pi-dash's shadcn theme. The four that used to cl
 The result:
 - **Shadcn keeps its meanings.** `bg-muted`, `text-accent`, `font-sans`, `font-display`, `rounded-lg` and the rest keep pi-dash's values.
 - **The brand utilities are added.** These include `bg-sky`, `text-ink`, `font-pi-display`, `text-accent-ink`, `shadow-ink` and `rounded-pill`.
+- **Product colours and the data font are there to map onto shadcn.** The `color-ui-*` greys (light), the `color-ui-dark-*` charcoal set (dark), the `color-status-*` colours and `--font-pi-mono` (Paper Mono) are the values pi-dash's own `:root` and `.dark` blocks point shadcn's variables at (`--background`, `--card`, `--border`, `--muted-foreground`, …). The rules for using them are in the brand guide, appendix A1. `shadcn.css` still maps the older paper palette and is unchanged.
 - **Brand components need no wrapper.** `.pi-btn`, `.pi-chip`, `.pi-label`, `.pi-ticket` and the React components render in Geist and Brico, with sky-ink accents, anywhere in the app. Wrap a page in `PiRoot` only to get the paper background and Geist body text. `className="pi-brand"` still works, as an optional scope that only sets `font-family: var(--font-pi-sans)`.
 
 This was verified against pi-dash's real theme (its `:root`, `.dark`, `@theme inline` and base blocks). Three builds were compared: shadcn alone, the brand before shadcn, and the brand after shadcn. In all three:
