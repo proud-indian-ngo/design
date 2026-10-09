@@ -2,6 +2,12 @@
 
 All notable changes to `@proudindian/design`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [semver](https://semver.org/).
 
+## [0.3.0] - 2026-10-09
+
+### Removed
+
+- **`css/scrollbar.css` and the `@proudindian/design/scrollbar.css` export**, with the `--scrollbar-*` tokens (`size`, `size-thin`, `inset`, `track`, `track-edge`, `thumb`, `thumb-hover`, `thumb-active`, `track-dark`, `thumb-dark`, `thumb-dark-hover`) and the `.pi-scroll-thin` / `.pi-scroll-dark` classes. The website was their only user and now owns its scrollbar styles (proud-indian-ngo/website `src/styles/scrollbar.css`). Breaking for anyone importing the file, so the minor version bumps (before 1.0).
+
 ## [0.2.4] - 2026-10-09
 
 ### Changed

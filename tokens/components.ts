@@ -46,19 +46,6 @@ export const components = {
   // Sticker (.pi-sticker)
   sticker: `${v("sticker-outline")} ${v("sticker-lift")}`,
 
-  // Scrollbars (css/scrollbar.css): an ink pill in a paper track with a hairline edge
-  "scrollbar-size": "12px",
-  "scrollbar-size-thin": "6px",
-  "scrollbar-inset": "2px",
-  "scrollbar-track": v("color-paper-2"),
-  "scrollbar-track-edge": v("color-ink-a14"),
-  "scrollbar-thumb": v("color-ink-a50"),
-  "scrollbar-thumb-hover": v("color-sky-deep"),
-  "scrollbar-thumb-active": v("color-ink"),
-  "scrollbar-track-dark": v("color-paper-a8"),
-  "scrollbar-thumb-dark": v("color-paper-a40"),
-  "scrollbar-thumb-dark-hover": v("color-sky"),
-
   // Outline doodles (css/outline.css, illustrations/outline/): the light line doodles in the website's margins.
   // The line is ink on paper and sky, paper on ink, at an opacity matched to the footer's margin doodles (paper at
   // 0.3 on ink, 2.56:1): each value is the smallest alpha (2 dp) reaching that contrast on its background (sRGB

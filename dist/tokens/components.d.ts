@@ -31,17 +31,6 @@ export declare const components: {
     readonly "card-radius": string;
     readonly "card-pad": "24px 26px";
     readonly sticker: `${string} ${string}`;
-    readonly "scrollbar-size": "12px";
-    readonly "scrollbar-size-thin": "6px";
-    readonly "scrollbar-inset": "2px";
-    readonly "scrollbar-track": string;
-    readonly "scrollbar-track-edge": string;
-    readonly "scrollbar-thumb": string;
-    readonly "scrollbar-thumb-hover": string;
-    readonly "scrollbar-thumb-active": string;
-    readonly "scrollbar-track-dark": string;
-    readonly "scrollbar-thumb-dark": string;
-    readonly "scrollbar-thumb-dark-hover": string;
     readonly "doodle-outline-stroke": "1.4px";
     readonly "doodle-outline-on-paper": "0.42";
     readonly "doodle-outline-on-sky": "0.47";
