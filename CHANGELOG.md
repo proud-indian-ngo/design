@@ -2,6 +2,12 @@
 
 All notable changes to `@proudindian/design`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [semver](https://semver.org/).
 
+## [0.3.3] - 2026-10-09
+
+### Changed
+
+- **Brand guide, appendix A1: the primary button in product interfaces is brand blue.** Sky ink (`#08668C`) with white text on light (6.38:1), and sky (`#4CC0EC`) with ink text on charcoal (8.36:1), instead of ink and near-white. The light and dark swatch lists gain a "Primary" row, the demo buttons use it, and the rule adds that white text on bright sky (2.09:1) is never used. Both colours are existing tokens (`--color-sky-ink`, `--color-sky`), so no token changes. `Proud-Indian-Brand-Guidelines.pdf` is re-rendered.
+
 ## [0.3.2] - 2026-10-09
 
 ### Changed
