@@ -17,6 +17,7 @@ const GROUP_KEY: Record<string, string> = {
   Colour: "color",
   "Colour alpha": "color-alpha",
   "Colour roles": "color-role",
+  "Product colour": "color-product",
   "Font family": "font-family",
   "Font weight": "font-weight",
   "Type scale": "font-size",

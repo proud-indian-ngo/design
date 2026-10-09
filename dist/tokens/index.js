@@ -3,6 +3,7 @@ import {
 } from "./chunk-5akqt1fe.js";
 import {
   color2,
+  productColor2,
   alpha2,
   rgb2,
   font2,
@@ -21,7 +22,7 @@ import {
   shortScreen2,
   container2,
   motion2
-} from "./chunk-4ec6kdvr.js";
+} from "./chunk-ym46zkh2.js";
 import {
   semanticColor2,
   shadow2,
@@ -50,6 +51,7 @@ function tokenGroups() {
     g("Colour", true, Object.entries(color2).map(([k, val]) => [`color-${kebab(k)}`, val])),
     g("Colour alpha", true, alphas),
     g("Colour roles", true, Object.entries(semanticColor2).map(([k, val]) => [`color-${k}`, val])),
+    g("Product colour", true, Object.entries(productColor2).map(([k, val]) => [`color-${kebab(k)}`, val])),
     g("Font family", true, Object.entries(font2).map(([k, val]) => [`font-${k}`, val])),
     g("Font weight", true, Object.entries(weight2).map(([k, val]) => [`font-weight-${k}`, val])),
     g("Type scale", true, [
@@ -114,6 +116,7 @@ export {
   font2 as font,
   leading2 as leading,
   motion2 as motion,
+  productColor2 as productColor,
   radius2 as radius,
   radiusShape2 as radiusShape,
   rgb2 as rgb,

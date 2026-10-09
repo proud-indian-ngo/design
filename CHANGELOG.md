@@ -2,6 +2,18 @@
 
 All notable changes to `@proudindian/design`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [semver](https://semver.org/).
 
+## [0.3.1] - 2026-10-09
+
+### Added
+
+- **Product colour tokens** (`tokens/primitives.ts` `productColor`, theme group "Product colour", W3C group `color-product`) for dense product screens such as pi-dash, which the website never uses:
+  - light greys tinted toward ink: `--color-ui-canvas` (`#FAFBFB`), `--color-ui-sidebar` (`#F6F7F8`), `--color-ui-field` (`#F1F3F4`), `--color-ui-line` (`#E7EAED`), `--color-ui-line-soft` (`#EEF0F2`), `--color-ui-mute` (`#5B6670`, 5.87:1 on white) and `--color-ui-label` (`#66727C`, 4.93:1);
+  - a neutral charcoal dark set: `--color-ui-dark-page` (`#161618`), `-sidebar` (`#111113`), `-canvas` (`#131315`), `-card` (`#1E1E21`), `-raised` (`#27272B`), `-line` (`#2F2F34`), `-line-soft` (`#28282C`), `-text` (`#EDEDEF`, 14.22:1 on the card), `-mute` (`#A1A1A9`, 6.48:1), `-label` (`#8D8D95`, 5.05:1) and `-active` (`#24353D`, sky at 14% over the card; sky on it is 6.09:1);
+  - status colours, each a text colour plus the dot beside the word: `--color-status-pending` (`#8A5A00`), `-done` (`#1F6B3A`), `-rejected` (`#B3261E`), all 5.9:1 or more on white, with `-dot` variants, and `-dark` text variants for charcoal (`#F1C76B`, `#7FD3A0`, `#FF8A80`, 7.28:1 or more on the dark card). Marigold is never a status colour.
+  Utilities follow: `bg-ui-sidebar`, `border-ui-line`, `bg-ui-dark-card`, `text-status-pending`. No name clashes with pi-dash's shadcn theme (`tokens/scope.ts` still checks).
+- **Paper Mono, the data font of product interfaces:** `fonts/paper-mono-wght-normal.woff2` (paper.design v1.000, the upstream variable webfont unchanged, `wght` 100–800, 53 KB, includes ₹ and €), `fonts/OFL-paper-mono.txt`, its `@font-face` in `css/fonts.css` (family `PaperMono`) and the token `--font-pi-mono` (utility `font-pi-mono`). For amounts, dates, counts, IDs and table headers. The website never sets it, so browsers never download it there.
+- **Brand guidelines, appendix A1 “Product interfaces”** (page 29, listed in the contents): the type roles (Bricolage 600 for titles, numbers and dates; Geist for reading text; Paper Mono for data), the light and dark swatches with their contrast ratios, and the rules (sky marks state and is never a fill behind text, one primary button per screen, status is a dot plus a word, white and charcoal rather than paper and ink). `Proud-Indian-Brand-Guidelines.pdf` is re-rendered. Shape, density and components will follow in a later appendix.
+
 ## [0.3.0] - 2026-10-09
 
 ### Removed

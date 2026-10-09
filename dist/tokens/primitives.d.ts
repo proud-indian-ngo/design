@@ -30,6 +30,47 @@ export declare const color: {
     readonly black: "#000000";
 };
 /**
+ * Product interfaces (pi-dash and any later app): the neutrals and status colours a dense screen needs, which the
+ * website never uses (brand/guidelines, appendix A1). Light mode is white with greys tinted toward ink; dark mode is a
+ * neutral charcoal. Sky stays the brand accent in both: sky ink on sky wash (light) and sky on `ui-dark-active` (dark)
+ * mark the active or selected item. Every text colour here passes WCAG 4.5:1 on its own surface:
+ *   ui-mute 5.87 and ui-label 4.93 on white; ui-dark-text 14.22, ui-dark-mute 6.48 and ui-dark-label 5.05 on
+ *   ui-dark-card; sky 6.09 on ui-dark-active; status-* 5.93 / 6.52 / 6.54 on white; status-*-dark 10.39 / 9.29 / 7.28
+ *   on ui-dark-card.
+ * Marigold is never a status colour: it keeps meaning Donate.
+ */
+export declare const productColor: {
+    readonly uiCanvas: "#FAFBFB";
+    readonly uiSidebar: "#F6F7F8";
+    readonly uiField: "#F1F3F4";
+    readonly uiLine: "#E7EAED";
+    readonly uiLineSoft: "#EEF0F2";
+    readonly uiMute: "#5B6670";
+    readonly uiLabel: "#66727C";
+    readonly uiDarkPage: "#161618";
+    readonly uiDarkSidebar: "#111113";
+    readonly uiDarkCanvas: "#131315";
+    readonly uiDarkCard: "#1E1E21";
+    readonly uiDarkRaised: "#27272B";
+    readonly uiDarkLine: "#2F2F34";
+    readonly uiDarkLineSoft: "#28282C";
+    readonly uiDarkText: "#EDEDEF";
+    readonly uiDarkMute: "#A1A1A9";
+    readonly uiDarkLabel: "#8D8D95";
+    /** sky at 14% over ui-dark-card: the active item's background in dark mode */
+    readonly uiDarkActive: "#24353D";
+    readonly statusPending: "#8A5A00";
+    readonly statusPendingDot: "#E0A526";
+    readonly statusDone: "#1F6B3A";
+    readonly statusDoneDot: "#3FA866";
+    readonly statusRejected: "#B3261E";
+    readonly statusRejectedDot: "#D9443A";
+    readonly statusPendingDark: "#F1C76B";
+    readonly statusDoneDark: "#7FD3A0";
+    readonly statusRejectedDark: "#FF8A80";
+    readonly statusRejectedDotDark: "#E5584D";
+};
+/**
  * Alpha variants the site uses. Keys are the alpha in percent; values are written exactly as the site's CSS
  * writes them so the output is byte-for-byte the same colour. `bg-ink-a30`, `border-paper-a35`, ...
  */
@@ -89,10 +130,12 @@ export declare const rgb: {
 };
 /** Bricolage Grotesque (heavy display, 800) and Geist (text). No italics anywhere. Emitted as `--font-pi-display` and
  *  `--font-pi-sans` (utilities `font-pi-display`, `font-pi-sans`): the `pi-` keeps them clear of Tailwind's and
- *  shadcn's `--font-sans` / `--font-display`. */
+ *  shadcn's `--font-sans` / `--font-display`. Paper Mono (`--font-pi-mono`) is the data font of product interfaces:
+ *  amounts, dates, counts, IDs and table headers. The website does not use it. */
 export declare const font: {
     readonly "pi-display": 'Brico,"Arial Black",system-ui,sans-serif';
     readonly "pi-sans": 'Geist,system-ui,-apple-system,"Segoe UI",sans-serif';
+    readonly "pi-mono": 'PaperMono,ui-monospace,"SF Mono",Menlo,monospace';
 };
 /** Same names and values as Tailwind's defaults. */
 export declare const weight: {

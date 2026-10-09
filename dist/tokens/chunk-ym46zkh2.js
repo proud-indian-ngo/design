@@ -13,6 +13,36 @@ var color2 = {
   white: "#FFFFFF",
   black: "#000000"
 };
+var productColor2 = {
+  uiCanvas: "#FAFBFB",
+  uiSidebar: "#F6F7F8",
+  uiField: "#F1F3F4",
+  uiLine: "#E7EAED",
+  uiLineSoft: "#EEF0F2",
+  uiMute: "#5B6670",
+  uiLabel: "#66727C",
+  uiDarkPage: "#161618",
+  uiDarkSidebar: "#111113",
+  uiDarkCanvas: "#131315",
+  uiDarkCard: "#1E1E21",
+  uiDarkRaised: "#27272B",
+  uiDarkLine: "#2F2F34",
+  uiDarkLineSoft: "#28282C",
+  uiDarkText: "#EDEDEF",
+  uiDarkMute: "#A1A1A9",
+  uiDarkLabel: "#8D8D95",
+  uiDarkActive: "#24353D",
+  statusPending: "#8A5A00",
+  statusPendingDot: "#E0A526",
+  statusDone: "#1F6B3A",
+  statusDoneDot: "#3FA866",
+  statusRejected: "#B3261E",
+  statusRejectedDot: "#D9443A",
+  statusPendingDark: "#F1C76B",
+  statusDoneDark: "#7FD3A0",
+  statusRejectedDark: "#FF8A80",
+  statusRejectedDotDark: "#E5584D"
+};
 var alpha2 = {
   ink: {
     5: ".05",
@@ -56,7 +86,8 @@ var rgb2 = {
 };
 var font2 = {
   "pi-display": 'Brico,"Arial Black",system-ui,sans-serif',
-  "pi-sans": 'Geist,system-ui,-apple-system,"Segoe UI",sans-serif'
+  "pi-sans": 'Geist,system-ui,-apple-system,"Segoe UI",sans-serif',
+  "pi-mono": 'PaperMono,ui-monospace,"SF Mono",Menlo,monospace'
 };
 var weight2 = {
   normal: 400,
@@ -258,4 +289,4 @@ var motion2 = {
   }
 };
 
-export { color2, alpha2, rgb2, font2, weight2, text2, display2, leading2, tracking2, space2, radius2, radiusShape2, border2, z2, breakpoint2, PHONE_MAX2, shortScreen2, container2, motion2 };
+export { color2, productColor2, alpha2, rgb2, font2, weight2, text2, display2, leading2, tracking2, space2, radius2, radiusShape2, border2, z2, breakpoint2, PHONE_MAX2, shortScreen2, container2, motion2 };

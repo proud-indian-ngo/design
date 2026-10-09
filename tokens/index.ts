@@ -14,6 +14,7 @@ import {
   font,
   leading,
   motion,
+  productColor,
   radius,
   radiusShape,
   rgb,
@@ -72,6 +73,11 @@ export function tokenGroups(): Group[] {
       "Colour roles",
       true,
       Object.entries(semanticColor).map(([k, val]) => [`color-${k}`, val])
+    ),
+    g(
+      "Product colour",
+      true,
+      Object.entries(productColor).map(([k, val]) => [`color-${kebab(k)}`, val])
     ),
     g(
       "Font family",

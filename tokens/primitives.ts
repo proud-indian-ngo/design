@@ -32,6 +32,51 @@ export const color = {
 } as const;
 
 /**
+ * Product interfaces (pi-dash and any later app): the neutrals and status colours a dense screen needs, which the
+ * website never uses (brand/guidelines, appendix A1). Light mode is white with greys tinted toward ink; dark mode is a
+ * neutral charcoal. Sky stays the brand accent in both: sky ink on sky wash (light) and sky on `ui-dark-active` (dark)
+ * mark the active or selected item. Every text colour here passes WCAG 4.5:1 on its own surface:
+ *   ui-mute 5.87 and ui-label 4.93 on white; ui-dark-text 14.22, ui-dark-mute 6.48 and ui-dark-label 5.05 on
+ *   ui-dark-card; sky 6.09 on ui-dark-active; status-* 5.93 / 6.52 / 6.54 on white; status-*-dark 10.39 / 9.29 / 7.28
+ *   on ui-dark-card.
+ * Marigold is never a status colour: it keeps meaning Donate.
+ */
+export const productColor = {
+  // light
+  uiCanvas: "#FAFBFB",
+  uiSidebar: "#F6F7F8",
+  uiField: "#F1F3F4",
+  uiLine: "#E7EAED",
+  uiLineSoft: "#EEF0F2",
+  uiMute: "#5B6670",
+  uiLabel: "#66727C",
+  // dark (charcoal)
+  uiDarkPage: "#161618",
+  uiDarkSidebar: "#111113",
+  uiDarkCanvas: "#131315",
+  uiDarkCard: "#1E1E21",
+  uiDarkRaised: "#27272B",
+  uiDarkLine: "#2F2F34",
+  uiDarkLineSoft: "#28282C",
+  uiDarkText: "#EDEDEF",
+  uiDarkMute: "#A1A1A9",
+  uiDarkLabel: "#8D8D95",
+  /** sky at 14% over ui-dark-card: the active item's background in dark mode */
+  uiDarkActive: "#24353D",
+  // status: the text colour, plus the dot shown beside the word
+  statusPending: "#8A5A00",
+  statusPendingDot: "#E0A526",
+  statusDone: "#1F6B3A",
+  statusDoneDot: "#3FA866",
+  statusRejected: "#B3261E",
+  statusRejectedDot: "#D9443A",
+  statusPendingDark: "#F1C76B",
+  statusDoneDark: "#7FD3A0",
+  statusRejectedDark: "#FF8A80",
+  statusRejectedDotDark: "#E5584D",
+} as const;
+
+/**
  * Alpha variants the site uses. Keys are the alpha in percent; values are written exactly as the site's CSS
  * writes them so the output is byte-for-byte the same colour. `bg-ink-a30`, `border-paper-a35`, ...
  */
@@ -82,10 +127,12 @@ export const rgb = {
 
 /** Bricolage Grotesque (heavy display, 800) and Geist (text). No italics anywhere. Emitted as `--font-pi-display` and
  *  `--font-pi-sans` (utilities `font-pi-display`, `font-pi-sans`): the `pi-` keeps them clear of Tailwind's and
- *  shadcn's `--font-sans` / `--font-display`. */
+ *  shadcn's `--font-sans` / `--font-display`. Paper Mono (`--font-pi-mono`) is the data font of product interfaces:
+ *  amounts, dates, counts, IDs and table headers. The website does not use it. */
 export const font = {
   "pi-display": 'Brico,"Arial Black",system-ui,sans-serif',
   "pi-sans": 'Geist,system-ui,-apple-system,"Segoe UI",sans-serif',
+  "pi-mono": 'PaperMono,ui-monospace,"SF Mono",Menlo,monospace',
 } as const;
 
 /** Same names and values as Tailwind's defaults. */
