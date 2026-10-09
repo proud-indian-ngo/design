@@ -2,6 +2,13 @@
 
 All notable changes to `@proudindian/design`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [semver](https://semver.org/).
 
+## [0.2.4] - 2026-10-09
+
+### Changed
+
+- **Scrollbars (`css/scrollbar.css`) get a visible track.** The page bar is now 12px: a paper track (`paper-2`) with a hairline ink edge on the side facing the content, and an ink pill at 50% with 2px of inset, deep sky on hover and solid ink while dragged. `.pi-scroll-thin` is 6px with no inset or edge. `.pi-scroll-dark` has a faint paper track, a paper pill at 40% and sky on hover. Firefox gets the same thumb and track colours at its thin width.
+- **Scrollbar tokens** (`tokens/components.ts`): `--scrollbar-size` 8px → 12px, `--scrollbar-size-thin` 4px → 6px, `--scrollbar-thumb` ink at 35% → 50%, `--scrollbar-thumb-hover` sky → deep sky. New: `--scrollbar-track`, `--scrollbar-track-edge`, `--scrollbar-thumb-active`, `--scrollbar-track-dark` and `--scrollbar-thumb-dark-hover`.
+
 ## [0.2.3] - 2026-10-09
 
 ### Added

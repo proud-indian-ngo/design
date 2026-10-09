@@ -1,6 +1,6 @@
 {
   "name": "@proudindian/design",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": true,
   "description": "Proud Indian design system: Tailwind v4 theme and tokens, .pi-* CSS primitives, fonts, logo, brand doodles and React components",
   "homepage": "https://github.com/proud-indian-ngo/design#readme",

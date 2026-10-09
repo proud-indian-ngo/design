@@ -1,11 +1,10 @@
 /* Brand scrollbars (@proudindian/design/scrollbar.css). Opt in:  @import "@proudindian/design/scrollbar.css";
    (plain CSS, no layer needed; it only styles scrollbars). Needs tokens.css (the --scrollbar-* tokens).
 
-   A floating pill on a transparent track: 8px, ink at 35% with 2px of inset all round, solid sky on hover and while
-   dragged. The track is transparent, so the page shows through (base.css gives html the paper background, so it is
-   never white). Classes for scroll containers:
-     .pi-scroll-thin   a 4px bar, no inset (horizontal swipe rows)
-     .pi-scroll-dark   paper at 40% (scrollers on ink surfaces); still sky on hover
+   A 12px paper track (paper-2) with a hairline ink edge on the side facing the content, and an ink pill at 50% with
+   2px of inset all round: deep sky on hover, solid ink while dragged. Classes for scroll containers:
+     .pi-scroll-thin   a 6px bar, no inset, no edge (small scrollers)
+     .pi-scroll-dark   for scrollers on ink surfaces: a faint paper track and a paper pill at 40%, sky on hover
    Native scrolling, keyboard and accessibility are untouched; nothing is hidden.
 
    Only for mouse and trackpad pointers (hover: hover, pointer: fine): touch devices keep their native overlay
@@ -23,8 +22,7 @@
 
    Opt-out: html[data-native-scrollbar]. With that attribute on <html>, none of the rules below apply, to the page or
    to any scroller (.pi-scroll-thin and .pi-scroll-dark included): the browser draws its default scrollbars. Set it
-   before first paint (an inline head script) so the custom bar never flashes. The website sets it on macOS, where the
-   system's own overlay scrollbars are the expected look.
+   before first paint (an inline head script) so the custom bar never flashes.
    Every rule is scoped to html:not([data-native-scrollbar]), written with html and not :root: Chromium never matches
    a scrollbar pseudo-element's :hover or :active when :root is in the selector. Each pseudo-element rule is listed
    twice, html:not(...)::-webkit-scrollbar for the page's own (viewport) bar and html:not(...) ::-webkit-scrollbar for
@@ -34,15 +32,23 @@
 :root {
   --sb-size: var(--scrollbar-size);
   --sb-inset: var(--scrollbar-inset);
+  --sb-track: var(--scrollbar-track);
+  --sb-edge: var(--scrollbar-track-edge);
   --sb-thumb: var(--scrollbar-thumb);
   --sb-thumb-hover: var(--scrollbar-thumb-hover);
+  --sb-thumb-active: var(--scrollbar-thumb-active);
 }
 .pi-scroll-thin {
   --sb-size: var(--scrollbar-size-thin);
   --sb-inset: 0px;
+  --sb-edge: transparent;
 }
 .pi-scroll-dark {
+  --sb-track: var(--scrollbar-track-dark);
+  --sb-edge: transparent;
   --sb-thumb: var(--scrollbar-thumb-dark);
+  --sb-thumb-hover: var(--scrollbar-thumb-dark-hover);
+  --sb-thumb-active: var(--scrollbar-thumb-dark-hover);
 }
 @media (hover: hover) and (pointer: fine) {
   @supports selector(::-webkit-scrollbar) {
@@ -51,13 +57,22 @@
     html:not([data-native-scrollbar]) ::-webkit-scrollbar {
       width: var(--sb-size);
       height: var(--sb-size);
-      background: transparent;
+      background: var(--sb-track);
     }
-    html:not([data-native-scrollbar])::-webkit-scrollbar-track,
-    html:not([data-native-scrollbar]) ::-webkit-scrollbar-track,
+    /* the hairline sits on the edge facing the content: left of a vertical bar, above a horizontal one */
+    html:not([data-native-scrollbar])::-webkit-scrollbar-track:vertical,
+    html:not([data-native-scrollbar]) ::-webkit-scrollbar-track:vertical {
+      background: var(--sb-track);
+      box-shadow: inset 1px 0 0 var(--sb-edge);
+    }
+    html:not([data-native-scrollbar])::-webkit-scrollbar-track:horizontal,
+    html:not([data-native-scrollbar]) ::-webkit-scrollbar-track:horizontal {
+      background: var(--sb-track);
+      box-shadow: inset 0 1px 0 var(--sb-edge);
+    }
     html:not([data-native-scrollbar])::-webkit-scrollbar-corner,
     html:not([data-native-scrollbar]) ::-webkit-scrollbar-corner {
-      background: transparent;
+      background: var(--sb-track);
     }
     /* the inset is a transparent border, with the colour clipped to the padding box */
     html:not([data-native-scrollbar])::-webkit-scrollbar-thumb,
@@ -68,10 +83,12 @@
       border-radius: 99px;
     }
     html:not([data-native-scrollbar])::-webkit-scrollbar-thumb:hover,
-    html:not([data-native-scrollbar]) ::-webkit-scrollbar-thumb:hover,
+    html:not([data-native-scrollbar]) ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--sb-thumb-hover);
+    }
     html:not([data-native-scrollbar])::-webkit-scrollbar-thumb:active,
     html:not([data-native-scrollbar]) ::-webkit-scrollbar-thumb:active {
-      background-color: var(--sb-thumb-hover);
+      background-color: var(--sb-thumb-active);
     }
   }
   @supports not selector(::-webkit-scrollbar) {
@@ -79,7 +96,7 @@
     html:not([data-native-scrollbar]) .pi-scroll-thin,
     html:not([data-native-scrollbar]) .pi-scroll-dark {
       scrollbar-width: thin;
-      scrollbar-color: var(--sb-thumb) transparent;
+      scrollbar-color: var(--sb-thumb) var(--sb-track);
     }
   }
 }
