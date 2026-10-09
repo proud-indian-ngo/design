@@ -1,8 +1,8 @@
 /* Brand scrollbars (@proudindian/design/scrollbar.css). Opt in:  @import "@proudindian/design/scrollbar.css";
    (plain CSS, no layer needed; it only styles scrollbars). Needs tokens.css (the --scrollbar-* tokens).
 
-   A 12px paper track (paper-2) with a hairline ink edge on the side facing the content, and an ink pill at 50% with
-   2px of inset all round: deep sky on hover, solid ink while dragged. Classes for scroll containers:
+   A 12px paper track (paper-2) with a 1px ink line on the side facing the content, like the outlines on the rest of
+   the brand, and a solid ink pill with 2px of inset all round: sky on hover, deep sky while dragged. Classes for scroll containers:
      .pi-scroll-thin   a 6px bar, no inset, no edge (small scrollers)
      .pi-scroll-dark   for scrollers on ink surfaces: a faint paper track and a paper pill at 40%, sky on hover
    Native scrolling, keyboard and accessibility are untouched; nothing is hidden.
@@ -59,7 +59,7 @@
       height: var(--sb-size);
       background: var(--sb-track);
     }
-    /* the hairline sits on the edge facing the content: left of a vertical bar, above a horizontal one */
+    /* the ink line sits on the edge facing the content: left of a vertical bar, above a horizontal one */
     html:not([data-native-scrollbar])::-webkit-scrollbar-track:vertical,
     html:not([data-native-scrollbar]) ::-webkit-scrollbar-track:vertical {
       background: var(--sb-track);

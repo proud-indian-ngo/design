@@ -345,10 +345,10 @@
     --scrollbar-size-thin: 6px;
     --scrollbar-inset: 2px;
     --scrollbar-track: var(--color-paper-2);
-    --scrollbar-track-edge: var(--color-ink-a14);
-    --scrollbar-thumb: var(--color-ink-a50);
-    --scrollbar-thumb-hover: var(--color-sky-deep);
-    --scrollbar-thumb-active: var(--color-ink);
+    --scrollbar-track-edge: var(--color-ink);
+    --scrollbar-thumb: var(--color-ink);
+    --scrollbar-thumb-hover: var(--color-sky);
+    --scrollbar-thumb-active: var(--color-sky-deep);
     --scrollbar-track-dark: var(--color-paper-a8);
     --scrollbar-thumb-dark: var(--color-paper-a40);
     --scrollbar-thumb-dark-hover: var(--color-sky);

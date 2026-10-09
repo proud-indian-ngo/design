@@ -46,15 +46,15 @@ export const components = {
   // Sticker (.pi-sticker)
   sticker: `${v("sticker-outline")} ${v("sticker-lift")}`,
 
-  // Scrollbars (css/scrollbar.css): an ink pill in a paper track with a hairline edge
+  // Scrollbars (css/scrollbar.css): an ink pill in a paper track edged with an ink line, like the site's outlines
   "scrollbar-size": "12px",
   "scrollbar-size-thin": "6px",
   "scrollbar-inset": "2px",
   "scrollbar-track": v("color-paper-2"),
-  "scrollbar-track-edge": v("color-ink-a14"),
-  "scrollbar-thumb": v("color-ink-a50"),
-  "scrollbar-thumb-hover": v("color-sky-deep"),
-  "scrollbar-thumb-active": v("color-ink"),
+  "scrollbar-track-edge": v("color-ink"),
+  "scrollbar-thumb": v("color-ink"),
+  "scrollbar-thumb-hover": v("color-sky"),
+  "scrollbar-thumb-active": v("color-sky-deep"),
   "scrollbar-track-dark": v("color-paper-a8"),
   "scrollbar-thumb-dark": v("color-paper-a40"),
   "scrollbar-thumb-dark-hover": v("color-sky"),

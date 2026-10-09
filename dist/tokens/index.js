@@ -1,6 +1,6 @@
 import {
   components2
-} from "./chunk-yndej57c.js";
+} from "./chunk-0krz3226.js";
 import {
   color2,
   alpha2,

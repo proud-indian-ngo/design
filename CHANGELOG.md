@@ -2,6 +2,12 @@
 
 All notable changes to `@proudindian/design`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [semver](https://semver.org/).
 
+## [0.2.5] - 2026-10-09
+
+### Changed
+
+- **Bolder brand scrollbar.** The page bar's track edge is now a solid ink line (`--scrollbar-track-edge`: ink at 14% → ink) and the pill is solid ink (`--scrollbar-thumb`: ink at 50% → ink), sky on hover (`--scrollbar-thumb-hover`: deep sky → sky) and deep sky while dragged (`--scrollbar-thumb-active`: ink → deep sky). At 0.2.4 the cream track and grey pill were too close to the page to read as the brand's. `.pi-scroll-dark` is unchanged.
+
 ## [0.2.4] - 2026-10-09
 
 ### Changed
