@@ -2,6 +2,12 @@
 
 All notable changes to `@proudindian/design`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [semver](https://semver.org/).
 
+## [0.3.2] - 2026-10-09
+
+### Changed
+
+- **Git installs are about 27× smaller.** A new `.gitattributes` marks everything outside package.json `files` as `export-ignore`: the brand guide (PDF and source), `logo-tools/`, `docs/`, `scripts/`, the React sources (`dist/react` is the built copy) and repo config. Apps install from a tag (`github:proud-indian-ngo/design#vX.Y.Z`), which downloads GitHub's tarball of the tag, and that tarball now goes from 21.6 MB to 0.8 MB compressed (26 MB to about 2 MB in `node_modules`). Nothing an app imports changes. The repo itself is unchanged; `export-ignore` only applies to `git archive` and GitHub tarballs.
+
 ## [0.3.1] - 2026-10-09
 
 ### Added
