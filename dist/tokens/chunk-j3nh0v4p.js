@@ -1,6 +1,6 @@
 // tokens/components.ts
 var v = (name) => `var(--${name})`;
-var components = {
+var components2 = {
   "btn-font": `${v("font-weight-semibold")} ${v("text-15")} ${v("font-pi-sans")}`,
   "btn-pad": "12px 20px",
   "btn-pad-lg": "16px 28px",
@@ -41,4 +41,4 @@ var components = {
   "doodle-outline-on-ink": "0.3"
 };
 
-export { components };
+export { components2 };

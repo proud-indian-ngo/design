@@ -4,9 +4,11 @@
  *   bun run react:assets          write
  *   bun run react:assets --check  exit 1 if stale (part of `bun run check`)
  */
-import { readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, readdirSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+
+import { writeGenerated } from "./lib/generated";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = join(ROOT, "react", "generated");
@@ -119,24 +121,5 @@ const out: [string, string][] = [
   [join(OUT, "doodles.ts"), doodlesTs],
   [join(OUT, "logo.ts"), logoTs],
 ];
-const check = process.argv.includes("--check");
-let stale = false;
 mkdirSync(OUT, { recursive: true });
-for (const [file, content] of out) {
-  let cur = "";
-  try {
-    cur = readFileSync(file, "utf8");
-  } catch {
-    cur = "";
-  }
-  if (cur === content) continue;
-  if (check) {
-    console.error(`stale: ${file} (run \`bun run react:assets\`)`);
-    stale = true;
-  } else {
-    writeFileSync(file, content);
-    console.log(`wrote ${file}`);
-  }
-}
-if (stale) process.exit(1);
-if (check) console.log("react assets: up to date");
+writeGenerated(out, "react assets", "bun run react:assets");

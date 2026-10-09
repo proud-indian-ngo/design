@@ -1,0 +1,85 @@
+# Checks every pull request and push. On main, a version bump in package.json releases it: the `release` job tags
+# vX.Y.Z and publishes a GitHub release with that version's CHANGELOG section. `checks` is the required status check.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.4.2"
+      - uses: actions/cache@v6
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+          restore-keys: bun-${{ runner.os }}-
+      - run: bun install --frozen-lockfile
+
+      - name: Lint and generated files
+        run: bun run check
+      - name: Type check
+        run: bun run check:types
+      - name: Unused code and duplication (fallow)
+        run: bun run check:fallow
+      # consumers install from git tags without building, so the committed dist/ and docs/ must match the source
+      - name: Build is committed
+        run: |
+          bun run build
+          bun run docs
+          if [ -n "$(git status --porcelain)" ]; then
+            git status --short
+            echo "::error title=Stale build::Run 'bun run build && bun run docs' and commit the result"
+            exit 1
+          fi
+
+  release:
+    needs: checks
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Tag and release a new version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(jq -r .version package.json)
+          tag="v$version"
+          if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+            echo "$tag already exists; nothing to release"
+            exit 0
+          fi
+          # the CHANGELOG section for this version, without its heading
+          notes=$(awk -v v="$version" '
+            index($0, "## [" v "]") == 1 { on = 1; next }
+            on && /^## \[/ { exit }
+            on { print }
+          ' CHANGELOG.md)
+          if [ -z "$(printf '%s' "$notes" | tr -d '[:space:]')" ]; then
+            echo "::error title=Missing changelog::CHANGELOG.md has no '## [$version]' section"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$tag" -m "$tag"
+          git push origin "$tag"
+          printf '%s\n' "$notes" > /tmp/notes.md
+          gh release create "$tag" --title "$tag" --notes-file /tmp/notes.md --verify-tag

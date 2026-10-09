@@ -1,32 +1,32 @@
 import {
-  PHONE_MAX,
-  alpha,
-  border,
-  breakpoint,
-  color,
-  container,
-  display,
-  font,
-  leading,
-  motion,
-  radius,
-  radiusShape,
-  rgb,
-  shortScreen,
-  space,
-  text,
-  tracking,
-  weight,
-  z
-} from "./chunk-ga1qzbw3.js";
+  components2
+} from "./chunk-j3nh0v4p.js";
 import {
-  semantic,
-  semanticColor,
-  shadow
-} from "./chunk-gbkz6hmw.js";
+  color2,
+  alpha2,
+  rgb2,
+  font2,
+  weight2,
+  text2,
+  display2,
+  leading2,
+  tracking2,
+  space2,
+  radius2,
+  radiusShape2,
+  border2,
+  z2,
+  breakpoint2,
+  PHONE_MAX2,
+  shortScreen2,
+  container2,
+  motion2
+} from "./chunk-4ec6kdvr.js";
 import {
-  components
-} from "./chunk-bz9bqhx1.js";
+  semanticColor2,
+  shadow2,
+  semantic2
+} from "./chunk-4h437c5b.js";
 
 // tokens/index.ts
 var kebab = (s) => s.replace(/([a-z0-9])([A-Z])/g, "$1-$2").replace(/([a-z])(\d)/g, "$1-$2").toLowerCase();
@@ -38,51 +38,51 @@ var g = (title, theme, vars) => ({
 });
 function tokenGroups() {
   const alphas = [];
-  for (const [name, steps] of Object.entries(alpha)) {
+  for (const [name, steps] of Object.entries(alpha2)) {
     for (const [pct, a] of Object.entries(steps)) {
       alphas.push([
         `color-${kebab(name)}-a${pct}`,
-        `rgba(${rgb[name]},${a})`
+        `rgba(${rgb2[name]},${a})`
       ]);
     }
   }
   return [
-    g("Colour", true, Object.entries(color).map(([k, val]) => [`color-${kebab(k)}`, val])),
+    g("Colour", true, Object.entries(color2).map(([k, val]) => [`color-${kebab(k)}`, val])),
     g("Colour alpha", true, alphas),
-    g("Colour roles", true, Object.entries(semanticColor).map(([k, val]) => [`color-${k}`, val])),
-    g("Font family", true, Object.entries(font).map(([k, val]) => [`font-${k}`, val])),
-    g("Font weight", true, Object.entries(weight).map(([k, val]) => [`font-weight-${k}`, val])),
+    g("Colour roles", true, Object.entries(semanticColor2).map(([k, val]) => [`color-${k}`, val])),
+    g("Font family", true, Object.entries(font2).map(([k, val]) => [`font-${k}`, val])),
+    g("Font weight", true, Object.entries(weight2).map(([k, val]) => [`font-weight-${k}`, val])),
     g("Type scale", true, [
-      ...text.flatMap((n) => [
+      ...text2.flatMap((n) => [
         [`text-${step(n)}`, `${n}px`],
         [`text-${step(n)}--line-height`, "normal"]
       ]),
-      ...Object.entries(display).flatMap(([k, val]) => [
+      ...Object.entries(display2).flatMap(([k, val]) => [
         [`text-${k}`, val],
         [`text-${k}--line-height`, "normal"]
       ])
     ]),
-    g("Line height", true, Object.entries(leading).map(([k, val]) => [`leading-${k}`, val])),
-    g("Letter spacing", true, Object.entries(tracking).map(([k, val]) => [`tracking-${k}`, val])),
+    g("Line height", true, Object.entries(leading2).map(([k, val]) => [`leading-${k}`, val])),
+    g("Letter spacing", true, Object.entries(tracking2).map(([k, val]) => [`tracking-${k}`, val])),
     g("Radius", true, [
-      ...radius.map((n) => [`radius-${n}`, `${n}px`]),
-      ["radius-pill", radiusShape.pill],
-      ["radius-round", radiusShape.round]
+      ...radius2.map((n) => [`radius-${n}`, `${n}px`]),
+      ["radius-pill", radiusShape2.pill],
+      ["radius-round", radiusShape2.round]
     ]),
-    g("Shadow", true, Object.entries(shadow).map(([k, val]) => [`shadow-${k}`, val])),
-    g("Breakpoint", true, Object.entries(breakpoint).map(([k, val]) => [
+    g("Shadow", true, Object.entries(shadow2).map(([k, val]) => [`shadow-${k}`, val])),
+    g("Breakpoint", true, Object.entries(breakpoint2).map(([k, val]) => [
       `breakpoint-${k}`,
       `${val}px`
     ])),
-    g("Container", true, Object.entries(container).map(([k, val]) => [`container-${k}`, val])),
-    g("Easing", true, Object.entries(motion.ease).map(([k, val]) => [`ease-${k}`, val])),
-    g("Border width", false, Object.entries(border).map(([k, val]) => [`border-${k}`, val])),
-    g("Space (hand-written CSS)", false, space.map((n) => [`space-${n}`, `${n}px`])),
-    g("Z-index", false, Object.entries(z).map(([k, val]) => [`z-${kebab(k)}`, val])),
-    g("Duration", false, Object.entries(motion.duration).map(([k, val]) => [`dur-${k}`, val])),
-    g("Loop", false, Object.entries(motion.loop).map(([k, val]) => [`loop-${k}`, val])),
-    g("Semantic", false, Object.entries(semantic)),
-    g("Component", false, Object.entries(components))
+    g("Container", true, Object.entries(container2).map(([k, val]) => [`container-${k}`, val])),
+    g("Easing", true, Object.entries(motion2.ease).map(([k, val]) => [`ease-${k}`, val])),
+    g("Border width", false, Object.entries(border2).map(([k, val]) => [`border-${k}`, val])),
+    g("Space (hand-written CSS)", false, space2.map((n) => [`space-${n}`, `${n}px`])),
+    g("Z-index", false, Object.entries(z2).map(([k, val]) => [`z-${kebab(k)}`, val])),
+    g("Duration", false, Object.entries(motion2.duration).map(([k, val]) => [`dur-${k}`, val])),
+    g("Loop", false, Object.entries(motion2.loop).map(([k, val]) => [`loop-${k}`, val])),
+    g("Semantic", false, Object.entries(semantic2)),
+    g("Component", false, Object.entries(components2))
   ];
 }
 var HEADER = "/* GENERATED by @proudindian/design tokens/build.ts from tokens/*.ts. Do not edit; run `bun run tokens`. */\n";
@@ -103,30 +103,30 @@ ${body(tokenGroups().filter((x) => !x.theme))}
 `;
 }
 export {
-  PHONE_MAX,
-  alpha,
-  border,
-  breakpoint,
-  color,
-  components,
-  container,
-  display,
-  font,
-  leading,
-  motion,
-  radius,
-  radiusShape,
-  rgb,
-  semantic,
-  semanticColor,
-  shadow,
-  shortScreen,
-  space,
-  text,
+  PHONE_MAX2 as PHONE_MAX,
+  alpha2 as alpha,
+  border2 as border,
+  breakpoint2 as breakpoint,
+  color2 as color,
+  components2 as components,
+  container2 as container,
+  display2 as display,
+  font2 as font,
+  leading2 as leading,
+  motion2 as motion,
+  radius2 as radius,
+  radiusShape2 as radiusShape,
+  rgb2 as rgb,
+  semantic2 as semantic,
+  semanticColor2 as semanticColor,
+  shadow2 as shadow,
+  shortScreen2 as shortScreen,
+  space2 as space,
+  text2 as text,
   themeCss,
   tokenGroups,
   tokensCss,
-  tracking,
-  weight,
-  z
+  tracking2 as tracking,
+  weight2 as weight,
+  z2 as z
 };
