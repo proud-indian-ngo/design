@@ -796,8 +796,8 @@ blockquote cite{display:block;font:400 11px/1.4 Geist;letter-spacing:0;color:var
 .pr-tab{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:6px;background:#E9F5FA;color:#08668C;font-weight:600}
 .pr-tab em{font:600 9.5px/16px PaperMono,monospace;font-style:normal;background:#fff;border-radius:4px;padding:0 5px}
 .dk .pr-tab{background:#24353D;color:#4CC0EC}.dk .pr-tab em{background:#161618}
-.pr-btn{padding:5px 10px;border-radius:6px;background:#0F1B24;color:#fff;font-weight:600}
-.dk .pr-btn{background:#EDEDEF;color:#161618}
+.pr-btn{padding:5px 10px;border-radius:6px;background:#08668C;color:#fff;font-weight:600}
+.dk .pr-btn{background:#4CC0EC;color:#0F1B24}
 .pr-st{display:inline-flex;align-items:center;gap:5px;font-weight:500}
 .pr-st i{width:7px;height:7px;border-radius:50%}
 .pr-r .ticks li{font-size:11.5px;line-height:1.38;margin-bottom:7px}
