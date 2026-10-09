@@ -1,0 +1,114 @@
+{
+  "name": "@proudindian/design",
+  "version": "0.2.3",
+  "private": true,
+  "description": "Proud Indian design system: Tailwind v4 theme and tokens, .pi-* CSS primitives, fonts, logo, brand doodles and React components",
+  "homepage": "https://github.com/proud-indian-ngo/design#readme",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/proud-indian-ngo/design.git"
+  },
+  "files": [
+    "tokens",
+    "css",
+    "fonts",
+    "logo",
+    "illustrations",
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "type": "module",
+  "sideEffects": [
+    "*.css",
+    "./react/*.ts",
+    "./react/*.tsx",
+    "./react/generated/*.ts",
+    "./tokens/*.ts"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js"
+    },
+    "./package.json": "./package.json",
+    "./css": "./css/index.css",
+    "./styles.css": "./dist/styles.css",
+    "./css/*": "./css/*",
+    "./theme.css": "./tokens/theme.css",
+    "./tokens.css": "./tokens/tokens.css",
+    "./tokens.json": "./tokens/tokens.json",
+    "./scope.css": "./tokens/scope.css",
+    "./fonts.css": "./css/fonts.css",
+    "./base.css": "./css/base.css",
+    "./scrollbar.css": "./css/scrollbar.css",
+    "./outline.css": "./css/outline.css",
+    "./primitives.css": "./css/primitives.css",
+    "./shadcn.css": "./css/shadcn.css",
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js"
+    },
+    "./tokens/*": "./tokens/*",
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js"
+    },
+    "./fonts/*": "./fonts/*",
+    "./logo/*": "./logo/*",
+    "./illustrations/manifest.json": "./illustrations/manifest.json",
+    "./illustrations/outline-sprite.svg": "./illustrations/outline-sprite.svg",
+    "./illustrations/outline/manifest.json": "./illustrations/outline/manifest.json",
+    "./illustrations/*": "./illustrations/*"
+  },
+  "scripts": {
+    "build": "bun scripts/build.ts",
+    "prepare": "lefthook install || true",
+    "tokens": "bun tokens/build.ts",
+    "tokens:check": "bun tokens/build.ts --check",
+    "react:assets": "bun scripts/build-react-assets.ts",
+    "react:assets:check": "bun scripts/build-react-assets.ts --check",
+    "check": "bun run tokens:check && bun run react:assets:check && bun run outline:check && bun run check:assets && bun run lint",
+    "check:assets": "bun scripts/check-assets.ts",
+    "check:types": "tsc -p .",
+    "lint": "oxfmt --check . && oxlint . --max-warnings=0",
+    "fix": "oxfmt . && oxlint --fix .",
+    "docs": "bun scripts/build-docs.tsx",
+    "illustrations": "bun scripts/build-illustrations.ts",
+    "illustrations:sheet": "bun scripts/contact-sheet.ts",
+    "outline": "bun scripts/build-outline.ts",
+    "outline:check": "bun scripts/build-outline.ts --check",
+    "logo:rebuild": "logo-tools/rebuild.sh",
+    "logo:verify": "logo-tools/verify.sh",
+    "og": "node logo-tools/og/render-og.mjs",
+    "brand:render": "node brand/guidelines/_build/render.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4",
+    "@types/bun": "^1.3.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "lefthook": "2.1.14",
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0",
+    "playwright": "1.63.0",
+    "react-dom": "^19",
+    "svgo": "^4.0.0",
+    "tailwindcss": "^4",
+    "typescript": "^7.0.2",
+    "ultracite": "7.12.0"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "tailwindcss": "^4"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "tailwindcss": {
+      "optional": true
+    }
+  }
+}

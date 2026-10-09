@@ -1,0 +1,72 @@
+/* Button: Geist 600 pill with a 1.5px ink outline and a hard sticker offset (.pi-btn and variants) */
+.pi-btn {
+  font: var(--btn-font);
+  padding: var(--btn-pad);
+  border-radius: var(--btn-radius);
+  border: var(--btn-border);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  box-shadow: var(--btn-shadow);
+  transition:
+    transform var(--dur-fast) var(--ease-settle),
+    box-shadow var(--dur-fast) var(--ease-settle);
+  cursor: pointer;
+}
+/* hover only where a real pointer hovers, so a tap on a phone doesn't leave the button lifted */
+@media (hover: hover) and (pointer: fine) {
+  .pi-btn:hover {
+    transform: var(--btn-lift);
+    box-shadow: var(--btn-shadow-hover);
+  }
+}
+/* pressed: sinks into its own hard shadow */
+.pi-btn:active {
+  transform: var(--btn-press);
+  box-shadow: var(--btn-shadow-press);
+  transition-duration: 100ms;
+}
+.pi-btn.pi-btn--lg {
+  font-size: var(--text-17);
+  padding: var(--btn-pad-lg);
+}
+.pi-btn.pi-btn--xl {
+  font-size: var(--text-18);
+  padding: var(--btn-pad-xl);
+  justify-content: center;
+}
+.pi-btn.pi-btn--block {
+  display: flex;
+  width: 100%;
+}
+.pi-btn--ink {
+  background: var(--color-surface-ink);
+  color: var(--color-white);
+}
+.pi-btn--sky {
+  background: var(--color-surface-sky);
+  color: var(--color-ink);
+}
+.pi-btn--donate {
+  background: var(--color-marigold);
+  color: var(--color-ink);
+}
+.pi-btn--ghost {
+  background: var(--color-surface-paper);
+  color: var(--color-ink);
+}
+@media (width < --theme(--breakpoint-tab)) {
+  .pi-btn {
+    font-size: var(--text-14);
+    padding: 11px var(--space-16);
+  }
+  .pi-btn.pi-btn--lg {
+    font-size: var(--text-16);
+    padding: 15px var(--space-22);
+  }
+  .pi-btn.pi-btn--xl {
+    font-size: var(--text-16-5);
+    padding: var(--space-16) var(--space-20);
+  }
+}

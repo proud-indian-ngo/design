@@ -1,0 +1,15 @@
+/* Sticker: die-cut cut-out with a paper outline and a soft lift (.pi-sticker); --crop flat-crops the bottom */
+.pi-sticker,
+.pi-sticker--crop {
+  filter: var(--sticker);
+}
+.pi-sticker--crop {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+.pi-sticker--crop img {
+  display: block;
+  height: auto;
+  width: 100%;
+}

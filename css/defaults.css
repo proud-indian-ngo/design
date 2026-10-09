@@ -1,0 +1,59 @@
+/* Package-only defaults for the React components (pi-website styles these per section instead). Every selector uses
+   a class the website markup does not, so importing the package CSS into the site changes nothing there. */
+.pi-polaroid--standalone {
+  position: relative;
+  display: inline-block;
+}
+.pi-polaroid__caption {
+  font: var(--font-weight-extrabold) var(--text-17) / var(--leading-title)
+    var(--font-pi-display);
+  letter-spacing: var(--tracking-label);
+  padding: var(--space-10) var(--space-2) var(--space-12);
+  color: var(--color-ink);
+}
+.pi-polaroid__tag {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  left: 18px;
+  font: var(--font-weight-extrabold) var(--text-12-5) var(--font-pi-display);
+  background: var(--color-marigold);
+  color: var(--color-ink);
+  padding: var(--space-2) var(--space-6);
+  transform: rotate(3deg);
+}
+.pi-tape--top {
+  left: 50%;
+  top: -12px;
+  width: 78px;
+  height: 24px;
+  margin-left: -39px;
+  transform: rotate(-3deg);
+  z-index: 3;
+}
+.pi-seal {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+}
+.pi-seal > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pi-seal__centre {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font: var(--font-weight-extrabold) var(--text-24) / var(--leading-none)
+    var(--font-pi-display);
+  letter-spacing: var(--tracking-label);
+}
+.pi-root {
+  font-family: var(--font-pi-sans);
+  color: var(--color-ink);
+  background: var(--color-surface-paper);
+  -webkit-font-smoothing: antialiased;
+}

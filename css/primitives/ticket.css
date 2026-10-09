@@ -1,0 +1,103 @@
+/* Ticket: the "Admit one" stub ticket with punched corners and a perforated stub (.pi-ticket) */
+.pi-ticket {
+  display: block;
+  filter: var(--ticket-shadow);
+  color: var(--color-ink);
+}
+.pi-ticket__body {
+  display: flex;
+  height: var(--ticket-h);
+  background: var(--bg);
+  --r: var(--ticket-notch);
+  --sx: calc(100% - var(--ticket-stub));
+  -webkit-mask:
+    radial-gradient(
+      circle var(--r) at 0 0,
+      transparent 98%,
+      var(--color-black)
+    ),
+    radial-gradient(
+      circle var(--r) at 100% 0,
+      transparent 98%,
+      var(--color-black)
+    ),
+    radial-gradient(
+      circle var(--r) at 0 100%,
+      transparent 98%,
+      var(--color-black)
+    ),
+    radial-gradient(
+      circle var(--r) at 100% 100%,
+      transparent 98%,
+      var(--color-black)
+    ),
+    radial-gradient(
+      circle 10px at var(--sx) 0,
+      transparent 98%,
+      var(--color-black)
+    ),
+    radial-gradient(
+      circle 10px at var(--sx) 100%,
+      transparent 98%,
+      var(--color-black)
+    );
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.pi-ticket--paper {
+  --bg: var(--color-paper);
+}
+.pi-ticket--marigold {
+  --bg: var(--color-marigold);
+}
+.pi-ticket__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-16) var(--space-18) 0 var(--space-22);
+}
+.pi-ticket__kicker {
+  font: var(--font-weight-semibold) var(--text-12-5) var(--font-pi-sans);
+  letter-spacing: var(--tracking-ticket);
+}
+.pi-ticket__title {
+  font: var(--font-weight-extrabold) 29px/var(--leading-none)
+    var(--font-pi-display);
+  letter-spacing: var(--tracking-heading);
+}
+.pi-ticket__rail {
+  display: flex;
+  border-top: var(--line-ink);
+  margin: 0 -18px 0 -22px;
+  font: var(--font-weight-semibold) var(--text-11) var(--font-pi-sans);
+}
+.pi-ticket__rail span {
+  flex: 1;
+  text-align: center;
+  padding: 7px 0 var(--space-8);
+}
+.pi-ticket__rail span + span {
+  border-left: var(--line-ink);
+}
+.pi-ticket__stub {
+  width: var(--ticket-stub);
+  flex: none;
+  border-left: var(--border-heavy) dashed var(--color-ink);
+  display: grid;
+  place-items: center;
+}
+.pi-ticket__stub span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font: var(--font-weight-extrabold) var(--text-20) var(--font-pi-display);
+  letter-spacing: var(--tracking-label);
+}
+@media (width < --theme(--breakpoint-tab)) {
+  .pi-ticket__body {
+    height: var(--ticket-h-phone);
+  }
+  .pi-ticket__title {
+    font-size: var(--text-27);
+  }
+}

@@ -1,0 +1,34 @@
+/* Custom Tailwind utilities built from tokens. The 1.5px line is the design's signature outline; pair it with a
+   colour utility: `border-line border-ink`, `border-t-line border-paper`, `border-line-dashed border-ink`. */
+@utility border-line {
+  border-style: solid;
+  border-width: var(--border-ink);
+}
+@utility border-line-dashed {
+  border-style: dashed;
+  border-width: var(--border-ink);
+}
+@utility border-t-line {
+  border-top-style: solid;
+  border-top-width: var(--border-ink);
+}
+@utility border-b-line {
+  border-bottom-style: solid;
+  border-bottom-width: var(--border-ink);
+}
+@utility border-l-line {
+  border-left-style: solid;
+  border-left-width: var(--border-ink);
+}
+@utility border-t-line-dashed {
+  border-top-style: dashed;
+  border-top-width: var(--border-ink);
+}
+/* the die-cut sticker outline as a utility, for one-off stickers outside .pi-sticker */
+@utility sticker-outline {
+  filter: var(--sticker);
+}
+@utility border-t-heavy-dashed {
+  border-top-style: dashed;
+  border-top-width: var(--border-heavy);
+}

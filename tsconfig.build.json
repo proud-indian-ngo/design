@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "types": []
+  },
+  "include": [
+    "react/**/*.ts",
+    "react/**/*.tsx",
+    "tokens/index.ts",
+    "tokens/primitives.ts",
+    "tokens/semantic.ts",
+    "tokens/components.ts"
+  ]
+}

@@ -1,0 +1,11 @@
+pre-commit:
+  parallel: false
+  commands:
+    fix:
+      priority: 1
+      glob: "*.{js,mjs,ts,tsx,json}"
+      run: bunx oxfmt {staged_files} && bunx oxlint --fix {staged_files}
+      stage_fixed: true
+    assets:
+      glob: "illustrations/**"
+      run: bun run check:assets

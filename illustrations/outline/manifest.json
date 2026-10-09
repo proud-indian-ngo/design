@@ -1,0 +1,146 @@
+[
+  {
+    "name": "pencil",
+    "file": "outline/pencil.svg",
+    "title": "Pencil",
+    "viewBox": "0 0 80 80",
+    "aspect": 1,
+    "bytes": 284
+  },
+  {
+    "name": "book",
+    "file": "outline/book.svg",
+    "title": "Open book",
+    "viewBox": "0 0 80 80",
+    "aspect": 1,
+    "bytes": 390
+  },
+  {
+    "name": "kite",
+    "file": "outline/kite.svg",
+    "title": "Kite with a bowed tail",
+    "viewBox": "0 0 80 110",
+    "aspect": 0.73,
+    "bytes": 321
+  },
+  {
+    "name": "heart",
+    "file": "outline/heart.svg",
+    "title": "Heart",
+    "viewBox": "0 0 80 80",
+    "aspect": 1,
+    "bytes": 289
+  },
+  {
+    "name": "star",
+    "file": "outline/star.svg",
+    "title": "Five-point star",
+    "viewBox": "0 0 60 60",
+    "aspect": 1,
+    "bytes": 289
+  },
+  {
+    "name": "rupee",
+    "file": "outline/rupee.svg",
+    "title": "Rupee coin",
+    "viewBox": "0 0 80 80",
+    "aspect": 1,
+    "bytes": 344
+  },
+  {
+    "name": "sun",
+    "file": "outline/sun.svg",
+    "title": "Smiling sun with rays",
+    "viewBox": "0 0 120 120",
+    "aspect": 1,
+    "bytes": 644
+  },
+  {
+    "name": "sparkle",
+    "file": "outline/sparkle.svg",
+    "title": "Four-point sparkle",
+    "viewBox": "0 0 40 40",
+    "aspect": 1,
+    "bytes": 283
+  },
+  {
+    "name": "notepad",
+    "file": "outline/notepad.svg",
+    "title": "Checklist notepad",
+    "viewBox": "8 4 96 100",
+    "aspect": 0.96,
+    "bytes": 367
+  },
+  {
+    "name": "clock",
+    "file": "outline/clock.svg",
+    "title": "Alarm clock",
+    "viewBox": "4 3 56 60",
+    "aspect": 0.93,
+    "bytes": 422
+  },
+  {
+    "name": "plane",
+    "file": "outline/plane.svg",
+    "title": "Paper plane with a trail",
+    "viewBox": "0 18 220 100",
+    "aspect": 2.2,
+    "bytes": 301
+  },
+  {
+    "name": "matka",
+    "file": "outline/matka.svg",
+    "title": "Matka (clay pot)",
+    "viewBox": "36 36 168 162",
+    "aspect": 1.04,
+    "bytes": 492
+  },
+  {
+    "name": "brush",
+    "file": "outline/brush.svg",
+    "title": "Paintbrush",
+    "viewBox": "0 0 80 80",
+    "aspect": 1,
+    "bytes": 310
+  },
+  {
+    "name": "bowl",
+    "file": "outline/bowl.svg",
+    "title": "Bowl with rising steam",
+    "viewBox": "5 3 90 94",
+    "aspect": 0.96,
+    "bytes": 430
+  },
+  {
+    "name": "hands",
+    "file": "outline/hands.svg",
+    "title": "Two raised hands",
+    "viewBox": "5 5 90 90",
+    "aspect": 1,
+    "bytes": 561
+  },
+  {
+    "name": "note",
+    "file": "outline/note.svg",
+    "title": "Music notes",
+    "viewBox": "4 4 56 68",
+    "aspect": 0.82,
+    "bytes": 327
+  },
+  {
+    "name": "drum",
+    "file": "outline/drum.svg",
+    "title": "Dhol (drum)",
+    "viewBox": "4 4 82 52",
+    "aspect": 1.58,
+    "bytes": 328
+  },
+  {
+    "name": "tick",
+    "file": "outline/tick.svg",
+    "title": "Tick in a circle",
+    "viewBox": "8 8 64 64",
+    "aspect": 1,
+    "bytes": 295
+  }
+]

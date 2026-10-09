@@ -1,0 +1,85 @@
+/* Brand scrollbars (@proudindian/design/scrollbar.css). Opt in:  @import "@proudindian/design/scrollbar.css";
+   (plain CSS, no layer needed; it only styles scrollbars). Needs tokens.css (the --scrollbar-* tokens).
+
+   A floating pill on a transparent track: 8px, ink at 35% with 2px of inset all round, solid sky on hover and while
+   dragged. The track is transparent, so the page shows through (base.css gives html the paper background, so it is
+   never white). Classes for scroll containers:
+     .pi-scroll-thin   a 4px bar, no inset (horizontal swipe rows)
+     .pi-scroll-dark   paper at 40% (scrollers on ink surfaces); still sky on hover
+   Native scrolling, keyboard and accessibility are untouched; nothing is hidden.
+
+   Only for mouse and trackpad pointers (hover: hover, pointer: fine): touch devices keep their native overlay
+   scrollbars, which custom styling would turn into permanent bars.
+
+   Which mechanism where. Chromium 121+ honours scrollbar-color/scrollbar-width, but as soon as either is set on a
+   scroller it ignores that scroller's ::-webkit-scrollbar rules, and the standard properties can't give an exact
+   width, a pill with an inset or a hover colour. Safari (WebKit) has no scrollbar-color and only styles scrollbars
+   through ::-webkit-scrollbar. So:
+     - engines with ::-webkit-scrollbar (Chromium, Safari, WebKit-based): the pseudo-elements, the full design, and
+       the standard properties are deliberately not set (they would switch the pseudo-elements off in Chromium);
+     - the rest (Firefox): scrollbar-width: thin and scrollbar-color, the same colours (thin is the browser's own
+       width; Firefox can't round or inset the thumb or colour it on hover).
+   The split is @supports selector(::-webkit-scrollbar), true in Chromium and Safari, false in Firefox.
+
+   Opt-out: html[data-native-scrollbar]. With that attribute on <html>, none of the rules below apply, to the page or
+   to any scroller (.pi-scroll-thin and .pi-scroll-dark included): the browser draws its default scrollbars. Set it
+   before first paint (an inline head script) so the custom bar never flashes. pi-website sets it on macOS, where the
+   system's own overlay scrollbars are the expected look.
+   Every rule is scoped to html:not([data-native-scrollbar]), written with html and not :root: Chromium never matches
+   a scrollbar pseudo-element's :hover or :active when :root is in the selector. Each pseudo-element rule is listed
+   twice, html:not(...)::-webkit-scrollbar for the page's own (viewport) bar and html:not(...) ::-webkit-scrollbar for
+   every scroller inside the page. Specificity: (0,1,2) for the pseudo-elements; (0,1,1) and (0,2,1) for the Firefox
+   rules. The file is unlayered, so it wins over layered app CSS anyway; apps hide a row's bar on touch screens in
+   (hover: none), (pointer: coarse), which never overlaps the media query below. */
+:root {
+  --sb-size: var(--scrollbar-size);
+  --sb-inset: var(--scrollbar-inset);
+  --sb-thumb: var(--scrollbar-thumb);
+  --sb-thumb-hover: var(--scrollbar-thumb-hover);
+}
+.pi-scroll-thin {
+  --sb-size: var(--scrollbar-size-thin);
+  --sb-inset: 0px;
+}
+.pi-scroll-dark {
+  --sb-thumb: var(--scrollbar-thumb-dark);
+}
+@media (hover: hover) and (pointer: fine) {
+  @supports selector(::-webkit-scrollbar) {
+    /* the page's own bar (html::-webkit-scrollbar is the viewport's) and every scroller inside it */
+    html:not([data-native-scrollbar])::-webkit-scrollbar,
+    html:not([data-native-scrollbar]) ::-webkit-scrollbar {
+      width: var(--sb-size);
+      height: var(--sb-size);
+      background: transparent;
+    }
+    html:not([data-native-scrollbar])::-webkit-scrollbar-track,
+    html:not([data-native-scrollbar]) ::-webkit-scrollbar-track,
+    html:not([data-native-scrollbar])::-webkit-scrollbar-corner,
+    html:not([data-native-scrollbar]) ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+    /* the inset is a transparent border, with the colour clipped to the padding box */
+    html:not([data-native-scrollbar])::-webkit-scrollbar-thumb,
+    html:not([data-native-scrollbar]) ::-webkit-scrollbar-thumb {
+      background-color: var(--sb-thumb);
+      background-clip: padding-box;
+      border: var(--sb-inset) solid transparent;
+      border-radius: 99px;
+    }
+    html:not([data-native-scrollbar])::-webkit-scrollbar-thumb:hover,
+    html:not([data-native-scrollbar]) ::-webkit-scrollbar-thumb:hover,
+    html:not([data-native-scrollbar])::-webkit-scrollbar-thumb:active,
+    html:not([data-native-scrollbar]) ::-webkit-scrollbar-thumb:active {
+      background-color: var(--sb-thumb-hover);
+    }
+  }
+  @supports not selector(::-webkit-scrollbar) {
+    html:not([data-native-scrollbar]),
+    html:not([data-native-scrollbar]) .pi-scroll-thin,
+    html:not([data-native-scrollbar]) .pi-scroll-dark {
+      scrollbar-width: thin;
+      scrollbar-color: var(--sb-thumb) transparent;
+    }
+  }
+}

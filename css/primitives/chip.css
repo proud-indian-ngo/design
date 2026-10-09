@@ -1,0 +1,13 @@
+/* Chip: small outlined pill (.pi-chip) in a wrapping row (.pi-chips) */
+.pi-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+.pi-chip {
+  font: var(--chip-font);
+  background: var(--chip-bg);
+  border: var(--line-ink);
+  padding: var(--chip-pad);
+  border-radius: var(--radius-pill);
+}

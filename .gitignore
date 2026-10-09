@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+*.log
+__pycache__/
+*.pyc
+logo-tools/.build/
+logo-tools/wordmark/previous-*.svg
+brand/guidelines/pages/
+.design-sync/.cache/
+.design-sync/node_modules/
+.ds-sync/
+ds-bundle/

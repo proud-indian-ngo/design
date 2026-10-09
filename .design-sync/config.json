@@ -1,0 +1,66 @@
+{
+  "shape": "package",
+  "pkg": "@proudindian/design",
+  "globalName": "ProudIndianDesign",
+  "buildCmd": "bun run build",
+  "cssEntry": "dist/styles.css",
+  "extraFonts": [],
+  "componentSrcMap": {
+    "PiRoot": "react/PiRoot.tsx",
+    "Button": "react/Button.tsx",
+    "Chip": "react/Chip.tsx",
+    "Chips": "react/Chip.tsx",
+    "SectionLabel": "react/SectionLabel.tsx",
+    "AccentWord": "react/AccentWord.tsx",
+    "Card": "react/Card.tsx",
+    "Polaroid": "react/Polaroid.tsx",
+    "Sticker": "react/Sticker.tsx",
+    "Ticket": "react/Ticket.tsx",
+    "Doodle": "react/Doodle.tsx",
+    "Lockup": "react/Lockup.tsx",
+    "Seal": "react/Seal.tsx"
+  },
+  "docsMap": {
+    "PiRoot": ".design-sync/groups/Foundations.md",
+    "Button": ".design-sync/groups/Foundations.md",
+    "Chip": ".design-sync/groups/Foundations.md",
+    "Chips": ".design-sync/groups/Foundations.md",
+    "SectionLabel": ".design-sync/groups/Foundations.md",
+    "AccentWord": ".design-sync/groups/Foundations.md",
+    "Card": ".design-sync/groups/Content.md",
+    "Polaroid": ".design-sync/groups/Content.md",
+    "Sticker": ".design-sync/groups/Content.md",
+    "Ticket": ".design-sync/groups/Content.md",
+    "Doodle": ".design-sync/groups/Brand.md",
+    "Lockup": ".design-sync/groups/Brand.md",
+    "Seal": ".design-sync/groups/Brand.md"
+  },
+  "provider": {
+    "component": "PiRoot"
+  },
+  "overrides": {
+    "PiRoot": {
+      "cardMode": "column"
+    },
+    "Card": {
+      "cardMode": "column"
+    },
+    "Doodle": {
+      "cardMode": "column"
+    },
+    "Lockup": {
+      "cardMode": "column"
+    },
+    "Seal": {
+      "cardMode": "column"
+    },
+    "Ticket": {
+      "cardMode": "column"
+    },
+    "Button": {
+      "cardMode": "column"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md",
+  "projectId": "55c6293e-1cd5-4739-9c87-de4e717d7ded"
+}

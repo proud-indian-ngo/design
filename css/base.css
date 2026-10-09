@@ -1,0 +1,40 @@
+/* Brand base (@proudindian/design/base.css): the generic part of pi-website's reset. Opt in when you are NOT using
+   Tailwind's preflight (pi-website deliberately leaves preflight out). Apps on preflight + shadcn (pi-dash) should
+   skip this file. Import it into the base layer:  @import "@proudindian/design/base.css" layer(base);
+   Site-only rules stay in the site: smooth scroll + header scroll padding, overflow-x clip, the skip link, .ic, .ctas
+   and the astro:assets <picture>/<img> sizing. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  /* the page's own background, so a transparent scrollbar track (css/scrollbar.css) never shows white */
+  background: var(--color-surface-paper);
+}
+body {
+  font-family: var(--font-pi-sans);
+  color: var(--color-ink);
+  background: var(--color-surface-paper);
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+}
+[hidden] {
+  display: none !important;
+}
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}

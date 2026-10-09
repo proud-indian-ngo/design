@@ -1,0 +1,301 @@
+[
+  {
+    "name": "sun",
+    "file": "sun.svg",
+    "title": "Smiling sun with rays (winks)",
+    "viewBox": "0 0 120 120",
+    "stretch": false,
+    "animationHooks": [
+      "rays",
+      "wink"
+    ],
+    "website": [
+      "HeroSun (no .wink)",
+      "CollageSun"
+    ],
+    "bytes": 845
+  },
+  {
+    "name": "sparkle",
+    "file": "sparkle.svg",
+    "title": "Four-point sparkle",
+    "viewBox": "0 0 40 40",
+    "stretch": false,
+    "animationHooks": [],
+    "website": [
+      "Sparkle"
+    ],
+    "bytes": 261
+  },
+  {
+    "name": "sparkle-glint",
+    "file": "sparkle-glint.svg",
+    "title": "Sparkle with a glint",
+    "viewBox": "0 0 40 40",
+    "stretch": false,
+    "animationHooks": [
+      "tw",
+      "glint"
+    ],
+    "website": [
+      "KalaSparkle"
+    ],
+    "bytes": 304
+  },
+  {
+    "name": "star",
+    "file": "star.svg",
+    "title": "Five-point star with glints",
+    "viewBox": "0 0 100 100",
+    "stretch": false,
+    "animationHooks": [
+      "tw",
+      "glint"
+    ],
+    "website": [
+      "PosterStar"
+    ],
+    "bytes": 343
+  },
+  {
+    "name": "book",
+    "file": "book.svg",
+    "title": "Open book, page turning (Teach)",
+    "viewBox": "0 0 100 100",
+    "stretch": false,
+    "animationHooks": [
+      "leaf"
+    ],
+    "website": [
+      "Book",
+      "IndexBook (no .leaf)"
+    ],
+    "bytes": 623
+  },
+  {
+    "name": "bowl-steam",
+    "file": "bowl-steam.svg",
+    "title": "Bowl with rising steam (Feed)",
+    "viewBox": "0 0 100 100",
+    "stretch": false,
+    "animationHooks": [
+      "steam",
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "website": [
+      "Bowl",
+      "IndexBowl"
+    ],
+    "bytes": 509
+  },
+  {
+    "name": "heart",
+    "file": "heart.svg",
+    "title": "Beating heart with a mini heart (Gather)",
+    "viewBox": "0 0 100 100",
+    "stretch": false,
+    "animationHooks": [
+      "beat",
+      "mini"
+    ],
+    "website": [
+      "HeartBeat"
+    ],
+    "bytes": 535
+  },
+  {
+    "name": "heart-plain",
+    "file": "heart-plain.svg",
+    "title": "Heart, sky fill",
+    "viewBox": "0 0 100 100",
+    "stretch": false,
+    "animationHooks": [],
+    "website": [
+      "HeartBadge",
+      "HeartChip (stroke 6)"
+    ],
+    "bytes": 315
+  },
+  {
+    "name": "paintbrush",
+    "file": "paintbrush.svg",
+    "title": "Paintbrush (Kalakriti nav icon)",
+    "viewBox": "0 0 100 100",
+    "stretch": false,
+    "animationHooks": [],
+    "website": [
+      "IndexBrush"
+    ],
+    "bytes": 456
+  },
+  {
+    "name": "hands-raised",
+    "file": "hands-raised.svg",
+    "title": "Two raised hands (Volunteer)",
+    "viewBox": "0 0 100 100",
+    "stretch": false,
+    "animationHooks": [],
+    "website": [
+      "HandsUp",
+      "IndexHands"
+    ],
+    "bytes": 568
+  },
+  {
+    "name": "hand-point",
+    "file": "hand-point.svg",
+    "title": "Pointing hand (scroll nudge)",
+    "viewBox": "0 0 96 64",
+    "stretch": false,
+    "animationHooks": [
+      "nudge__hand"
+    ],
+    "website": [
+      "NudgeHand"
+    ],
+    "bytes": 625
+  },
+  {
+    "name": "clock",
+    "file": "clock.svg",
+    "title": "Alarm clock (ticks and rings)",
+    "viewBox": "0 0 64 64",
+    "stretch": false,
+    "animationHooks": [
+      "bells",
+      "hand"
+    ],
+    "website": [
+      "AlarmClock"
+    ],
+    "bytes": 605
+  },
+  {
+    "name": "notepad",
+    "file": "notepad.svg",
+    "title": "Checklist notepad with pencil",
+    "viewBox": "0 0 130 110",
+    "stretch": false,
+    "animationHooks": [
+      "tk",
+      "t1",
+      "t2",
+      "t3",
+      "pencil"
+    ],
+    "website": [
+      "Notepad"
+    ],
+    "bytes": 772,
+    "note": "Ticks keep pathLength=1 for the draw-on animation."
+  },
+  {
+    "name": "bird",
+    "file": "bird.svg",
+    "title": "Bird (hops)",
+    "viewBox": "0 0 150 110",
+    "stretch": false,
+    "animationHooks": [
+      "hop",
+      "wing"
+    ],
+    "website": [
+      "PerchedBird",
+      "ClosingBird (no .hop)"
+    ],
+    "bytes": 512
+  },
+  {
+    "name": "paper-plane",
+    "file": "paper-plane.svg",
+    "title": "Paper plane with a looping dashed trail",
+    "viewBox": "0 0 220 120",
+    "stretch": false,
+    "animationHooks": [],
+    "website": [
+      "ClosingPlane"
+    ],
+    "bytes": 313
+  },
+  {
+    "name": "matka",
+    "file": "matka.svg",
+    "title": "Matka (clay pot) with two rupee coins",
+    "viewBox": "0 0 240 210",
+    "stretch": false,
+    "animationHooks": [
+      "rest",
+      "coins",
+      "pot"
+    ],
+    "website": [
+      "Matka"
+    ],
+    "bytes": 1697,
+    "note": "The empty .coins group is where site.js drops coins."
+  },
+  {
+    "name": "squiggle-underline",
+    "file": "squiggle-underline.svg",
+    "title": "Squiggle underline",
+    "viewBox": "0 0 300 30",
+    "stretch": true,
+    "animationHooks": [],
+    "website": [
+      "Squiggle",
+      "ClosingSquiggle"
+    ],
+    "bytes": 274
+  },
+  {
+    "name": "underline-loop",
+    "file": "underline-loop.svg",
+    "title": "Underline with a loop",
+    "viewBox": "0 0 220 60",
+    "stretch": true,
+    "animationHooks": [],
+    "website": [
+      "UnderlineLoop"
+    ],
+    "bytes": 282
+  },
+  {
+    "name": "arrow-curve",
+    "file": "arrow-curve.svg",
+    "title": "Curved arrow",
+    "viewBox": "0 0 120 70",
+    "stretch": false,
+    "animationHooks": [],
+    "website": [
+      "TicketArrow"
+    ],
+    "bytes": 234
+  },
+  {
+    "name": "arrow-wavy",
+    "file": "arrow-wavy.svg",
+    "title": "Wavy arrow",
+    "viewBox": "0 0 140 40",
+    "stretch": false,
+    "animationHooks": [],
+    "website": [
+      "StepArrow",
+      "SwipeArrow (head at x 100–114)"
+    ],
+    "bytes": 238
+  },
+  {
+    "name": "kite",
+    "file": "kite.svg",
+    "title": "Kite on a dotted string (from the street scene)",
+    "viewBox": "0 0 62 202",
+    "stretch": false,
+    "animationHooks": [
+      "kite"
+    ],
+    "website": [],
+    "bytes": 500
+  }
+]

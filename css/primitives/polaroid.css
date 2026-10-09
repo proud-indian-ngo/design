@@ -1,0 +1,50 @@
+/* Polaroid: white-framed photo with an offset ink shadow (.pi-polaroid), its 4:5 photo window, the clothes peg and the tape strip */
+.pi-polaroid {
+  background: var(--polaroid-bg);
+  padding: var(--polaroid-pad);
+  border: var(--line-ink);
+  box-shadow: var(--polaroid-shadow);
+}
+.pi-polaroid--peg {
+  position: relative;
+  transform-origin: 50% 0;
+}
+.pi-polaroid__photo {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: var(--polaroid-frame-bg);
+}
+.pi-polaroid__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+.pi-peg {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: -6px;
+  width: 12px;
+  height: 28px;
+  margin-left: -6px;
+  background: var(--peg-bg);
+  border: var(--line-ink);
+  border-radius: var(--radius-3);
+}
+.pi-peg::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 3px;
+  bottom: 3px;
+  border-left: var(--line-ink);
+}
+.pi-tape {
+  position: absolute;
+  background: var(--tape-bg);
+  border: var(--border-hair) solid var(--color-ink-a25);
+}

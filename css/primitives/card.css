@@ -1,0 +1,27 @@
+/* Card: the rounded, outlined bento tile (.pi-card) and its surface variants */
+.pi-card {
+  position: relative;
+  border: var(--line-ink);
+  border-radius: var(--card-radius);
+  padding: var(--card-pad);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font: inherit;
+  color: var(--color-ink);
+  background: var(--color-surface-paper);
+  overflow: hidden;
+}
+.pi-card--sky {
+  background: var(--color-surface-sky);
+}
+.pi-card--wash {
+  background: var(--color-surface-wash);
+}
+.pi-card--deep {
+  background: var(--color-surface-deep);
+  color: var(--color-white);
+}
+.pi-card--paper-2 {
+  background: var(--color-surface-paper-2);
+}

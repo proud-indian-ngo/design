@@ -1,0 +1,11 @@
+/* Only the .pi-* primitives (no theme, fonts or utilities), for apps that wire the theme themselves. */
+@import "./primitives/doodle.css" layer(components);
+@import "./primitives/sticker.css" layer(components);
+@import "./primitives/button.css" layer(components);
+@import "./primitives/chip.css" layer(components);
+@import "./primitives/section-label.css" layer(components);
+@import "./primitives/accent-word.css" layer(components);
+@import "./primitives/polaroid.css" layer(components);
+@import "./primitives/ticket.css" layer(components);
+@import "./primitives/card.css" layer(components);
+@import "./defaults.css" layer(components);

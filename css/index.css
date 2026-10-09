@@ -1,0 +1,24 @@
+/* @proudindian/design/css: the brand theme, fonts and primitives for a Tailwind v4 app.
+     @import "tailwindcss";
+     @import "@proudindian/design/css";
+   Order: the Tailwind theme (tokens/theme.css, @theme static), the plain custom properties (theme layer), the
+   @font-face rules, the optional .pi-brand text scope (see tokens/scope.ts), the .pi-* primitives in @layer components
+   (in pi-website's cascade order), the React-only defaults, then the custom @utility rules. The reset is separate
+   (base.css) and opt-in. */
+@import "../tokens/theme.css";
+@import "../tokens/tokens.css" layer(theme);
+@import "./fonts.css";
+@import "../tokens/scope.css" layer(components);
+
+@import "./primitives/doodle.css" layer(components);
+@import "./primitives/sticker.css" layer(components);
+@import "./primitives/button.css" layer(components);
+@import "./primitives/chip.css" layer(components);
+@import "./primitives/section-label.css" layer(components);
+@import "./primitives/accent-word.css" layer(components);
+@import "./primitives/polaroid.css" layer(components);
+@import "./primitives/ticket.css" layer(components);
+@import "./primitives/card.css" layer(components);
+@import "./defaults.css" layer(components);
+
+@import "./utilities.css";

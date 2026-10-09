@@ -1,0 +1,33 @@
+/* Outline doodles (@proudindian/design/outline.css). Opt in, ideally in @layer components:
+     @import "@proudindian/design/outline.css" layer(components);
+   Needs tokens.css (the --doodle-outline-* tokens).
+
+   The light line set (illustrations/outline/, 18 doodles) that pi-website scatters in its side margins: one thin
+   line, no fills, never animated, always decorative. Inline illustrations/outline-sprite.svg once per page (or only
+   the symbols you use; it has no presentation attributes, so put it in a hidden <svg width="0" height="0">), then:
+     <svg class="pi-outline" aria-hidden="true" focusable="false"><use href="#pi-outline-heart" /></svg>
+   Size the <svg> yourself (aspect-ratio comes from illustrations/outline/manifest.json, "aspect").
+
+   The stroke is 1.4px at any size (the paths are vector-effect: non-scaling-stroke). The opacity is matched to the
+   footer's margin doodles, 2.56:1 against the background: ink at 0.42 on paper (the default), .pi-outline--sky for ink
+   at 0.47 on sky, .pi-outline--ink for paper at 0.3 on ink. The properties are inherited into the <use> clone, which
+   selectors can't reach. */
+.pi-outline {
+  display: block;
+  overflow: visible;
+  color: var(--color-ink);
+  opacity: var(--doodle-outline-on-paper);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--doodle-outline-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.pi-outline.pi-outline--sky {
+  opacity: var(--doodle-outline-on-sky);
+}
+.pi-outline.pi-outline--ink {
+  color: var(--color-paper);
+  opacity: var(--doodle-outline-on-ink);
+}

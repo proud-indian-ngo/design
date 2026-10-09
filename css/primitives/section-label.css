@@ -1,0 +1,14 @@
+/* SectionLabel: the numbered "01 Education" eyebrow (.pi-label, .pi-label__num) */
+.pi-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  font: var(--font-weight-semibold) var(--text-16) var(--font-pi-sans);
+  margin-bottom: var(--space-6);
+}
+.pi-label .pi-label__num {
+  font: var(--font-weight-extrabold) var(--text-15) var(--font-pi-display);
+  border: var(--border-ink) solid currentColor;
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-10);
+}
