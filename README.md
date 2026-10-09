@@ -9,9 +9,9 @@ Repository: https://github.com/proud-indian-ngo/design
 | Path | What |
 |---|---|
 | `tokens/` | Token source in TS (`primitives.ts`, `semantic.ts`, `components.ts`, `index.ts`). `bun run tokens` generates `theme.css` (Tailwind v4 `@theme static`), `tokens.css` (plain custom properties), `tokens.json` (W3C design tokens) and `scope.css` (the optional `.pi-brand` scope; its build also fails on a token name that clashes with pi-dash's shadcn theme, see [pi-dash](#pi-dash-vite--tailwind-v4--shadcnui)). |
-| `css/` | `index.css` (the entry), `fonts.css`, `base.css` (opt-in reset), `scrollbar.css` (opt-in brand scrollbars), `outline.css` (opt-in outline doodle styles), `primitives/*.css` (`.pi-btn`, `.pi-chip`, `.pi-sticker`, `.pi-polaroid`, `.pi-peg`, `.pi-tape`, `.pi-ticket`, `.pi-card`, `.pi-label`, `.pi-accent`, `.pi-ln`/`.pi-doodle`), `defaults.css` (React-only defaults), `utilities.css` (custom `@utility`), `shadcn.css` (optional bridge) |
+| `css/` | `index.css` (the entry), `fonts.css`, `base.css` (opt-in reset), `outline.css` (opt-in outline doodle styles), `primitives/*.css` (`.pi-btn`, `.pi-chip`, `.pi-sticker`, `.pi-polaroid`, `.pi-peg`, `.pi-tape`, `.pi-ticket`, `.pi-card`, `.pi-label`, `.pi-accent`, `.pi-ln`/`.pi-doodle`), `defaults.css` (React-only defaults), `utilities.css` (custom `@utility`), `shadcn.css` (optional bridge) |
 | `react/` → `dist/react/` | `PiRoot`, `Button`, `Chip`/`Chips`, `Sticker`, `Polaroid` (+ `Peg`, `Tape`), `Ticket`, `Card`, `SectionLabel`, `AccentWord`, `Doodle`, `Lockup`, `Seal` |
-| `dist/` | Built output, committed so git installs need no build step. Contains `react/` (ESM + `.d.ts`), `tokens/` (typed tokens) and `styles.css` (theme, tokens, fonts, base reset, primitives and React defaults compiled for apps without Tailwind; no utilities, and not the opt-in `scrollbar.css`, `outline.css` or `shadcn.css`) |
+| `dist/` | Built output, committed so git installs need no build step. Contains `react/` (ESM + `.d.ts`), `tokens/` (typed tokens) and `styles.css` (theme, tokens, fonts, base reset, primitives and React defaults compiled for apps without Tailwind; no utilities, and not the opt-in `outline.css` or `shadcn.css`) |
 | `fonts/` | Bricolage Grotesque and Geist variable woff2, with their OFL licences |
 | `logo/` | The logo system: `svg/`, `seals/`, `favicon/` (incl. `site.webmanifest`), `social/` (avatars, `og-default.png`). Rules: [`logo/README.md`](logo/README.md) |
 | `logo-tools/` | Regenerates `logo/`, which `bun run logo:verify` proves byte-identical. `og/` renders the default share card |
@@ -104,7 +104,6 @@ The website ([proud-indian-ngo/website](https://github.com/proud-indian-ngo/webs
 @import "@proudindian/design/tokens.css" layer(theme);
 @import "@proudindian/design/fonts.css";
 @import "@proudindian/design/base.css" layer(base);  /* generic reset */
-@import "@proudindian/design/scrollbar.css";          /* brand scrollbars (optional; native on macOS, see Scrollbars) */
 @import "./base.css" layer(base);                     /* site-only base rules */
 @import "./images.css" layer(base);
 @import "@proudindian/design/css/primitives/doodle.css" layer(components);
@@ -155,20 +154,6 @@ This was verified against pi-dash's real theme (its `:root`, `.dark`, `@theme in
 - **Tailwind defaults.** `--font-weight-*`, `--color-white`, `--color-black`, `--tracking-tighter` and `--tracking-normal` reuse default names with equal values. Every other key is a new name, so the brand no longer changes any Tailwind default.
 - **pi-dash.** No shared keys.
 
-### Scrollbars
-
-`css/scrollbar.css` (opt-in, `@import "@proudindian/design/scrollbar.css"`, unlayered; needs `tokens.css`) gives mouse and trackpad users the brand scrollbar: an 8px ink pill (35%) on a transparent track with 2px of inset, solid sky on hover and while dragged. `.pi-scroll-thin` makes a scroller's bar 4px with no inset (swipe rows) and `.pi-scroll-dark` gives it a paper thumb (scrollers on ink). It only applies under `(hover: hover) and (pointer: fine)`, so touch devices keep their native overlay bars. Chromium and Safari use `::-webkit-scrollbar`; Firefox uses `scrollbar-width: thin` and `scrollbar-color` (the file header explains the split).
-
-**Native opt-out: `html[data-native-scrollbar]`.** With the attribute on `<html>`, none of the file's rules apply, to the page or to any scroller, and the browser draws its default scrollbars. Set it before first paint, from an inline script in `<head>`, so the custom bar never flashes. The website sets it on macOS (Safari and Chrome then show the system's overlay scrollbars), and keeps the brand bar on Windows, Linux and ChromeOS:
-
-```js
-var n = navigator, ua = n.userAgentData;
-if ((ua && ua.platform ? ua.platform === "macOS" : /Mac/.test(n.platform || n.userAgent)) && !(n.maxTouchPoints > 1))
-  document.documentElement.setAttribute("data-native-scrollbar", ""); // iPadOS says "MacIntel" but has touch points
-```
-
-Every rule is scoped to `html:not([data-native-scrollbar])`, written with `html` and not `:root`, because Chromium never matches a scrollbar pseudo-element's `:hover`/`:active` when `:root` is in the selector. Specificity is (0,1,2) for the pseudo-elements; the file is unlayered, so it wins over layered app CSS regardless.
-
 ### Other entry points
 
 | Import | What |
@@ -178,7 +163,6 @@ Every rule is scoped to `html:not([data-native-scrollbar])`, written with `html`
 | `@proudindian/design/tokens` | Typed values (`color`, `breakpoint`, `motion`, …) and `themeCss()`/`tokensCss()` |
 | `@proudindian/design/primitives.css` | Only the `.pi-*` primitives |
 | `@proudindian/design/fonts.css`, `/base.css`, `/shadcn.css` | As above |
-| `@proudindian/design/scrollbar.css` | Brand scrollbars for mouse and trackpad users (see [Scrollbars](#scrollbars)) |
 | `@proudindian/design/outline.css` | `.pi-outline` (+ `--sky`, `--ink`): the outline doodle line (1.4px, ink at the matched opacity) for an `<svg><use href="#pi-outline-NAME"/></svg>` |
 | `@proudindian/design/illustrations/outline-sprite.svg`, `/illustrations/outline/manifest.json` | The outline doodle sprite (`pi-outline-*` symbols, no presentation attributes) and its manifest (viewBox, aspect) |
 | `@proudindian/design/styles.css` | `css/index.css` plus `base.css` compiled, no Tailwind needed (no utilities; the opt-in files are separate) |

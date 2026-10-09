@@ -1,6 +1,6 @@
 {
   "name": "@proudindian/design",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "private": true,
   "description": "Proud Indian design system: Tailwind v4 theme and tokens, .pi-* CSS primitives, fonts, logo, brand doodles and React components",
   "homepage": "https://github.com/proud-indian-ngo/design#readme",
@@ -42,7 +42,6 @@
     "./scope.css": "./tokens/scope.css",
     "./fonts.css": "./css/fonts.css",
     "./base.css": "./css/base.css",
-    "./scrollbar.css": "./css/scrollbar.css",
     "./outline.css": "./css/outline.css",
     "./primitives.css": "./css/primitives.css",
     "./shadcn.css": "./css/shadcn.css",

@@ -10,7 +10,7 @@
 }
 html {
   -webkit-text-size-adjust: 100%;
-  /* the page's own background, so a transparent scrollbar track (css/scrollbar.css) never shows white */
+  /* the page's own background, so the canvas (overscroll, a transparent scrollbar track) never shows white */
   background: var(--color-surface-paper);
 }
 body {
