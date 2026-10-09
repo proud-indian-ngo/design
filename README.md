@@ -43,7 +43,7 @@ The package is installed from git and is not published to npm, so Cloudflare Pag
 "@proudindian/design": "github:proud-indian-ngo/design#v0.2.3"
 ```
 
-The repo is public, so no token is needed. To try unreleased changes locally, link the folder instead:
+The repo is public, so no token is needed. The tarball holds only what package.json `files` lists (`.gitattributes` marks the rest `export-ignore`), so the brand guide, tooling and sources stay out of `node_modules`. To try unreleased changes locally, link the folder instead:
 
 ```jsonc
 "@proudindian/design": "file:../design"   // path to your clone of this repo

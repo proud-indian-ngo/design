@@ -1,0 +1,22 @@
+# Apps install this package from a git tag (github:proud-indian-ngo/design#vX.Y.Z), which downloads GitHub's tarball of
+# the tag. `export-ignore` keeps everything outside package.json "files" out of that tarball: the brand guide (PDF and
+# source, ~32 MB), the logo and docs tooling, the React sources (dist/react is the built copy) and repo config.
+# The repo itself is unchanged; this only affects `git archive` and GitHub tarballs.
+/brand export-ignore
+/logo-tools export-ignore
+/docs export-ignore
+/scripts export-ignore
+/react export-ignore
+/.design-sync export-ignore
+/.github export-ignore
+/.fallowrc.jsonc export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/bun.lock export-ignore
+/commitlint.config.js export-ignore
+/lefthook.yml export-ignore
+/oxfmt.config.ts export-ignore
+/oxlint.config.ts export-ignore
+/renovate.json export-ignore
+/tsconfig.build.json export-ignore
+/tsconfig.json export-ignore
