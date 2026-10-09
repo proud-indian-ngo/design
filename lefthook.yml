@@ -1,13 +1,21 @@
 pre-commit:
   parallel: false
   commands:
-    fix:
+    # build output is excluded: oxfmt and oxlint ignore it and fail when nothing else is staged
+    format:
       priority: 1
       glob: "*.{js,mjs,ts,tsx,json}"
-      # build output: oxfmt ignores it and fails when nothing else is staged
       exclude:
         - "dist/**"
-      run: bunx oxfmt {staged_files} && bunx oxlint --fix {staged_files}
+      run: bunx oxfmt {staged_files}
+      stage_fixed: true
+    # oxlint fails when none of the files it is given are scripts, so it only gets scripts
+    lint:
+      priority: 2
+      glob: "*.{js,mjs,ts,tsx}"
+      exclude:
+        - "dist/**"
+      run: bunx oxlint --fix {staged_files}
       stage_fixed: true
     assets:
       glob: "illustrations/**"
