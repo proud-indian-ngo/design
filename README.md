@@ -16,7 +16,7 @@ Repository: https://github.com/proud-indian-ngo/design
 | `logo/` | The logo system: `svg/`, `seals/`, `favicon/` (incl. `site.webmanifest`), `social/` (avatars, `og-default.png`). Rules: [`logo/README.md`](logo/README.md) |
 | `logo-tools/` | Regenerates `logo/`, which `bun run logo:verify` proves byte-identical. `og/` renders the default share card |
 | `illustrations/` | The 21 brand doodles as standalone SVGs, with `manifest.json` and a contact sheet; `outline/` holds the 18 light outline doodles (the website's margin doodles) with their own manifest, built into `outline-sprite.svg`. See [`illustrations/README.md`](illustrations/README.md) |
-| `brand/` | `Proud-Indian-Brand-Guidelines.pdf` (29 pages, with appendix A1 on product interfaces) and its self-contained source |
+| `brand/` | `Proud-Indian-Brand-Guidelines.pdf` (31 pages, with appendices A1 on product interfaces and A2 on product components and tables) and its self-contained source |
 | `docs/` | The static style guide, `docs/index.html` (`bun run docs`) |
 | `.design-sync/` | The Claude Design sync config, previews and notes ([`NOTES.md`](.design-sync/NOTES.md)) |
 
@@ -141,7 +141,7 @@ No brand theme key clashes with pi-dash's shadcn theme. The four that used to cl
 The result:
 - **Shadcn keeps its meanings.** `bg-muted`, `text-accent`, `font-sans`, `font-display`, `rounded-lg` and the rest keep pi-dash's values.
 - **The brand utilities are added.** These include `bg-sky`, `text-ink`, `font-pi-display`, `text-accent-ink`, `shadow-ink` and `rounded-pill`.
-- **Product colours and the data font are there to map onto shadcn.** The `color-ui-*` greys (light), the `color-ui-dark-*` charcoal set (dark), the `color-status-*` colours and `--font-pi-mono` (Paper Mono) are the values pi-dash's own `:root` and `.dark` blocks point shadcn's variables at (`--background`, `--card`, `--border`, `--muted-foreground`, …). The rules for using them are in the brand guide, appendix A1. `shadcn.css` still maps the older paper palette and is unchanged.
+- **Product colours and the data font are there to map onto shadcn.** The `color-ui-*` greys (light), the `color-ui-dark-*` charcoal set (dark), the `color-status-*` colours and `--font-pi-mono` (Paper Mono) are the values pi-dash's own `:root` and `.dark` blocks point shadcn's variables at (`--background`, `--card`, `--border`, `--muted-foreground`, …). The rules for using them are in the brand guide, appendix A1; shape, density, components and tables are in A2. `shadcn.css` still maps the older paper palette and is unchanged.
 - **Brand components need no wrapper.** `.pi-btn`, `.pi-chip`, `.pi-label`, `.pi-ticket` and the React components render in Geist and Brico, with sky-ink accents, anywhere in the app. Wrap a page in `PiRoot` only to get the paper background and Geist body text. `className="pi-brand"` still works, as an optional scope that only sets `font-family: var(--font-pi-sans)`.
 
 This was verified against pi-dash's real theme (its `:root`, `.dark`, `@theme inline` and base blocks). Three builds were compared: shadcn alone, the brand before shadcn, and the brand after shadcn. In all three:

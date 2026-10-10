@@ -9,12 +9,17 @@ pre-commit:
         - "dist/**"
       run: bunx oxfmt {staged_files}
       stage_fixed: true
-    # oxlint fails when none of the files it is given are scripts, so it only gets scripts
+    # oxlint fails when none of the files it is given can be linted, so it only gets
+    # scripts outside its ignorePatterns (oxlint.config.ts)
     lint:
       priority: 2
       glob: "*.{js,mjs,ts,tsx}"
       exclude:
         - "dist/**"
+        - "brand/**"
+        - "logo-tools/**"
+        - "docs/**"
+        - "react/generated/**"
       run: bunx oxlint --fix {staged_files}
       stage_fixed: true
     assets:
