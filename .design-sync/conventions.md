@@ -2,6 +2,9 @@
 
 Proud Indian is a volunteer-run charitable trust in Bengaluru, founded on 26 January 2019. Its volunteers are called **Optimists**, and the website opens with "Be an Optimist." Programmes: Teach, Feed, Paint (Kalakriti, the yearly arts festival) and Gather. The look is warm, playful and sticker-like: sky, ink and paper; Bricolage Grotesque 800 headlines; Geist text; 1.5px ink outlines with hard offset shadows; hand-drawn doodles.
 
+## Scope: brand material only
+These components and rules are the **brand** language: the website, marketing, social posts, print and merch. They are not for product interfaces. For a dashboard, admin screen, table or form (pi-dash), don't use these components, `PiRoot`, doodles, paper backgrounds or offset shadows. Follow the brand guide's appendices A1 and A2 instead: white or charcoal surfaces, hairline borders, Bricolage 600 titles, Geist text, Paper Mono for numbers, and status as a tinted dot and word.
+
 ## Setup
 Wrap every design in `PiRoot`. It sets the paper background, Geist text and ink colour. The components render on-brand without it (no token clashes with shadcn/ui), but previews still use it for the page background and text.
 

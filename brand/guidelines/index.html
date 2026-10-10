@@ -32,6 +32,7 @@
       <h2 class="h1">Contents</h2>
       <p class="lede">One idea per page. Every logo in this document is the final artwork from <code>logo/</code> in the design package. Nothing has been redrawn.</p>
       <p class="small mute">Facts and numbers come from the project's design records and <code>logo/README.md</code>. Where a value is a recommendation rather than a recorded decision, the page says so.</p>
+      <p class="small"><b>Two languages.</b> Pages 3–28 are the brand: the website, marketing, print and merch, playful and sticker-like. Appendices A1 and A2 are for product interfaces such as the dashboard: quiet and dense, with none of the doodles, paper or offset shadows. Don't mix them.</p>
     </div>
     <ol class="toc">
       <li><span>Who we are</span><b>3</b></li>
@@ -56,6 +57,7 @@
       <li><span>Marketing materials</span><b>22–27</b></li>
       <li><span>Files and contact</span><b>28</b></li>
       <li class="ap"><span>Appendix: product interfaces</span><b>29</b></li>
+      <li class="ap ap2"><span>Appendix: components and tables</span><b>30–31</b></li>
     </ol>
   </div>
   <footer class="pn">2</footer>
@@ -1155,10 +1157,88 @@
         <li><b>Every text colour passes 4.5:1</b> on its own surface, in both modes. Ratios are beside the swatches.</li>
         <li><b>The logo</b> is the disc in the sidebar, 28 px. The compact lockup only on sign-in pages.</li>
       </ul>
-      <p class="xs mute">Tokens: <code>color-ui-*</code>, <code>color-status-*</code> and <code>font-pi-mono</code> in <code>tokens/theme.css</code>. Paper Mono (paper.design) is OFL, self-hosted with the other fonts. Shape, density and components follow in a later appendix, with screens of the dashboard.</p>
+      <p class="xs mute">Tokens: <code>color-ui-*</code>, <code>color-status-*</code> and <code>font-pi-mono</code> in <code>tokens/theme.css</code>. Paper Mono (paper.design) is OFL, self-hosted with the other fonts. Shape, density, components and tables are in A2, pages 30–31.</p>
     </div>
   </div>
   <footer class="pn">29</footer>
+</section>
+
+<!-- ============ A2 PRODUCT COMPONENTS ============ -->
+<section class="page">
+  <header class="run"><span>Proud Indian · Brand guidelines</span><span>A2 · Product components</span></header>
+  <div class="a2-pc">
+    <div class="a2-pc-l">
+      <span class="chip">A2 · Product components</span>
+      <h2 class="h2">Dense, never cramped.</h2>
+      <p class="small">One size of everything, so a screen full of data still reads calmly. Values below are what the dashboard ships.</p>
+      <b class="h3 a2-pc-sub">Shape</b>
+      <div class="a2-pc-shape">
+        <div><i style="width:34px;height:20px;border-radius:5px"></i><span><b>5 px</b>Status, Tag</span></div>
+        <div><i style="width:46px;height:28px;border-radius:7px"></i><span><b>7 px</b>Buttons, fields, menus</span></div>
+        <div><i style="width:58px;height:40px;border-radius:10px"></i><span><b>10 px</b>Cards, table frames, dialogs</span></div>
+      </div>
+      <b class="h3 a2-pc-sub">Density</b>
+      <table class="a2-pc-den">
+        <tr><td>Body and control text</td><td>13 px</td></tr>
+        <tr><td>Buttons and fields</td><td>32 px</td></tr>
+        <tr><td>Table rows, one line</td><td>36 px</td></tr>
+        <tr><td>Status and Tag</td><td>22 px</td></tr>
+        <tr><td>Field text on phones</td><td>16 px</td></tr>
+      </table>
+    </div>
+    <div class="a2-pc-m">
+      <div class="a2-pc-sheet">
+        <div class="a2-pc-row"><span class="a2-pc-k">Buttons</span><div class="a2-pc-v"><span class="a2-pb pri">Add user</span><span class="a2-pb out">Columns</span><span class="a2-pb out on">Group by status</span><span class="a2-pb gh">Reject</span></div></div>
+        <div class="a2-pc-row"><span class="a2-pc-k">Status</span><div class="a2-pc-v"><span class="a2-ps neu">Past</span><span class="a2-ps inf">Upcoming</span><span class="a2-ps ok">Approved</span><span class="a2-ps wa">Pending</span><span class="a2-ps da">Rejected</span></div></div>
+        <div class="a2-pc-row"><span class="a2-pc-k">Tag</span><div class="a2-pc-v"><span class="a2-pt">Reimbursement</span><span class="a2-pt">Volunteer</span><span class="a2-pt">Bangalore</span></div></div>
+        <div class="a2-pc-row"><span class="a2-pc-k">View tabs</span><div class="a2-pc-v a2-pc-tabs"><span class="on">All <em>5</em></span><span>Pending <em>2</em></span><span>Approved <em>2</em></span><span>Rejected <em>1</em></span></div></div>
+        <div class="a2-pc-row"><span class="a2-pc-k">KPI chips</span><div class="a2-pc-v"><span class="a2-pk">Total <b>5</b><em>₹22,800.00</em></span><span class="a2-pk wa">Pending <b>2</b><em>₹7,550.00</em></span><span class="a2-pk ok">Approved <b>2</b><em>₹14,950.00</em></span></div></div>
+        <div class="a2-pc-row a2-pc-last"><span class="a2-pc-k">Menu, toast</span><div class="a2-pc-v a2-pc-mt">
+          <div class="a2-pm"><span>View</span><span>Edit</span><hr><span class="da">Delete</span></div>
+          <div class="a2-ptst"><i></i><span>Update approved</span><b>Undo</b></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="a2-pc-r">
+      <b class="h3">Rules</b>
+      <ul class="ticks tight">
+        <li><b>Status says what can change;</b> Tag says what something is. Status is a soft tint with a dot and a word in five tones. Tag is a grey outline and never carries meaning through colour.</li>
+        <li><b>Undo, not "Are you sure?"</b> One-click actions that can be reversed save after a few seconds, with Undo in the toast. Deletes, and approvals that need a note or proof, keep a dialog.</li>
+        <li><b>Dialogs are small and named for the action:</b> 384 px by default, buttons that say the verb (Approve, Delete), never OK.</li>
+        <li><b>Menus put destructive actions last,</b> in red, after a divider. Details open in a sheet from the right; on phones it becomes a bottom drawer.</li>
+        <li><b>Toasts sit bottom right</b> and say what happened in a few words.</li>
+        <li><b>Motion is quick and quiet:</b> 100–200 ms, ease-out, no bounce. Hover effects only on devices that can hover.</li>
+      </ul>
+    </div>
+  </div>
+  <footer class="pn">30</footer>
+</section>
+
+<!-- ============ A2 TABLES ============ -->
+<section class="page paper2">
+  <header class="run"><span>Proud Indian · Brand guidelines</span><span>A2 · Tables</span></header>
+  <div class="a2-pt2">
+    <div class="a2-pt2-l">
+      <span class="chip">A2 · Tables</span>
+      <h2 class="h2">One frame per table.</h2>
+      <p class="small">Most of the dashboard is tables. Each one is a single framed grid, so lists, filters and totals read as one object.</p>
+      <ol class="a2-pt2-list">
+        <li><b>KPI chips above,</b> tinted by status, with a count and the ₹ sum. No stat cards.</li>
+        <li><b>View tabs with counts</b> in the frame's top edge for the main status split.</li>
+        <li><b>One toolbar line:</b> search, filters written as sentences, Columns, and the page's one primary button.</li>
+        <li><b>Column icons say what a column holds.</b> Amounts, dates, counts, IDs and emails use Paper Mono.</li>
+        <li><b>Rows are one 36 px line</b> with light column dividers. Long text truncates; the detail sheet has the rest.</li>
+        <li><b>A totals row</b> sums money over every filtered row, not just the page.</li>
+        <li><b>Group by status</b> for approval queues: collapsible headers with count and total, and Approve or Reject on pending rows.</li>
+        <li><b>Rows fill the window</b> without making the page scroll.</li>
+      </ol>
+    </div>
+    <div class="a2-pt2-r">
+      <figure><img src="assets/shots/dash-table-light.jpg" alt="Reimbursements grouped by status in light mode."><figcaption>Reimbursements grouped by status, light.</figcaption></figure>
+      <figure><img src="assets/shots/dash-table-dark.jpg" alt="Vendor payments with KPI chips and a totals row in dark mode."><figcaption>Vendor payments with KPI chips and the totals row, dark.</figcaption></figure>
+    </div>
+  </div>
+  <footer class="pn">31</footer>
 </section>
 
 <script>

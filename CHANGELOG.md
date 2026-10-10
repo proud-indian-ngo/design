@@ -2,6 +2,14 @@
 
 All notable changes to `@proudindian/design`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [semver](https://semver.org/).
 
+## [0.3.4] - 2026-10-10
+
+### Added
+
+- **Brand guide, appendix A2 “Product components and tables”** (pages 30–31, listed in the contents). Page 30 sets the shape (5 px for Status and Tag, 7 px for buttons, fields and menus, 10 px for cards, table frames and dialogs) and density (13 px body and control text, 32 px buttons and fields, 36 px one-line table rows, 22 px Status and Tag, 16 px field text on phones). It shows specimens of buttons, the five Status tones, Tag, view tabs, KPI chips, a menu and an Undo toast, and the rules for using them. Page 31 shows the framed table in light and dark with what each part is for: KPI chips, view tabs with counts, a one-line toolbar, column icons and Paper Mono data, 36 px rows, the totals row, group by status with inline review, and rows that fit the window. All values are what pi-dash ships. A1's closing note now points to A2. `Proud-Indian-Brand-Guidelines.pdf` is re-rendered (31 pages).
+- **The brand and product design languages are now clearly separated for people and agents.** A new `AGENTS.md` (imported by `CLAUDE.md`) says which language each surface uses and what never crosses over. The README gains a "Two design languages" section, and its pi-dash recipe now matches pi-dash (only `theme.css` and `fonts.css`; no `.pi-*` primitives, React components or `shadcn.css`). `.design-sync/conventions.md` says its components are for brand material only. The guide's contents page notes that pages 3–28 are the brand and A1–A2 are product interfaces.
+- **`brand/guidelines/_build/shoot-dash.mjs`** re-shoots the two dashboard screenshots (`assets/shots/dash-table-light.jpg`, `dash-table-dark.jpg`) from a running pi-dash on freshly seeded dev data.
+
 ## [0.3.3] - 2026-10-09
 
 ### Changed

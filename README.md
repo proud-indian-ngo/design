@@ -4,6 +4,17 @@ The Proud Indian design system, and the single source of truth for the brand on 
 
 Repository: https://github.com/proud-indian-ngo/design
 
+## Two design languages
+
+The package serves two different looks. Choose by surface, never mix them. [`AGENTS.md`](AGENTS.md) has the full rules.
+
+| Surface | Language | Uses | Rules |
+|---|---|---|---|
+| Website, marketing, social, print, merch, Claude Design brand mockups | **Brand**: warm, playful, sticker-like | paper and ink, Bricolage 800, ink offset shadows, doodles, the `.pi-*` primitives and React components | Brand guide pages 3–28, [`.design-sync/conventions.md`](.design-sync/conventions.md) |
+| pi-dash and other apps: tables, forms, admin screens | **Product**: quiet and dense | `color-ui-*`, `color-ui-dark-*`, `color-status-*`, Bricolage 600 for titles, Paper Mono for data, the app's own components (shadcn/ui in pi-dash) | Brand guide appendices A1 and A2, pages 29–31 |
+
+Product screens never use the `.pi-*` primitives, the React components, `PiRoot`, doodles, paper backgrounds, offset shadows or `shadcn.css`. Brand material never uses the product tokens or Paper Mono.
+
 ## What's inside
 
 | Path | What |
@@ -16,7 +27,7 @@ Repository: https://github.com/proud-indian-ngo/design
 | `logo/` | The logo system: `svg/`, `seals/`, `favicon/` (incl. `site.webmanifest`), `social/` (avatars, `og-default.png`). Rules: [`logo/README.md`](logo/README.md) |
 | `logo-tools/` | Regenerates `logo/`, which `bun run logo:verify` proves byte-identical. `og/` renders the default share card |
 | `illustrations/` | The 21 brand doodles as standalone SVGs, with `manifest.json` and a contact sheet; `outline/` holds the 18 light outline doodles (the website's margin doodles) with their own manifest, built into `outline-sprite.svg`. See [`illustrations/README.md`](illustrations/README.md) |
-| `brand/` | `Proud-Indian-Brand-Guidelines.pdf` (29 pages, with appendix A1 on product interfaces) and its self-contained source |
+| `brand/` | `Proud-Indian-Brand-Guidelines.pdf` (31 pages, with appendices A1 on product interfaces and A2 on product components and tables) and its self-contained source |
 | `docs/` | The static style guide, `docs/index.html` (`bun run docs`) |
 | `.design-sync/` | The Claude Design sync config, previews and notes ([`NOTES.md`](.design-sync/NOTES.md)) |
 
@@ -124,7 +135,7 @@ The switch was verified pixel-identical: every section of the home page, and the
 
 ### pi-dash (Vite + Tailwind v4 + shadcn/ui)
 
-No brand theme key clashes with pi-dash's shadcn theme. The four that used to clash (`--font-sans`, `--font-display`, `--color-accent`, `--color-muted`) were renamed in 0.2.0 (see the [CHANGELOG](CHANGELOG.md)). `bun run tokens` fails if a brand theme key ever reuses one of pi-dash's `@theme inline` keys (`tokens/scope.ts`). The brand CSS can go before or after the shadcn theme:
+pi-dash uses the **product** language (see [Two design languages](#two-design-languages)). It takes only the theme tokens and the fonts, and maps its own shadcn variables onto the product tokens:
 
 ```css
 /* packages/design-system/styles.css */
@@ -132,24 +143,20 @@ No brand theme key clashes with pi-dash's shadcn theme. The four that used to cl
 @source "../**/*.{ts,tsx}";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@proudindian/design/css";   /* brand theme, tokens, fonts, .pi-* primitives, React defaults, utilities */
-/* ... :root / .dark shadcn variables, then pi-dash's @theme inline { ... } as today ... */
-/* optional: shadcn colours from the brand palette (light theme) */
-@import "@proudindian/design/shadcn.css";
+@import "@proudindian/design/theme.css";   /* tokens as Tailwind theme keys */
+@import "@proudindian/design/fonts.css";   /* Bricolage Grotesque, Geist, Paper Mono */
+/* ... :root / .dark shadcn variables pointing at color-ui-*, color-ui-dark-*, color-status-*, then @theme inline { ... } */
 ```
+
+Don't import `@proudindian/design/css`, the `.pi-*` primitives, the React components or `shadcn.css` into pi-dash; they are the brand language. No brand theme key clashes with pi-dash's shadcn theme. The four that used to clash (`--font-sans`, `--font-display`, `--color-accent`, `--color-muted`) were renamed in 0.2.0 (see the [CHANGELOG](CHANGELOG.md)). `bun run tokens` fails if a brand theme key ever reuses one of pi-dash's `@theme inline` keys (`tokens/scope.ts`).
 
 The result:
 - **Shadcn keeps its meanings.** `bg-muted`, `text-accent`, `font-sans`, `font-display`, `rounded-lg` and the rest keep pi-dash's values.
-- **The brand utilities are added.** These include `bg-sky`, `text-ink`, `font-pi-display`, `text-accent-ink`, `shadow-ink` and `rounded-pill`.
-- **Product colours and the data font are there to map onto shadcn.** The `color-ui-*` greys (light), the `color-ui-dark-*` charcoal set (dark), the `color-status-*` colours and `--font-pi-mono` (Paper Mono) are the values pi-dash's own `:root` and `.dark` blocks point shadcn's variables at (`--background`, `--card`, `--border`, `--muted-foreground`, …). The rules for using them are in the brand guide, appendix A1. `shadcn.css` still maps the older paper palette and is unchanged.
-- **Brand components need no wrapper.** `.pi-btn`, `.pi-chip`, `.pi-label`, `.pi-ticket` and the React components render in Geist and Brico, with sky-ink accents, anywhere in the app. Wrap a page in `PiRoot` only to get the paper background and Geist body text. `className="pi-brand"` still works, as an optional scope that only sets `font-family: var(--font-pi-sans)`.
+- **Product colours and the data font are there to map onto shadcn.** The `color-ui-*` greys (light), the `color-ui-dark-*` charcoal set (dark), the `color-status-*` colours and `--font-pi-mono` (Paper Mono) are the values pi-dash's own `:root` and `.dark` blocks point shadcn's variables at (`--background`, `--card`, `--border`, `--muted-foreground`, …). The rules for using them are in the brand guide, appendix A1; shape, density, components and tables are in A2.
 
-This was verified against pi-dash's real theme (its `:root`, `.dark`, `@theme inline` and base blocks). Three builds were compared: shadcn alone, the brand before shadcn, and the brand after shadcn. In all three:
-- shadcn's variables (`--muted`, `--accent`, `--primary`, `--radius`, …) and its utilities computed identically;
-- the body stayed in Inter;
-- the unwrapped brand primitives computed identically in both orders (`.pi-btn` in Geist with its ink offset shadow, `.pi-accent` in `#08668C`).
+Because `bun run tokens` checks the brand keys against pi-dash's `@theme inline` keys, the brand theme sits next to shadcn without changing any shadcn variable or utility.
 
-`shadcn.css` points shadcn's own variables (`--primary`, `--muted`, `--accent`, `--ring`, `--brand`, …) at brand colours. Import it last and only if pi-dash should adopt the brand palette.
+`shadcn.css` points shadcn's own variables (`--primary`, `--muted`, `--accent`, `--ring`, `--brand`, …) at the paper palette. It is for brand-styled pages built with shadcn/ui; product interfaces such as pi-dash don't use it.
 
 **Name clashes, checked against tailwindcss 4.3.3 and pi-dash.**
 - **Tailwind defaults.** `--font-weight-*`, `--color-white`, `--color-black`, `--tracking-tighter` and `--tracking-normal` reuse default names with equal values. Every other key is a new name, so the brand no longer changes any Tailwind default.
