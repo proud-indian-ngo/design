@@ -2,6 +2,18 @@
 
 All notable changes to `@proudindian/design`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [semver](https://semver.org/).
 
+## [0.4.0] - 2026-10-12
+
+### Added
+
+- **The marketing kit** (`marketing/`, `bun run marketing:render`): 27 ready-to-use pieces built from the brand guide's marketing pages (pp. 22–27) at real size, in four groups.
+  - Social: volunteer, donate and Kalakriti posts (4:5, 1:1 and a blank 4:5 for Canva), volunteer and donate stories (with blanks), LinkedIn, Facebook, X and YouTube covers, and a donate share card.
+  - Print: an A4 volunteer flyer, an A5 donation leaflet and an A3 Kalakriti poster with QR codes, and an 85 × 200 cm roll-up standee, as PDFs with bleed.
+  - Office: a 16:9 slide template (PPTX with five layouts), a letterhead (PDF and DOCX), a certificate of participation (PDF and DOCX), an email signature (HTML), a newsletter header and footer, and video-call backgrounds.
+  - Cards and merchandise: a visiting card and a volunteer badge (PDF and editable PPTX), a Kalakriti crew pass, a lanyard, a tee back print, a mug wrap and an A6 sticker sheet with die-cut lines.
+  Facts come from `marketing/src/facts.ts`, which mirrors the website's `site.yaml`: the current registered office (KR Puram) and the Connect programme, where the guide's mockups still show older details. Photos are ones the website already publishes.
+- **Releases attach `proud-indian-brand-assets.zip`**: the guide PDF, the Anek fonts and the rendered marketing kit. Git installs still leave `brand/` and now `marketing/` out (`.gitattributes`), so installs stay small; the website's brand page downloads the zip for the version it pins.
+
 ## [0.3.4] - 2026-10-10
 
 ### Added
