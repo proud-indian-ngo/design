@@ -28,6 +28,7 @@ Product screens never use the `.pi-*` primitives, the React components, `PiRoot`
 | `logo-tools/` | Regenerates `logo/`, which `bun run logo:verify` proves byte-identical. `og/` renders the default share card |
 | `illustrations/` | The 21 brand doodles as standalone SVGs, with `manifest.json` and a contact sheet; `outline/` holds the 18 light outline doodles (the website's margin doodles) with their own manifest, built into `outline-sprite.svg`. See [`illustrations/README.md`](illustrations/README.md) |
 | `brand/` | `Proud-Indian-Brand-Guidelines.pdf` (31 pages, with appendices A1 on product interfaces and A2 on product components and tables) and its self-contained source |
+| `marketing/` | The marketing kit: social posts, stories and covers, print (flyer, leaflet, poster, standee), office (slides, letterhead, certificate, email signature and header, call backgrounds) and cards and merchandise, rendered from HTML templates to `marketing/out/` (`bun run marketing:render`). Attached to each release as `proud-indian-brand-assets.zip` with the guide PDF and Anek fonts. See [`marketing/README.md`](marketing/README.md) |
 | `docs/` | The static style guide, `docs/index.html` (`bun run docs`) |
 | `.design-sync/` | The Claude Design sync config, previews and notes ([`NOTES.md`](.design-sync/NOTES.md)) |
 
@@ -198,6 +199,7 @@ bun run logo:rebuild   # regenerate logo/ from logo-tools/ (needs uv)
 bun run logo:verify    # logo rebuild is byte-identical to logo/   (needs uv)
 bun run og             # re-render logo/social/og-default.png
 bun run brand:render   # re-render the brand guide PDF and page PNGs
+bun run marketing:render  # re-render the marketing kit to marketing/out/ (commit the result)
 ```
 
 **Adding a token.** Edit the right TS file (a raw value goes in `primitives.ts`, a role in `semantic.ts`, a component knob in `components.ts`), then run `bun run tokens` and `bun run build`. Names never reuse a Tailwind default name with a different value, nor any key in pi-dash's shadcn theme (the build checks the latter against `SHADCN_THEME_KEYS` in `tokens/scope.ts`; update that list when pi-dash's theme changes). Irregular scales are keyed by px (`text-15`, `rounded-14`); roles are named by use (`surface-*`, `on-ink`, `text-muted`, `accent-ink`, `donate`).

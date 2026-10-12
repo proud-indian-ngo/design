@@ -6,6 +6,8 @@
     "brand/guidelines/_build/*.mjs",
     "brand/guidelines/guidelines.css",
     "scripts/docs.css",
+    "marketing/render.ts",
+    "marketing/src/kit.css",
   ],
   // generated output (each has a --check or is rebuilt by `bun run build` / `bun run docs`), and the Claude Design
   // sync previews
@@ -18,6 +20,13 @@
     ".design-sync/**",
   ],
   "ignoreExportsUsedInFile": true,
+  // marketing/render.ts is a dev script (`bun run marketing:render`); its tools are dev dependencies on purpose
+  "overrides": [
+    {
+      "files": ["marketing/**"],
+      "rules": { "dev-dependency-in-production": "off" },
+    },
+  ],
   // invoked through `bunx @tailwindcss/cli` in scripts/build.ts and scripts/build-docs.tsx
   "ignoreDependencies": ["@tailwindcss/cli"],
 }

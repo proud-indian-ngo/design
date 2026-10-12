@@ -1,0 +1,441 @@
+{
+  "version": "0.4.0",
+  "groups": [
+    {
+      "id": "social",
+      "title": "Social media",
+      "items": [
+        {
+          "id": "post-volunteer",
+          "title": "Post: volunteer call",
+          "use": "Instagram, Facebook and LinkedIn. One-colour lockup on sky. Blank: add your own words in Canva.",
+          "preview": "social/post-volunteer.preview.jpg",
+          "files": [
+            {
+              "path": "social/post-volunteer-4x5.jpg",
+              "label": "4:5"
+            },
+            {
+              "path": "social/post-volunteer-1x1.jpg",
+              "label": "1:1"
+            },
+            {
+              "path": "social/post-volunteer-blank-4x5.jpg",
+              "label": "Blank 4:5"
+            }
+          ]
+        },
+        {
+          "id": "post-donate",
+          "title": "Post: donation appeal",
+          "use": "Full colour on paper, marigold only on Donate.",
+          "preview": "social/post-donate.preview.jpg",
+          "files": [
+            {
+              "path": "social/post-donate-4x5.jpg",
+              "label": "4:5"
+            },
+            {
+              "path": "social/post-donate-1x1.jpg",
+              "label": "1:1"
+            },
+            {
+              "path": "social/post-donate-blank-4x5.jpg",
+              "label": "Blank 4:5"
+            }
+          ]
+        },
+        {
+          "id": "post-kalakriti",
+          "title": "Post: Kalakriti",
+          "use": "The festival, on ink with marigold. Works all year; the 4:5 adds Kalakriti 3.0's numbers.",
+          "preview": "social/post-kalakriti.preview.jpg",
+          "files": [
+            {
+              "path": "social/post-kalakriti-4x5.jpg",
+              "label": "4:5"
+            },
+            {
+              "path": "social/post-kalakriti-1x1.jpg",
+              "label": "1:1"
+            },
+            {
+              "path": "social/post-kalakriti-blank-4x5.jpg",
+              "label": "Blank 4:5"
+            }
+          ]
+        },
+        {
+          "id": "story-volunteer",
+          "title": "Story: volunteer",
+          "use": "Instagram and Facebook stories, WhatsApp status. 1080 × 1920.",
+          "preview": "social/story-volunteer.preview.jpg",
+          "files": [
+            {
+              "path": "social/story-volunteer.jpg",
+              "label": "Story"
+            },
+            {
+              "path": "social/story-volunteer-blank.jpg",
+              "label": "Blank"
+            }
+          ]
+        },
+        {
+          "id": "story-donate",
+          "title": "Story: donate",
+          "use": "Stories and WhatsApp status. Add the donate link as a link sticker.",
+          "preview": "social/story-donate.preview.jpg",
+          "files": [
+            {
+              "path": "social/story-donate.jpg",
+              "label": "Story"
+            },
+            {
+              "path": "social/story-donate-blank.jpg",
+              "label": "Blank"
+            }
+          ]
+        },
+        {
+          "id": "cover-linkedin",
+          "title": "LinkedIn cover",
+          "use": "Company page banner, 1584 × 396. No logo: the avatar covers the bottom left.",
+          "preview": "social/cover-linkedin.preview.jpg",
+          "files": [
+            {
+              "path": "social/cover-linkedin.png",
+              "label": "PNG"
+            }
+          ]
+        },
+        {
+          "id": "cover-facebook",
+          "title": "Facebook cover",
+          "use": "Page cover, 1640 × 624. Phones crop the sides, so everything sits in the middle.",
+          "preview": "social/cover-facebook.preview.jpg",
+          "files": [
+            {
+              "path": "social/cover-facebook.png",
+              "label": "PNG"
+            }
+          ]
+        },
+        {
+          "id": "cover-x",
+          "title": "X header",
+          "use": "Profile header, 1500 × 500. The avatar covers the bottom left.",
+          "preview": "social/cover-x.preview.jpg",
+          "files": [
+            {
+              "path": "social/cover-x.png",
+              "label": "PNG"
+            }
+          ]
+        },
+        {
+          "id": "cover-youtube",
+          "title": "YouTube banner",
+          "use": "Channel art, 2560 × 1440, with everything inside the 1546 × 423 area every device shows.",
+          "preview": "social/cover-youtube.preview.jpg",
+          "files": [
+            {
+              "path": "social/cover-youtube.png",
+              "label": "PNG"
+            }
+          ]
+        },
+        {
+          "id": "share-donate",
+          "title": "Share card: donate",
+          "use": "WhatsApp and link previews for a donation appeal, 1200 × 630.",
+          "preview": "social/share-donate.preview.jpg",
+          "files": [
+            {
+              "path": "social/share-donate.png",
+              "label": "PNG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "print",
+      "title": "Print",
+      "items": [
+        {
+          "id": "flyer-volunteer",
+          "title": "Volunteer flyer, A4",
+          "use": "Notice boards, colleges, offices. The QR code opens the register page. 3 mm bleed.",
+          "preview": "print/flyer-volunteer.preview.jpg",
+          "files": [
+            {
+              "path": "print/flyer-volunteer-a4.pdf",
+              "label": "PDF"
+            }
+          ]
+        },
+        {
+          "id": "leaflet-donate",
+          "title": "Donation leaflet, A5",
+          "use": "Events and drives. The QR code opens the donate page. 3 mm bleed.",
+          "preview": "print/leaflet-donate.preview.jpg",
+          "files": [
+            {
+              "path": "print/leaflet-donate-a5.pdf",
+              "label": "PDF"
+            }
+          ]
+        },
+        {
+          "id": "poster-kalakriti",
+          "title": "Kalakriti poster, A3",
+          "use": "For any edition: no date. The QR code opens the festival page. 3 mm bleed.",
+          "preview": "print/poster-kalakriti.preview.jpg",
+          "files": [
+            {
+              "path": "print/poster-kalakriti-a3.pdf",
+              "label": "PDF"
+            }
+          ]
+        },
+        {
+          "id": "standee",
+          "title": "Roll-up standee, 85 × 200 cm",
+          "use": "Events and stalls. Keep the bottom 15 cm clear: most stands hide it. 5 mm bleed; check your printer's template.",
+          "preview": "print/standee.preview.jpg",
+          "files": [
+            {
+              "path": "print/standee-85x200.pdf",
+              "label": "PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "office",
+      "title": "Office and email",
+      "items": [
+        {
+          "id": "slides",
+          "title": "Slide template, 16:9",
+          "use": "Title, section, content, photo and closing layouts with editable text. Opens in PowerPoint, Keynote and Google Slides.",
+          "preview": "office/slides.preview.jpg",
+          "files": [
+            {
+              "path": "office/slide-title.png",
+              "label": "BG title"
+            },
+            {
+              "path": "office/slide-section.png",
+              "label": "BG section"
+            },
+            {
+              "path": "office/slide-content.png",
+              "label": "BG content"
+            },
+            {
+              "path": "office/slide-photo.png",
+              "label": "BG photo"
+            },
+            {
+              "path": "office/slide-closing.png",
+              "label": "BG closing"
+            },
+            {
+              "path": "office/proud-indian-slides.pptx",
+              "label": "PPTX"
+            }
+          ]
+        },
+        {
+          "id": "letterhead",
+          "title": "Letterhead, A4",
+          "use": "Letters and formal documents. The DOCX opens in Word and Google Docs with the header and footer set.",
+          "preview": "office/letterhead.preview.jpg",
+          "files": [
+            {
+              "path": "office/letterhead-a4.pdf",
+              "label": "PDF"
+            },
+            {
+              "path": "office/letterhead.docx",
+              "label": "DOCX"
+            }
+          ]
+        },
+        {
+          "id": "certificate",
+          "title": "Certificate of participation",
+          "use": "A4 landscape. Type the name and occasion in the DOCX, or print the PDF and write them in.",
+          "preview": "office/certificate.preview.jpg",
+          "files": [
+            {
+              "path": "office/certificate-a4.pdf",
+              "label": "PDF"
+            },
+            {
+              "path": "office/certificate.docx",
+              "label": "DOCX"
+            }
+          ]
+        },
+        {
+          "id": "email-signature",
+          "title": "Email signature",
+          "use": "Paste the HTML into Gmail or Outlook settings, then change the name and role. The logo loads from proudindian.ngo.",
+          "preview": "office/email-signature.preview.jpg",
+          "files": [
+            {
+              "path": "office/email-signature-logo.png",
+              "label": "PNG"
+            },
+            {
+              "path": "office/email-signature.html",
+              "label": "HTML"
+            }
+          ]
+        },
+        {
+          "id": "email-header",
+          "title": "Newsletter header and footer",
+          "use": "For a 600 px email (images at 2x). Put the address and links in the email as text, under the footer.",
+          "preview": "office/email-header.preview.jpg",
+          "files": [
+            {
+              "path": "office/email-header.png",
+              "label": "Header"
+            },
+            {
+              "path": "office/email-footer.png",
+              "label": "Footer"
+            }
+          ]
+        },
+        {
+          "id": "call-background",
+          "title": "Video-call background",
+          "use": "Zoom, Meet and Teams, 1920 × 1080. The logo sits top right, clear of your face.",
+          "preview": "office/call-background.preview.jpg",
+          "files": [
+            {
+              "path": "office/call-background-paper.png",
+              "label": "Paper"
+            },
+            {
+              "path": "office/call-background-ink.png",
+              "label": "Ink"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "merch",
+      "title": "Cards and merchandise",
+      "items": [
+        {
+          "id": "visiting-card",
+          "title": "Visiting card, 85 × 55 mm",
+          "use": "Front: stacked reversed on ink. Back: type your name in the PPTX, then export a PDF for the printer. 3 mm bleed.",
+          "preview": "merch/visiting-card.preview.jpg",
+          "files": [
+            {
+              "path": "merch/visiting-card-front.pdf",
+              "label": "Front PDF"
+            },
+            {
+              "path": "merch/visiting-card-back.pdf",
+              "label": "Back PDF"
+            },
+            {
+              "path": "merch/visiting-card.pptx",
+              "label": "PPTX"
+            }
+          ]
+        },
+        {
+          "id": "badge",
+          "title": "Volunteer badge, ID-card size",
+          "use": "54 × 86 mm, reversed on ink with the volunteer seal. Type names in the PPTX. 3 mm bleed.",
+          "preview": "merch/badge.preview.jpg",
+          "files": [
+            {
+              "path": "merch/badge-volunteer.pdf",
+              "label": "PDF"
+            },
+            {
+              "path": "merch/badge-volunteer.pptx",
+              "label": "PPTX"
+            }
+          ]
+        },
+        {
+          "id": "crew-pass",
+          "title": "Kalakriti crew pass",
+          "use": "100 × 55 mm, the website's ticket style. Write the date on the line. 3 mm bleed.",
+          "preview": "merch/crew-pass.preview.jpg",
+          "files": [
+            {
+              "path": "merch/kalakriti-crew-pass.pdf",
+              "label": "PDF"
+            }
+          ]
+        },
+        {
+          "id": "lanyard",
+          "title": "Lanyard, 20 mm",
+          "use": "Woven or printed strap, 90 cm. One colour, paper on ink, symbol 13 mm tall. 2 mm bleed.",
+          "preview": "merch/lanyard.preview.jpg",
+          "files": [
+            {
+              "path": "merch/lanyard-20mm.pdf",
+              "label": "PDF"
+            }
+          ]
+        },
+        {
+          "id": "tee",
+          "title": "Tee, back print",
+          "use": "One colour paper for an ink tee, on a transparent page, 28 × 32 cm. Front: the one-colour symbol (pi-symbol-mono.svg), 9 cm wide.",
+          "preview": "merch/tee.preview.jpg",
+          "files": [
+            {
+              "path": "merch/tee-back.pdf",
+              "label": "PDF"
+            }
+          ]
+        },
+        {
+          "id": "mug",
+          "title": "Mug wrap",
+          "use": "200 × 85 mm, one colour ink, the lockup on both sides. Tote and cap: use pi-stacked-mono.svg and pi-symbol-mono.svg.",
+          "preview": "merch/mug.preview.jpg",
+          "files": [
+            {
+              "path": "merch/mug-wrap.pdf",
+              "label": "PDF"
+            }
+          ]
+        },
+        {
+          "id": "sticker-sheet",
+          "title": "Sticker sheet, A6",
+          "use": "Discs, seals and “Optimist.” Send both PDFs: the art, and the art with the die-cut lines in magenta. 3 mm bleed.",
+          "preview": "merch/sticker-sheet.preview.jpg",
+          "files": [
+            {
+              "path": "merch/sticker-sheet-a6.pdf",
+              "label": "PDF"
+            },
+            {
+              "path": "merch/sticker-sheet-a6-cutlines.pdf",
+              "label": "Cut lines"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

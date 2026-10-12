@@ -3,6 +3,7 @@
 # source, ~32 MB), the logo and docs tooling, the React sources (dist/react is the built copy) and repo config.
 # The repo itself is unchanged; this only affects `git archive` and GitHub tarballs.
 /brand export-ignore
+/marketing export-ignore
 /logo-tools export-ignore
 /docs export-ignore
 /scripts export-ignore

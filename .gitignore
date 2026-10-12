@@ -10,3 +10,4 @@ brand/guidelines/pages/
 .design-sync/node_modules/
 .ds-sync/
 ds-bundle/
+marketing/.build/

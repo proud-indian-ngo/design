@@ -16,6 +16,7 @@
   },
   "include": [
     "scripts/**/*.ts",
+    "marketing/**/*.ts",
     "tokens/**/*.ts",
     "react/**/*.ts",
     "react/**/*.tsx"

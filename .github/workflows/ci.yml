@@ -1,5 +1,7 @@
 # Checks every pull request and push. On main, a version bump in package.json releases it: the `release` job tags
-# vX.Y.Z and publishes a GitHub release with that version's CHANGELOG section. `checks` is the required status check.
+# vX.Y.Z and publishes a GitHub release with that version's CHANGELOG section, with proud-indian-brand-assets.zip attached
+# (the brand guide PDF, the Anek fonts and the rendered marketing kit, which git installs leave out; the website's
+# /brand/ page downloads it). `checks` is the required status check.
 name: CI
 
 on:
@@ -77,9 +79,11 @@ jobs:
             echo "::error title=Missing changelog::CHANGELOG.md has no '## [$version]' section"
             exit 1
           fi
+          # zipped before tagging, so a missing file stops the release instead of leaving one without its assets
+          zip -qr proud-indian-brand-assets.zip brand/Proud-Indian-Brand-Guidelines.pdf brand/guidelines/assets/fonts marketing/out
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -a "$tag" -m "$tag"
           git push origin "$tag"
           printf '%s\n' "$notes" > /tmp/notes.md
-          gh release create "$tag" --title "$tag" --notes-file /tmp/notes.md --verify-tag
+          gh release create "$tag" proud-indian-brand-assets.zip --title "$tag" --notes-file /tmp/notes.md --verify-tag

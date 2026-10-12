@@ -1,0 +1,249 @@
+/* Shared styles for the marketing kit's artboards (marketing/src/templates.mjs). Sizes are in website pixels: each
+   artboard sets `zoom` so it renders at its real size (a 1080 px post is a 432 px design at zoom 2.5), which keeps
+   outlines, offsets and type at the same proportions as the website. Print artboards use zoom 1 at 96 px per inch. */
+@import "../../tokens/tokens.css";
+@import "../../css/fonts.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  background: var(--color-paper);
+}
+body {
+  font-family: var(--font-pi-sans);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+img,
+svg {
+  display: block;
+}
+
+.art {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.sky {
+  background: var(--color-sky);
+  color: var(--color-ink);
+}
+.ink {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+.paper {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+.white {
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+/* type */
+.d {
+  font-family: var(--font-pi-display);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+}
+.eb {
+  font: 700 11px/1.2 var(--font-pi-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.lede {
+  font-size: 17px;
+  line-height: 1.4;
+}
+.small {
+  font-size: 12px;
+  line-height: 1.4;
+}
+/* accent words: on sky white with an ink outline and offset; on paper sky ink; on ink marigold (Kalakriti) */
+.acc {
+  color: var(--color-white);
+  -webkit-text-stroke: 1.5px var(--color-ink);
+  paint-order: stroke fill;
+  text-shadow: 3px 3px 0 var(--color-ink);
+}
+.acc-paper {
+  color: var(--color-sky-ink);
+}
+.acc-ink {
+  color: var(--color-marigold);
+}
+
+/* pills: the website's buttons and chips, drawn still */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  font: 600 15px/1 var(--font-pi-sans);
+  padding: 12px 20px;
+  border: 1.5px solid var(--color-ink);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--color-ink);
+  white-space: nowrap;
+}
+.pill.p-ink {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+.pill.p-sun {
+  background: var(--color-marigold);
+  color: var(--color-ink);
+}
+.pill.p-paper {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+.pill.p-sky {
+  background: var(--color-sky);
+  color: var(--color-ink);
+}
+.ink .pill {
+  border-color: var(--color-ink);
+  box-shadow: 3px 3px 0 var(--color-paper);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font: 600 12px/1 var(--font-pi-sans);
+  padding: 7px 12px;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* polaroids, tape and pegs */
+.pol {
+  position: absolute;
+  background: var(--color-white);
+  padding: 7px 7px 0;
+  border: 1.5px solid var(--color-ink);
+  box-shadow: 4px 5px 0 var(--color-ink);
+}
+.pol img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+.pol span {
+  display: block;
+  font: 800 13px/1 var(--font-pi-display);
+  letter-spacing: -0.02em;
+  padding: 8px 2px 10px;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+.tape {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 70px;
+  height: 22px;
+  margin-left: -35px;
+  background: rgb(76 192 236 / 0.6);
+  border: 1px solid rgb(15 27 36 / 0.25);
+  transform: rotate(-4deg);
+}
+.tape.t-paper {
+  background: rgb(246 242 234 / 0.75);
+}
+.peg {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 10px;
+  height: 24px;
+  margin-left: -5px;
+  background: var(--color-marigold);
+  border: 1.5px solid var(--color-ink);
+  border-radius: 3px;
+  z-index: 2;
+}
+
+/* cut-out children: paper outline and a soft lift */
+.cut {
+  position: absolute;
+  filter: drop-shadow(4px 0 0 var(--color-paper))
+    drop-shadow(-4px 0 0 var(--color-paper))
+    drop-shadow(0 -4px 0 var(--color-paper))
+    drop-shadow(0 4px 0 var(--color-paper))
+    drop-shadow(0 12px 16px rgb(15 27 36 / 0.25));
+}
+
+.doodle {
+  position: absolute;
+}
+
+/* stat tiles */
+.stats {
+  display: flex;
+  gap: 10px;
+}
+.stat {
+  border: 1.5px solid var(--color-ink);
+  border-radius: 14px;
+  background: var(--color-white);
+  color: var(--color-ink);
+  padding: 10px 14px 12px;
+  box-shadow: 3px 3px 0 var(--color-ink);
+}
+.stat b {
+  display: block;
+  font: 800 30px/1 var(--font-pi-display);
+  letter-spacing: -0.03em;
+}
+.stat span {
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+/* numbered steps */
+.steps {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 600 17px/1.2 var(--font-pi-sans);
+  border-top: 1.5px solid currentColor;
+  padding-top: 9px;
+}
+.steps li i {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  color: var(--color-white);
+  font: 800 14px/1 var(--font-pi-display);
+  font-style: normal;
+}
+
+.qr {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-ink);
+  border-radius: 10px;
+  padding: 8px;
+}
+.qr svg {
+  width: 100%;
+  height: auto;
+}
