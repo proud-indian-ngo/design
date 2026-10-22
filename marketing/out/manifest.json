@@ -1,5 +1,5 @@
 {
-  "version": "0.5.0",
+  "version": "0.6.0",
   "groups": [
     {
       "id": "social",
@@ -219,6 +219,30 @@
           "files": [
             {
               "path": "print/banner-centre-4x2ft.pdf",
+              "label": "PDF"
+            }
+          ]
+        },
+        {
+          "id": "banner-centre-4x3",
+          "title": "Community centre banner, 4 × 3 ft",
+          "use": "The taller flex sign, for a wall or gate with more height. The Kannada name leads, in the upper half, as Karnataka requires for name boards. Ask for eyelets in the corners. 5 mm bleed.",
+          "preview": "print/banner-centre-4x3.preview.jpg",
+          "files": [
+            {
+              "path": "print/banner-centre-4x3ft.pdf",
+              "label": "PDF"
+            }
+          ]
+        },
+        {
+          "id": "banner-centre-a1",
+          "title": "Community centre sign, A1",
+          "use": "The community centre sign at A1 landscape, for a sunboard, a notice board or a door. The Kannada name leads, in the upper half, as Karnataka requires for name boards. 5 mm bleed.",
+          "preview": "print/banner-centre-a1.preview.jpg",
+          "files": [
+            {
+              "path": "print/banner-centre-a1.pdf",
               "label": "PDF"
             }
           ]

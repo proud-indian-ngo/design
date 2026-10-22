@@ -269,8 +269,36 @@ export const pieces: Piece[] = [
       {
         file: "banner-centre-4x2ft.pdf",
         label: "PDF",
-        html: () => t.bannerCentre(5),
-        print: { w: 1220, h: 610, bleed: 5, zoom: 10 },
+        html: () => t.bannerCentre(1220, 610, 5),
+        print: { w: 1220, h: 610, bleed: 5, zoom: 1220 / 122 },
+      },
+    ],
+  },
+  {
+    id: "banner-centre-4x3",
+    group: "print",
+    title: "Community centre banner, 4 × 3 ft",
+    use: "The taller flex sign, for a wall or gate with more height. The Kannada name leads, in the upper half, as Karnataka requires for name boards. Ask for eyelets in the corners. 5 mm bleed.",
+    outputs: [
+      {
+        file: "banner-centre-4x3ft.pdf",
+        label: "PDF",
+        html: () => t.bannerCentre(1220, 915, 5),
+        print: { w: 1220, h: 915, bleed: 5, zoom: 1220 / 122 },
+      },
+    ],
+  },
+  {
+    id: "banner-centre-a1",
+    group: "print",
+    title: "Community centre sign, A1",
+    use: "The community centre sign at A1 landscape, for a sunboard, a notice board or a door. The Kannada name leads, in the upper half, as Karnataka requires for name boards. 5 mm bleed.",
+    outputs: [
+      {
+        file: "banner-centre-a1.pdf",
+        label: "PDF",
+        html: () => t.bannerCentre(841, 594, 5),
+        print: { w: 841, h: 594, bleed: 5, zoom: 841 / 122 },
       },
     ],
   },
