@@ -1,13 +1,15 @@
 # Checks every pull request and push. On main, a version bump in package.json releases it: the `release` job tags
 # vX.Y.Z and publishes a GitHub release with that version's CHANGELOG section, with proud-indian-brand-assets.zip attached
 # (the brand guide PDF, the Anek fonts and the rendered marketing kit, which git installs leave out; the website's
-# /brand/ page downloads it). `checks` is the required status check.
+# /brand/ page downloads it). `checks` is the required status check. If GitHub drops a push event, run the workflow on
+# main by hand (Actions → CI → Run workflow) to release.
 name: CI
 
 on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -51,7 +53,7 @@ jobs:
 
   release:
     needs: checks
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
