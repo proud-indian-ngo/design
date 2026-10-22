@@ -2,6 +2,16 @@
 
 All notable changes to `@proudindian/design`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [semver](https://semver.org/).
 
+## [0.5.0] - 2026-10-22
+
+### Added
+
+- **Community centre banner, 4 × 2 ft** (`marketing/out/print/banner-centre-4x2ft.pdf`): a flex sign for the front of the community centre. The Kannada name (ಪ್ರೌಡ್ ಇಂಡಿಯನ್ ಸಮುದಾಯ ಕೇಂದ್ರ, in Anek Kannada) fills the upper half, as the Kannada Language Comprehensive Development Act requires for name boards since its 2024 amendment, with the full-colour lockup and "Community Centre" below at a matching size, and sun, kite, sparkle and paper-plane doodles around the name. A sky band carries `proudindian.ngo` and the trust registration, 12A and 80G, and NGO Darpan details. 5 mm bleed, corners clear for eyelets.
+
+### Fixed
+
+- **Marketing previews of zoomed print pieces are no longer over-cropped.** The preview trimmed the bleed times the piece's zoom, so the standee preview lost about 4.5 cm on every side. Its preview is re-rendered.
+
 ## [0.4.0] - 2026-10-12
 
 ### Added
