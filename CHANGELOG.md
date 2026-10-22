@@ -2,6 +2,12 @@
 
 All notable changes to `@proudindian/design`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [semver](https://semver.org/).
 
+## [0.6.0] - 2026-10-22
+
+### Added
+
+- **Community centre banner, 4 × 3 ft, and sign, A1** (`marketing/out/print/banner-centre-4x3ft.pdf`, `banner-centre-a1.pdf`): the 4 × 2 ft banner's design on a taller board, A1 set landscape. All three sizes share one template. On the taller boards the Kannada name and the sky band grow with the height, and the doodles move out to the sides. 5 mm bleed, corners clear for eyelets.
+
 ## [0.5.0] - 2026-10-22
 
 ### Added
