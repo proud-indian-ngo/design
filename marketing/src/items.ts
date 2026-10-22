@@ -260,6 +260,20 @@ export const pieces: Piece[] = [
       },
     ],
   },
+  {
+    id: "banner-centre",
+    group: "print",
+    title: "Community centre banner, 4 × 2 ft",
+    use: "Flex sign for the front of the community centre. The Kannada name leads, in the upper half, as Karnataka requires for name boards. Ask for eyelets in the corners. 5 mm bleed.",
+    outputs: [
+      {
+        file: "banner-centre-4x2ft.pdf",
+        label: "PDF",
+        html: () => t.bannerCentre(5),
+        print: { w: 1220, h: 610, bleed: 5, zoom: 10 },
+      },
+    ],
+  },
 
   // ---- office
   {

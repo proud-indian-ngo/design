@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "groups": [
     {
       "id": "social",
@@ -207,6 +207,18 @@
           "files": [
             {
               "path": "print/standee-85x200.pdf",
+              "label": "PDF"
+            }
+          ]
+        },
+        {
+          "id": "banner-centre",
+          "title": "Community centre banner, 4 × 2 ft",
+          "use": "Flex sign for the front of the community centre. The Kannada name leads, in the upper half, as Karnataka requires for name boards. Ask for eyelets in the corners. 5 mm bleed.",
+          "preview": "print/banner-centre.preview.jpg",
+          "files": [
+            {
+              "path": "print/banner-centre-4x2ft.pdf",
               "label": "PDF"
             }
           ]

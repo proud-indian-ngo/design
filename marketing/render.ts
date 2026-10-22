@@ -144,7 +144,7 @@ const art = (p: Page) => p.locator(".stage > .art");
 /** a print piece's trim box in CSS px (the bleed cropped off), for previews */
 const trimClip = async (p: Page, o: Output) => {
   const box = (await art(p).boundingBox())!;
-  const b = o.print!.bleed * PX_PER_MM * (o.print!.zoom ?? 1);
+  const b = o.print!.bleed * PX_PER_MM;
   return {
     x: box.x + b,
     y: box.y + b,

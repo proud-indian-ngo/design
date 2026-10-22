@@ -404,6 +404,27 @@ export const standee = (b: number) => `
     </div>
   </div>`;
 
+/** 4 × 2 ft (122 × 61 cm) flex sign for the community centre's front, paper with a sky band. Karnataka's Kannada
+ * Language Comprehensive Development Act (s. 17(6), as amended in 2024) puts the Kannada name in the upper half, at
+ * 60% of the name; Anek Kannada is the brand's Kannada face. Corners stay clear for the eyelets. 1/10 scale, zoom 10 */
+export const bannerCentre = (b: number) => `
+  <style>@font-face{font-family:AnekKn;src:url(/brand/guidelines/assets/fonts/AnekKannada.ttf) format("truetype")}</style>
+  <div class="art paper" style="width:${(1220 + 2 * b) / 10}mm;height:${(610 + 2 * b) / 10}mm;align-items:center;text-align:center;padding-top:${b / 10 + 6}mm">
+    <p lang="kn" style="font:700 34px/1.15 AnekKn;font-variation-settings:'wdth' 88,'wght' 720">ಪ್ರೌಡ್ ಇಂಡಿಯನ್<br><span class="acc-paper">ಸಮುದಾಯ ಕೇಂದ್ರ</span></p>
+    <div style="display:flex;align-items:flex-end;gap:1.4mm;margin-top:5mm">
+      ${logo("pi-lockup", 24)}
+      <p class="d" style="font-size:24px;line-height:.8;position:relative;top:.36mm">Community <span class="acc-paper">Centre</span></p>
+    </div>
+    ${doodle("sun", "left:14mm;top:12mm;width:14mm")}
+    ${doodle("paper-plane", "right:12mm;top:20mm;width:17mm")}
+    ${doodle("kite", "right:13mm;top:3.5mm;width:5.5mm")}
+    ${doodle("sparkle", "left:24mm;top:4mm;width:6mm")}
+    <div style="position:absolute;left:0;right:0;bottom:0;height:${b / 10 + 13}mm;padding-bottom:${b / 10}mm;background:${color.sky};border-top:1.5px solid ${color.ink};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5mm">
+      <p class="d" style="font-size:15px;letter-spacing:-.02em">${f.siteShort}</p>
+      <p style="font-size:6px;font-weight:500">Registered charitable trust ${f.reg.trust} · 12A and 80G · NGO Darpan ${f.reg.darpan}</p>
+    </div>
+  </div>`;
+
 // ---- cards and merchandise
 
 /** visiting card front, 85 × 55 mm: stacked reversed on ink */
